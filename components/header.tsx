@@ -1,6 +1,5 @@
 import { AppBar, FAB, HStack, IconButton } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function AppBarHeader() {
     return(
