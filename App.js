@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { AppBar, HStack, IconButton } from "@react-native-material/core";
+import Icon from "@expo/vector-icons/MaterialCommunityIcons";
+import { SafeAreaView } from "react-native";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView >
+      <AppBar
+          color="navy"
+          title="TravelBuddy"
+          leading={props => (
+            <IconButton icon={props => <Icon name="menu" {...props} />} {...props} />
+          )}
+          trailing={props => (
+            <HStack>
+              <IconButton
+                icon={props => <Icon name="chat" {...props} />}
+                {...props}
+              />
+              <IconButton
+                icon={props => <Icon name="dots-vertical" {...props} />}
+                {...props}
+              />
+            </HStack>
+          )}
+        />
+    </SafeAreaView>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};
