@@ -80,7 +80,7 @@ export default function App() {
       attractions: [],
       name: ""
     }
-    //comment out the line below, change username string and password to your liking
+    //COMMENT THIS LINE OUT TO ADD USER TO users COLLECTION change username string and password to your liking
     //setUser("anhquang", "123", "users", data);
   } catch (error){
     if(error){
