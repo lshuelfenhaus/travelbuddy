@@ -23,10 +23,10 @@ export default function AppBarHeader() {
         )}
         style={{  position: "absolute", start: 0, end: 0, bottom: 0, height:75 }}
       >
-        <FAB
+{/*         <FAB
           icon={props => <Icon name="plus" {...props} />}
           style={{ backgroundColor: "white", position: "absolute", top: -28, alignSelf: "center" }}
-        />
+        /> */}
       </AppBar>
     );
 }

@@ -8,7 +8,7 @@ interface HomeScreenProps {
 
 const LoginScreen = (props: HomeScreenProps) => {
     const login = () => props.navigation.navigate("Home")
-    
+    const signup = () => props.navigation.navigate("SignUp")
     return(
     <Stack spacing={2} style={{ margin: 16 }}>
         <TextInput
@@ -23,6 +23,7 @@ const LoginScreen = (props: HomeScreenProps) => {
         )}
         />
         <Button variant="outlined" title="Login" onPress={login} />
+        <Button variant="outlined" title="Sign Up" onPress={signup} />
   </Stack>
     );
 }
