@@ -1,12 +1,11 @@
-import { AppBar, Button, HStack, IconButton } from "@react-native-material/core";
+import { AppBar, HStack, IconButton } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 interface HomeScreenProps {
-    navigation: any
+  navigation: any
 }
 
-const AppBarHeader = (props: HomeScreenProps) => {
-    const logout = () => props.navigation.navigate("Login")
+const AppBarFooter = (props: HomeScreenProps) => {
     return(
       <AppBar
         variant="bottom"
@@ -16,7 +15,14 @@ const AppBarHeader = (props: HomeScreenProps) => {
         )}
         trailing={props => (
           <HStack>
-              <Button variant="outlined" title="Logout" onPress={logout} />
+              <IconButton
+                icon={props => <Icon name="chat" {...props} />}
+                {...props}
+              />
+              <IconButton
+                icon={props => <Icon name="dots-vertical" {...props} />}
+                {...props}
+              />
             </HStack>
         )}
         style={{  position: "absolute", start: 0, end: 0, bottom: 0, height:75 }}
@@ -26,4 +32,4 @@ const AppBarHeader = (props: HomeScreenProps) => {
     );
 }
 
-export default AppBarHeader;
+export default AppBarFooter;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, TextInput, IconButton, Button } from "@react-native-material/core";
+import { Stack, TextInput, IconButton, Button, Spacer } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 interface HomeScreenProps {
@@ -8,9 +8,10 @@ interface HomeScreenProps {
 
 const LoginScreen = (props: HomeScreenProps) => {
     const login = () => props.navigation.navigate("Home")
+    const register = () => props.navigation.navigate("Register")
     
     return(
-    <Stack spacing={2} style={{ margin: 16 }}>
+    <Stack spacing={5} style={{ margin: 16 }}>
         <TextInput
         label="Username"
         leading={props => <Icon name="account" {...props} />}
@@ -23,6 +24,7 @@ const LoginScreen = (props: HomeScreenProps) => {
         )}
         />
         <Button variant="outlined" title="Login" onPress={login} />
+        <Button variant="contained" title="Register" onPress={register} />
   </Stack>
     );
 }
