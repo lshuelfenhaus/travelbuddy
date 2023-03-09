@@ -29,7 +29,6 @@ export const setUser = async (docName: string, token: string, salt: string, coll
 
 export const signin = async (username: string, password: string) => {
     let user = await findUser(username, "users");
-    console.log(user)
     if(user){
         //compare hashed password
         const concaternatedString = password + user.salt;
