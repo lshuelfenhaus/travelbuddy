@@ -20,7 +20,7 @@ export const setUser = async (docName: string, token: string, salt: string, coll
         await setDoc(doc(collectionRef, docName), data);
         return true;
     }catch(error){
-        console.log("there was something wrong");
+        console.log("there was something wrong" + error);
         return false;
     }
 
@@ -28,7 +28,18 @@ export const setUser = async (docName: string, token: string, salt: string, coll
 };
 
 export const signin = async (username: string, password: string) => {
-
+    let user = await findUser(username, "users");
+    console.log(user)
+    if(user){
+        //compare hashed password
+        const concaternatedString = password + user.salt;
+        const testToken = crypto.SHA256(concaternatedString).toString(crypto.enc.Base64);
+        if(testToken === user.token){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 
 export const signup = async (username: string, password: string) => {
@@ -45,11 +56,13 @@ export const signup = async (username: string, password: string) => {
     try{
         const salt = makesalt(5);
         const concaternatedString = password + salt;
-        const token = crypto.SHA256(concaternatedString);
+        const token = crypto.SHA256(concaternatedString).toString(crypto.enc.Base64);
         setUser(username, token, salt, "users", data);
+        return true;
     }catch(error){
         if(error){
             console.log(error);
+            return false;
         }
     }
 }
