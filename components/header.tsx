@@ -21,7 +21,6 @@ const AppBarHeader = (props: HomeScreenProps) => {
         )}
         style={{  position: "absolute", start: 0, end: 0, bottom: 0, height:75 }}
       >
-        
       </AppBar>
     );
 }
