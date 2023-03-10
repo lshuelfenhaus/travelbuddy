@@ -1,6 +1,6 @@
 import React from "react";
-import { Stack, TextInput, IconButton, Button } from "@react-native-material/core";
 import {useState} from "react";
+import { Stack, TextInput, IconButton, Button, Spacer } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import {signin} from "./../components/authentication";
 interface HomeScreenProps {
@@ -17,8 +17,9 @@ const LoginScreen = (props: HomeScreenProps) => {
     const signup = () => props.navigation.navigate("SignUp")
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const register = () => props.navigation.navigate("Register")
     return(
-    <Stack spacing={2} style={{ margin: 16 }}>
+    <Stack spacing={5} style={{ margin: 16 }}>
         <TextInput
         label="Username"
         leading={props => <Icon name="account" {...props} />}
@@ -36,6 +37,7 @@ const LoginScreen = (props: HomeScreenProps) => {
         />
         <Button variant="outlined" title="Login" onPress={login} />
         <Button variant="outlined" title="Sign Up" onPress={signup} />
+        <Button variant="contained" title="Register" onPress={register} />
   </Stack>
     );
 }
