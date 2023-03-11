@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text} from "react-native";
-import {Stack, TextInput, Button, Box, Snackbar} from "@react-native-material/core";
+import {Stack, TextInput, Button, Snackbar, IconButton} from "@react-native-material/core";
+import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import {useState} from 'react';
 import * as Authenticate from "./../components/authentication";
 interface HomeScreenProps {
@@ -87,38 +88,53 @@ const SignUpScreen =(props: HomeScreenProps) =>{
     }
     return(
         <Stack direction="column" justify="center" items="center" spacing={4}>
-
             <View style={styles.signUpForm}>
-                <TextInput
-                    label ="New username"
-                    onChangeText={newText => setUsername(newText)}
-                    value = {username}
+            <TextInput
+            placeholder="First Name"
+            leading={props => <Icon name="account-outline" {...props} />}
+            />
+            <TextInput
+            placeholder="Last Name"
+            leading={props => <Icon name="account-outline" {...props} />}
+            />
+            <TextInput
+            placeholder="Email"
+            leading={props => <Icon name="email" {...props} />}
+            />
+            <TextInput
+            placeholder="Username"
+            leading={props => <Icon name="account" {...props} />}
+            onChangeText={newText => setUsername(newText)}
+            value = {username}
+            />
+            <TextInput
+            placeholder="Password"
+            value = {password}
+            onChangeText={newText => setPassword(newText)}
+            leading={props => (
+            <IconButton icon={props => <Icon name="eye" {...props} />} {...props} />
+            )}
+             /> 
+            <TextInput
+            placeholder ="Re-enter Password"
+            onChangeText ={newText => setRePassword(newText)}
+            value = {rePassword}
+            leading={props => (
+                <IconButton icon={props => <Icon name="eye" {...props} />} {...props} />
+                )}
+            />               
+            <View style={styles.signUpButtonGroup}>
+                <Button 
+                    title="Register" 
+                    style={styles.signUpButton} 
+                    onPress={()=>checkSignUp()}
                 />
-                <TextInput
-                    label ="Password"
-                    value = {password}
-                    onChangeText={newText => setPassword(newText)}
+                <Button 
+                    title="Cancel" 
+                    style={styles.signUpButton}
+                    onPress={toLogin}    
                 />
-                <TextInput
-                    label ="Re enter Password"
-                    onChangeText ={newText => setRePassword(newText)}
-                    value = {rePassword}
-                />
-                {
-                //Button group
-                }
-                <View style={styles.signUpButtonGroup}>
-                    <Button 
-                        title="Sign Up" 
-                        style={styles.signUpButton} 
-                        onPress={()=>checkSignUp()}
-                    />
-                    <Button 
-                        title="Cancel" 
-                        style={styles.signUpButton}
-                        onPress={toLogin}    
-                    />
-                </View>
+            </View>
             </View>
             {errors.size > 0 && 
             <Stack style={styles.errorContainer} spacing = {8}>
