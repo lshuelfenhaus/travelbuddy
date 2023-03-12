@@ -54,7 +54,7 @@ const HomeScreen = (props: HomeScreenProps) => {
         >
         </AppBar> 
         </SafeAreaProvider>
- 
+
       );
 
 
