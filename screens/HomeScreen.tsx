@@ -10,12 +10,13 @@ interface HomeScreenProps {
 }
 
 const HomeScreen = (props: HomeScreenProps) => {
+  const curation = () => props.navigation.navigate("Curation")
     return(
         <SafeAreaProvider>
         <VStack center spacing={16}>
           <Text variant="h4" color="indigo">Let's plan your trip</Text>
           <Icon name="bag-checked" size={96} color="indigo"/>
-          <Button color="indigo" title="Create Itinerary"/>
+          <Button color="indigo" title="Create Itinerary" onPress={curation}/>
           <Spacer /><Spacer /><Spacer /><Spacer /><Spacer /><Spacer />
           <Text variant="h4" color="indigo">Already planned? Let's check it out!</Text>
           <Icon name="map-check-outline" size={96} color="indigo"/>
