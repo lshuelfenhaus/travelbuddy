@@ -1,6 +1,7 @@
 import db from "./../firebase";
 import {doc,setDoc, getDoc,collection} from "firebase/firestore";
 import {User} from "./../DataInterfaces";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const crypto = require("crypto-js");
   
@@ -23,39 +24,35 @@ export const setUser = async (docName: string, token: string, salt: string, coll
         console.log("there was something wrong" + error);
         return false;
     }
-
-
 };
 
 export const signin = async (username: string, password: string) => {
     let user = await findUser(username, "users");
     if(user){
         //compare hashed password
-        const concaternatedString = password + user.salt;
-        const testToken = crypto.SHA256(concaternatedString).toString(crypto.enc.Base64);
+        const testToken = generateToken(password,user.salt);;
         if(testToken === user.token){
-            return true;
+            return user;
         }else{
-            return false;
+            return null;
         }
     }
 }
 
-export const signup = async (username: string, password: string) => {
+export const signup = async (username: string, password: string, email?:string, name?:string) => {
     let data: User = {
         username: "",
-        email: "",
+        email: email? email : "",
         token: "",//hashed value with salt, password for now
         salt: "",
         hotels: [],
         flights: [],
         attractions: [],
-        name: ""
+        name: name? name : ""
     }
     try{
         const salt = makesalt(5);
-        const concaternatedString = password + salt;
-        const token = crypto.SHA256(concaternatedString).toString(crypto.enc.Base64);
+        const token = generateToken(password,salt);
         setUser(username, token, salt, "users", data);
         return true;
     }catch(error){
@@ -67,7 +64,16 @@ export const signup = async (username: string, password: string) => {
 }
 
 export const logout = async () => {
-
+    try{
+        const user = await AsyncStorage.getItem('@username');
+        if(user){
+            await AsyncStorage.removeItem('@username');
+            return true;
+        }
+    }catch(e){
+        console.log(e);
+        return false;
+    }
 }
 export const findUser = async (username: string, collectionName: string) => {
     const docRef = doc(db,collectionName,username);
@@ -89,4 +95,9 @@ export const makesalt = (len:number) => {//should be 5
       counter += 1;
     }
     return result;
+}
+
+const generateToken = (password: string, salt: string) => {
+    const concaternatedString = password + salt;
+    return crypto.SHA256(concaternatedString).toString(crypto.enc.Base64);
 }

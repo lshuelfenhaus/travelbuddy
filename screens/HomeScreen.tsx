@@ -1,7 +1,7 @@
 import { AppBar, Button, HStack, IconButton, VStack } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-
+import {logout} from './../components/authentication';
 
 
 interface HomeScreenProps {
@@ -9,12 +9,23 @@ interface HomeScreenProps {
 }
 
 const HomeScreen = (props: HomeScreenProps) => {
-    return(
+  const logOut = async () => {
+    try{
+      await logout();
+      props.navigation.navigate("Login")
+    }catch(e){
+      console.log(e);
+    }
+    
+  }  
+  return(
         <SafeAreaProvider>
-        <Button variant="contained" title="Logout" />
+        
+        <Button variant="contained" title="Logout" onPress={logOut} />
+        
         <AppBar
           variant="bottom"
-          color="navy"        
+          color="indigo"        
           leading={props => (
             <IconButton icon={props => <Icon name="menu" {...props} />} {...props} />
           )}
