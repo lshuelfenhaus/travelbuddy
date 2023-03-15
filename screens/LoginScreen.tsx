@@ -1,9 +1,11 @@
 import React from "react";
 import {useState} from "react";
-import { Stack, TextInput, IconButton, Button, Spacer } from "@react-native-material/core";
+import { Stack, TextInput, IconButton, Button, VStack } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import {signin} from "./../components/authentication";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Image, StyleSheet } from "react-native";
+
 interface HomeScreenProps {
     navigation: any
 }
@@ -28,9 +30,17 @@ const LoginScreen = (props: HomeScreenProps) => {
     const [passwordReveal, setPasswordReveal] = useState(true);
     
     return(
-    <Stack spacing={5} style={{ margin: 16 }}>
+    <Stack spacing={5} style={{margin: 25}} >
+    <Stack style={{margin:40}}>
+    <Image
+        style= {styles.logo}
+        source={ require('travel-buddy/assets/travel-buddy.png')}
+        />
+    </Stack>
+    <Stack spacing={5} style={{ paddingTop: 25 } }>
         <TextInput
         placeholder="Username"
+        variant="outlined"
         leading={props => <Icon name="account" {...props} />}
         value={username}
         onChangeText={text => setUsername(text)}
@@ -45,10 +55,28 @@ const LoginScreen = (props: HomeScreenProps) => {
         onChangeText={text => setPassword(text)}
         value={password}
         />
-        <Button variant="outlined" title="Login" onPress={login} />
-        <Button variant="contained" title="Register" onPress={register} />
-    </Stack>
+        <Stack style={{marginHorizontal: 89}} spacing={10}>
+        <Button variant="outlined" color="black" title="Login" onPress={login}  />
+            <Stack spacing={100}>
+            <Button variant="text" title="Forgot Password?"/>
+            <Button variant="contained" color="secondary" title="Register" onPress={register}  />
+            </Stack> 
+            
+        </Stack> 
+    </Stack> 
+     </Stack>
     );
 }
 
 export default LoginScreen;
+
+const styles = StyleSheet.create({
+    container: {
+      paddingTop: 50,
+    },
+    logo: { 
+      borderRadius: 10,
+      width: 300,
+      height: 300
+    },
+  });

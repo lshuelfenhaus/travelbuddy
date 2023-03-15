@@ -1,4 +1,5 @@
-import React, { createContext } from "react";
+import 'react-native-gesture-handler';
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
@@ -8,10 +9,23 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
+
 const AppNavigator = () => (
     <NavigationContainer>
         <Navigator
-        initialRouteName="Login">
+        initialRouteName="Login"
+        screenOptions={{ 
+          headerBackButtonMenuEnabled: false,
+          headerBackTitleVisible: false,
+          headerBackVisible: false,
+          headerTitle: "",
+          headerTitleStyle: {
+            fontSize: 20,
+            fontFamily: "Helvetica",
+            fontWeight: "400"
+          }
+        }}
+        >
         <Screen name="Home" component={HomeScreen} />
         <Screen name="Login" component={LoginScreen} />
         <Screen name="SignUp" component={SignUpScreen} />
