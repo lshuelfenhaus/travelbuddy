@@ -18,7 +18,11 @@ const HomeScreen = (props: HomeScreenProps) => {
       console.log(e);
     }
     
-  }  
+  } 
+  
+  const createItinerary = async () => {
+    props.navigation.navigate("CreateItinerary")
+  }
 
   return(
         <SafeAreaProvider>
@@ -29,7 +33,7 @@ const HomeScreen = (props: HomeScreenProps) => {
           <Divider style={{marginTop: 60}} />
           <Text adjustsFontSizeToFit={true} variant="button" color="black" >Let's plan your trip</Text>
           <Icon name="bag-checked" size={96} />
-          <Button variant="outlined" title="Create Itinerary"/>
+          <Button variant="outlined" title="Create Itinerary" onPress={createItinerary}/>
           <Divider style={{marginTop:10}} />
           <Text adjustsFontSizeToFit={true} variant="button" color="black">Already planned? Let's check it out!</Text>
           <Icon name="map-check-outline" size={96} />
