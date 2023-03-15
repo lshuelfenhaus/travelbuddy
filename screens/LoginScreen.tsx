@@ -30,14 +30,14 @@ const LoginScreen = (props: HomeScreenProps) => {
     const [passwordReveal, setPasswordReveal] = useState(true);
     
     return(
-    <Stack spacing={5} style={{margin: 25}} >
-    <Stack style={{margin:40}}>
+    <Stack spacing={25} style={{justifyContent:"center", alignItems:"center"}}  >
+    <Stack >
     <Image
         style= {styles.logo}
         source={ require('travel-buddy/assets/travel-buddy.png')}
         />
     </Stack>
-    <Stack spacing={5} style={{ paddingTop: 25 } }>
+    <Stack>
         <TextInput
         placeholder="Username"
         variant="outlined"
@@ -55,13 +55,12 @@ const LoginScreen = (props: HomeScreenProps) => {
         onChangeText={text => setPassword(text)}
         value={password}
         />
-        <Stack style={{marginHorizontal: 89}} spacing={10}>
-        <Button variant="outlined" color="black" title="Login" onPress={login}  />
-            <Stack spacing={100}>
-            <Button variant="text" title="Forgot Password?"/>
-            <Button variant="contained" color="secondary" title="Register" onPress={register}  />
-            </Stack> 
-            
+        <Stack style={{marginHorizontal: 85}} spacing={10}>
+         <Button variant="outlined" color="black" title="Login" onPress={login}  />
+          <Stack spacing={100}>
+           <Button variant="text" title="Forgot Password?"/>
+           <Button variant="contained" color="secondary" title="Register" onPress={register}  />
+          </Stack> 
         </Stack> 
     </Stack> 
      </Stack>
