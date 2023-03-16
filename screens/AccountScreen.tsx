@@ -16,9 +16,16 @@ interface HomeScreenProps {
 const AccountScreen = (props: HomeScreenProps) => {
 
     const [username, setUsername] = useState("");
+
     const [password, setPassword] = useState("");
     const [passwordReveal, setPasswordReveal] = useState(true);
+
+    const [newPassword, setNewPassword] = useState("");
+    const [newPasswordReveal, setNewPasswordReveal] = useState(true);
     
+    const [confirmPasswordReveal, setConfirmPasswordReveal] = useState(true);
+    const [confirmPassword, setConfirmPassword] = useState("");
+
     return(
         <SafeAreaProvider style={{justifyContent:"center"}}>
             <Stack spacing={10} style={{alignItems:"center"}} >
@@ -30,7 +37,7 @@ const AccountScreen = (props: HomeScreenProps) => {
                 />
                 <Text variant="h6" >User Name</Text>
             </Stack>
-            <Stack spacing={10}style={{paddingHorizontal:25, paddingTop:25}}>
+            <Stack spacing={1}style={{paddingHorizontal:25, paddingTop:25}}>
                 <TextInput
                 placeholder="Current Password"
                 secureTextEntry = {passwordReveal}
@@ -44,31 +51,31 @@ const AccountScreen = (props: HomeScreenProps) => {
                 <Stack>
                 <TextInput
                 placeholder="New Password"
-                secureTextEntry = {passwordReveal}
+                secureTextEntry = {newPasswordReveal}
                 variant="outlined"
                 trailing={props => (
-                <IconButton onPress={event => setPasswordReveal(prevState => !prevState)}icon={props => <Icon name="eye" {...props} />} {...props} />
+                <IconButton onPress={event => setNewPasswordReveal(prevState => !prevState)}icon={props => <Icon name="eye" {...props} />} {...props} />
                 )}
-                onChangeText={text => setPassword(text)}
-                value={password}
+                onChangeText={text => setNewPassword(text)}
+                value={newPassword}
                 />
                 <TextInput
-                placeholder="Re-type New Password"
-                secureTextEntry = {passwordReveal}
+                placeholder="Confirm New Password"
+                secureTextEntry = {confirmPasswordReveal}
                 variant="outlined"
                 trailing={props => (
-                <IconButton onPress={event => setPasswordReveal(prevState => !prevState)}icon={props => <Icon name="eye" {...props} />} {...props} />
+                <IconButton onPress={event => setConfirmPasswordReveal(prevState => !prevState)}icon={props => <Icon name="eye" {...props} />} {...props} />
                 )}
-                onChangeText={text => setPassword(text)}
-                value={password}
+                onChangeText={text => setConfirmPassword(text)}
+                value={confirmPassword}
                 />
-                <Button style={{marginHorizontal:75}} variant="outlined" title="Change Password"/>
+                <Button style={{marginHorizontal:75,}}variant="outlined" color="black" title="Change Password"/>
                 </Stack>
             </Stack>
 
-            <Button style={{marginHorizontal:10, marginTop:100}} color="secondary" variant="text" title="View Your Itineraries"/>
+            <Button style={{marginHorizontal:10, marginTop:100}}variant="text" title="View Your Itineraries"/>
 
-            <Button style={{marginHorizontal:150, marginTop:100}} variant="contained" title="Logout"/>
+            <Button style={{marginHorizontal:150, marginTop:100,}} variant="contained" color="secondary" title="Logout"/>
 
         </SafeAreaProvider>
     );
