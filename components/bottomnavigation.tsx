@@ -81,7 +81,6 @@ const styles = StyleSheet.create({
     leadingContainer:{
        marginStart: 0,
        marginEnd: 0,
-       marginBottom: 8
     },
     menuButtonLogout:{
         backgroundColor: "tomato",
