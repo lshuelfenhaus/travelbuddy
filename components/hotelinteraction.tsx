@@ -1,17 +1,25 @@
 import React from 'react'
-
-const HOTEL_API_KEY = "99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91";
-export const getHotels = () => {
+import axios from 'axios'
+export const getLocation = () => {
     const options = {
         method: 'GET',
+        url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchLocation',
+        params: {query: '<REQUIRED>'},
         headers: {
-            'X-RapidAPI-Key': HOTEL_API_KEY,
-            'X-RapidAPI-Host': 'hotels4.p.rapidapi.com'
+            'X-RapidAPI-Key': '99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91',
+            'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
         }
     };
-    fetch('https://hotels4.p.rapidapi.com/v2/get-meta-data', options)
-    .then(response => response.json())
-    .then(response => console.log(response));    
+
+    axios.request(options).then(function (response) {
+        console.log(response.data);
+    }).catch(function (error) {
+        console.error(error);
+    });
+}
+
+export const getHotels = () => {
+    
 }
 
 export const getHotelsBasedOnLocation = () => {

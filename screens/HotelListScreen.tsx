@@ -3,7 +3,7 @@ import * as Hotel from "./../components/hotelinteraction";
 
 const HotelListScreen = () => {
     useEffect(()=>{
-        Hotel.getHotelsBasedOnLocation();
+        Hotel.getLocation();
     },[])
     return (
         null
