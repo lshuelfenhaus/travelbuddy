@@ -6,6 +6,7 @@ import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CreateItineraryScreen from './screens/ItineraryQuizScreen';
+import HotelListScreen from './screens/HotelListScreen';
 
 
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -14,7 +15,7 @@ const { Navigator, Screen } = createNativeStackNavigator();
 const AppNavigator = () => (
     <NavigationContainer>
         <Navigator
-        initialRouteName="Login"
+        initialRouteName="HotelList"
         screenOptions={{ 
           headerBackButtonMenuEnabled: false,
           headerBackTitleVisible: false,
@@ -31,6 +32,7 @@ const AppNavigator = () => (
         <Screen name="Login" component={LoginScreen} />
         <Screen name="SignUp" component={SignUpScreen} />
         <Screen name="CreateItinerary" component={CreateItineraryScreen} />
+        <Screen name="HotelList" component={HotelListScreen} />
       </Navigator>
     </NavigationContainer>
 )
