@@ -1,25 +1,13 @@
-import { AppBar, Button, HStack, IconButton, VStack, Text, Divider } from "@react-native-material/core";
+import {Button, HStack, VStack, Text, Divider } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-import { Feather } from '@expo/vector-icons'; 
-import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import {logout} from './../components/authentication';
+import { BottomNavigation } from "../components/bottomnavigation";
 
 interface HomeScreenProps {
     navigation: any
 }
 
-const HomeScreen = (props: HomeScreenProps) => {
-  const logOut = async () => {
-    try{
-      await logout();
-      props.navigation.navigate("Login")
-    }catch(e){
-      console.log(e);
-    }
-    
-  } 
-  
+const HomeScreen = (props: HomeScreenProps) => { 
   const createItinerary = async () => {
     props.navigation.navigate("CreateItinerary")
   }
@@ -39,27 +27,7 @@ const HomeScreen = (props: HomeScreenProps) => {
           <Icon name="map-check-outline" size={96} />
           <Button variant="outlined" title="Upcoming Itinerary"/>
         </VStack>
-        <AppBar
-          color="primary"
-          variant="bottom"      
-          leading={(
-            <HStack>
-              <IconButton style={{marginLeft: 10}} icon={props => <Feather color="white" size={25} name="menu" /> } />
-              <IconButton icon={<Ionicons color="white" size={35} name="chatbubble-ellipses" /> } /> 
-            </HStack>
-           
-          )}
-          trailing={props => (
-                <HStack>
-                  <IconButton style={{marginRight: 20}}
-                  icon={<Ionicons color="white" size={30} name="log-out-outline" onPress={logOut}/>}
-                />
-                </HStack>
-                
-          )}
-          style={{  position: "absolute", start: 0, end: 0, bottom: 0, height:65 }}
-        >
-        </AppBar> 
+        <BottomNavigation navigation={props.navigation}></BottomNavigation>
         </SafeAreaProvider>
 
       );
