@@ -1,25 +1,55 @@
 import React from 'react'
 import axios from 'axios'
-export const getLocation = () => {
+export const getLocation = (location: string) => {
     const options = {
         method: 'GET',
         url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchLocation',
-        params: {query: '<REQUIRED>'},
+        params: {query: location},
         headers: {
             'X-RapidAPI-Key': '99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91',
             'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
         }
     };
 
-    axios.request(options).then(function (response) {
-        console.log(response.data);
-    }).catch(function (error) {
-        console.error(error);
+    const dataPromise = axios.request(options).then(function (response) {
+        //get the geo ids so that we can pass this into the search hotels later
+        const listOfLocation: Array<any> = response.data.data;//An array
+        const geoID: string = listOfLocation[0].geoId; 
+        return geoID;
     });
+    return dataPromise;
 }
 
-export const getHotels = () => {
+export const getHotels = (geoID: string, checkIn: Date, checkOut: Date) => {
     
+    const today = new Date();
+    if (checkIn === undefined) checkIn = today;
+    if (checkOut === undefined) checkOut = today;
+    const options = {
+        method: 'GET',
+        url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotels',
+        params: {
+          geoId: geoID,
+          checkIn: checkIn.toISOString().slice(0, 10),//to get date string format yyyy-mm-dd
+          checkOut: checkOut.toISOString().slice(0, 10),
+          pageNumber: '1',
+          currencyCode: 'USD'
+        },
+        headers: {
+          'X-RapidAPI-Key': '99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91',
+          'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
+        }
+      };
+      
+      axios.request(options).then(function (response) {
+          const listofHotels = response.data.data.data;
+          for (const {title} of listofHotels){
+            console.log(title);
+          }
+        
+      }).catch(function (error) {
+          console.error(error);
+      });
 }
 
 export const getHotelsBasedOnLocation = () => {
