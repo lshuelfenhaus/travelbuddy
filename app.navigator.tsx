@@ -6,6 +6,7 @@ import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CreateItineraryScreen from './screens/ItineraryQuizScreen';
+import { Chatbot } from './screens/ChatbotScreen';
 
 
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -16,7 +17,7 @@ const AppNavigator = () => (
         <Navigator
         initialRouteName="Login"
         screenOptions={{ 
-          headerBackButtonMenuEnabled: false,
+          headerBackButtonMenuEnabled: true,
           headerBackTitleVisible: false,
           headerBackVisible: false,
           headerTitle: "",
@@ -31,6 +32,8 @@ const AppNavigator = () => (
         <Screen name="Login" component={LoginScreen} />
         <Screen name="SignUp" component={SignUpScreen} />
         <Screen name="CreateItinerary" component={CreateItineraryScreen} />
+        <Screen name="Chatbot" component={Chatbot} />
+
       </Navigator>
     </NavigationContainer>
 )
