@@ -3,7 +3,7 @@ import { Ionicons, Entypo, MaterialCommunityIcons, AntDesign } from '@expo/vecto
 import {logout} from './authentication';
 import {StyleSheet, View } from "react-native";
 import Modal from 'react-native-modal'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 interface BottomNavigationProps {
     navigation: any;
 }
@@ -16,7 +16,26 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
         }catch(e){
           console.log(e);
         }
-    } 
+    }
+    
+    const chatbot = async () => {
+        try {
+            props.navigation.navigate("Chatbot")
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+
+    const home = async () => {
+        try {
+            props.navigation.navigate("Home")
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+
     return (
         <>
 {/*             <Modal animationIn="slideInRight" animationOut="slideOutRight" isVisible={modalVisible}>
@@ -36,12 +55,12 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
                 <HStack style={styles.hstack} spacing={SPACING}>
                                         
                     <View style={styles.iconContainer}>
-                        <IconButton icon={<MaterialCommunityIcons name="home-heart" size={ICONSIZE} color="white"/>} />
+                        <IconButton icon={<MaterialCommunityIcons name="home-heart" size={ICONSIZE} color="white"/>} onPress={home} />
                         <Text style={styles.textIcon}>Home</Text> 
                     </View>    
             
                     <View style={styles.iconContainer}>
-                        <IconButton icon={<Ionicons color="white" size={ICONSIZE} name="chatbubble-ellipses" /> } />
+                        <IconButton icon={<Ionicons color="white" size={ICONSIZE} name="chatbubble-ellipses" /> } onPress={chatbot}/>
                         <Text style={styles.textIcon}>Buddy</Text> 
                     </View>    
                     <IconButton style = {styles.centralIcon} icon={<Ionicons style={ {textAlign:"center"}} name="add" size={50} color="#6200EE" /> }/>
@@ -50,7 +69,7 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
                             <Text style={styles.textIcon}>Itinerary</Text>
                     </View>
                     <View style={styles.iconContainer}>
-                        <IconButton  icon={<MaterialCommunityIcons name="account" size={ICONSIZE} color="white" />}/>
+                        <IconButton  icon={<MaterialCommunityIcons name="account" size={ICONSIZE} color="white" />} />
                         <Text style={styles.textIcon}>Account</Text> 
                     </View>
                 </HStack>
@@ -116,7 +135,7 @@ const styles = StyleSheet.create({
         start: 0, 
         end: 0, 
         bottom: 0, 
-        height: 55,
+        height: 65,
     },
     menuContainer:{
         height:"100%",

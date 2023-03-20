@@ -7,6 +7,7 @@ import SignUpScreen from "./screens/SignUpScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AccountScreen from './screens/AccountScreen';
 import CreateItineraryScreen from './screens/ItineraryQuizScreen';
+import { Chatbot } from './screens/ChatbotScreen';
 
 
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -33,6 +34,8 @@ const AppNavigator = () => (
         <Screen name="SignUp" component={SignUpScreen} />
         <Screen name="Account" component={AccountScreen} />
         <Screen name="CreateItinerary" component={CreateItineraryScreen} />
+        <Screen name="Chatbot" component={Chatbot} />
+
       </Navigator>
     </NavigationContainer>
 )
