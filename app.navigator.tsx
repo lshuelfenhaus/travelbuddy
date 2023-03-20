@@ -17,7 +17,7 @@ const AppNavigator = () => (
         <Navigator
         initialRouteName="Login"
         screenOptions={{ 
-          headerBackButtonMenuEnabled: true,
+          headerBackButtonMenuEnabled: false,
           headerBackTitleVisible: false,
           headerBackVisible: false,
           headerTitle: "",
