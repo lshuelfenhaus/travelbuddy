@@ -1,7 +1,9 @@
-import { Avatar, Button, IconButton, Stack, Text, TextInput } from "@react-native-material/core";
+import { Avatar, Button, IconButton, Spacer, Stack, Text, TextInput } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import React, { useState } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { BottomNavigation } from "../components/bottomnavigation";
+import themestyles from "../Colors";
 
 // _user name view and change
 // _password change
@@ -26,18 +28,23 @@ const AccountScreen = (props: HomeScreenProps) => {
     const [confirmPasswordReveal, setConfirmPasswordReveal] = useState(true);
     const [confirmPassword, setConfirmPassword] = useState("");
 
+    const logout = async () => {
+        props.navigation.navigate("Login")
+      }
+
     return(
-        <SafeAreaProvider style={{justifyContent:"center"}}>
-            <Stack spacing={10} style={{alignItems:"center"}} >
+        <SafeAreaProvider style={{alignItems:"center", justifyContent:"center", backgroundColor:themestyles.eggshell.color }}>
+            <Stack spacing={150}>
+            <Stack spacing={10} style={{alignItems:"center", justifyContent:"center"}} >
             <Text variant="h4" >Account Details</Text>
                <Avatar
+               color={themestyles.mintGreen.color}
                 size={75}
                 label="Test Account"
-                //image={}
                 />
                 <Text variant="h6" >User Name</Text>
-            </Stack>
-            <Stack spacing={1}style={{paddingHorizontal:25, paddingTop:25}}>
+            <Stack spacing={50}style={{paddingHorizontal:25, paddingTop:25}}>
+                <Stack>
                 <TextInput
                 placeholder="Current Password"
                 secureTextEntry = {passwordReveal}
@@ -48,7 +55,6 @@ const AccountScreen = (props: HomeScreenProps) => {
                 onChangeText={text => setPassword(text)}
                 value={password}
                 />
-                <Stack>
                 <TextInput
                 placeholder="New Password"
                 secureTextEntry = {newPasswordReveal}
@@ -69,14 +75,13 @@ const AccountScreen = (props: HomeScreenProps) => {
                 onChangeText={text => setConfirmPassword(text)}
                 value={confirmPassword}
                 />
-                <Button style={{marginHorizontal:75,}}variant="outlined" color="black" title="Change Password"/>
+                <Button style={{marginHorizontal:75,}}variant="text" color={themestyles.delftBlue.color} title="Change Password"/>
+                </Stack>
                 </Stack>
             </Stack>
-
-            <Button style={{marginHorizontal:10, marginTop:100}}variant="text" title="View Your Itineraries"/>
-
-            <Button style={{marginHorizontal:150, marginTop:100,}} variant="contained" color="secondary" title="Logout"/>
-
+            <Button style={{marginHorizontal:120}}variant="contained" title="Logout" color={themestyles.mintGreen.color} onPress={logout} />
+            </Stack>
+            <BottomNavigation navigation={props.navigation} />
         </SafeAreaProvider>
     );
 }

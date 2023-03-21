@@ -2,30 +2,42 @@ import {Button, HStack, VStack, Text, Divider } from "@react-native-material/cor
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { BottomNavigation } from "../components/bottomnavigation";
+import { Card } from "@rneui/base";
+import { Image } from "react-native-elements";
+import themestyles from "../Colors";
 
 interface HomeScreenProps {
     navigation: any
 }
 
 const HomeScreen = (props: HomeScreenProps) => { 
-  const createItinerary = async () => {
-    props.navigation.navigate("CreateItinerary")
-  }
 
   return(
-        <SafeAreaProvider>
-        <HStack>
-          {/* Put some kind of header here? */}
-        </HStack>   
-        <VStack center spacing={30}>
-          <Divider style={{marginTop: 60}} />
-          <Text adjustsFontSizeToFit={true} variant="button" color="black" >Let's plan your trip</Text>
-          <Icon name="bag-checked" size={96} />
-          <Button variant="outlined" title="Create Itinerary" onPress={createItinerary}/>
-          <Divider style={{marginTop:10}} />
-          <Text adjustsFontSizeToFit={true} variant="button" color="black">Already planned? Let's check it out!</Text>
-          <Icon name="map-check-outline" size={96} />
-          <Button variant="outlined" title="Upcoming Itinerary"/>
+        <SafeAreaProvider
+        style={{backgroundColor: themestyles.eggshell.color}}
+        >   
+        <VStack 
+        >
+          <Card
+          containerStyle={{height:170, justifyContent:'center', alignItems:'center'}}
+          >
+          <Button title="Hotels" variant="text" color={themestyles.charcoal.color}/>
+          </Card>
+          <Card
+          containerStyle={{height:170, justifyContent:'center', alignItems:'center'}}          
+          >
+          <Button title="Flights" variant="text" color={themestyles.charcoal200.color}/>
+          </Card>
+          <Card
+          containerStyle={{height:170, justifyContent:'center', alignItems:'center'}}          
+          >
+          <Button title="Restaurants" variant="text" color={themestyles.charcoal300.color}/>
+          </Card>
+          <Card
+          containerStyle={{height:170, justifyContent:'center', alignItems:'center'}}          
+          >
+          <Button title="Explore" variant="text" color={themestyles.charcoal400.color}/>
+          </Card>
         </VStack>
         <BottomNavigation navigation={props.navigation}></BottomNavigation>
         </SafeAreaProvider>
