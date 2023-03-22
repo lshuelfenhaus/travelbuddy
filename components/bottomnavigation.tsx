@@ -4,6 +4,8 @@ import {logout} from './authentication';
 import {StyleSheet, View } from "react-native";
 import Modal from 'react-native-modal'
 import { useEffect, useState } from "react";
+import themestyles from "../Colors";
+
 interface BottomNavigationProps {
     navigation: any;
 }
@@ -36,6 +38,33 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
         }
     }
 
+    const account = async () => {
+        try {
+            props.navigation.navigate("Account")
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+
+    const itinerary = async () => {
+        try {
+            props.navigation.navigate("Itinerary")
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+
+    const createItinerary = async () => {
+        try {
+            props.navigation.navigate("CreateItinerary")
+        }
+        catch(e){
+            console.log(e)
+        }
+    }
+
     return (
         <>
 {/*             <Modal animationIn="slideInRight" animationOut="slideOutRight" isVisible={modalVisible}>
@@ -47,7 +76,7 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
                 </VStack>
             </Modal> */}
             <AppBar
-                color="primary"
+                color={themestyles.charcoal.color}
                 variant="bottom"  
                 contentContainerStyle={styles.contentContainer}   
                 leadingContainerStyle={styles.leadingContainer}
@@ -63,13 +92,13 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
                         <IconButton icon={<Ionicons color="white" size={ICONSIZE} name="chatbubble-ellipses" /> } onPress={chatbot}/>
                         <Text style={styles.textIcon}>Buddy</Text> 
                     </View>    
-                    <IconButton style = {styles.centralIcon} icon={<Ionicons style={ {textAlign:"center"}} name="add" size={50} color="#6200EE" /> }/>
+                    <IconButton style = {styles.centralIcon} icon={<Ionicons style={ {justifyContent:"center", alignItems:"center"}} name="add" size={50} color={themestyles.charcoal.color} /> } onPress={createItinerary} />
                     <View style={styles.iconContainer}>
-                            <IconButton  icon={props => <Entypo name="list" size={ICONSIZE} color="white" />  } />
+                            <IconButton  icon={props => <Entypo name="list" size={ICONSIZE} color="white" />  } onPress={itinerary} />
                             <Text style={styles.textIcon}>Itinerary</Text>
                     </View>
                     <View style={styles.iconContainer}>
-                        <IconButton  icon={<MaterialCommunityIcons name="account" size={ICONSIZE} color="white" />} />
+                        <IconButton  icon={<MaterialCommunityIcons name="account" size={ICONSIZE} color="white" />} onPress={account} />
                         <Text style={styles.textIcon}>Account</Text> 
                     </View>
                 </HStack>
@@ -120,9 +149,9 @@ const styles = StyleSheet.create({
         textAlign: "center",
         width: 60,
         height: 60,
-        borderWidth: 1,
-        marginTop: -10,
-        borderColor: OURPURPLE
+        borderWidth: 2,
+        marginTop: -15,
+        borderColor: themestyles.powderBlue.color,
     },
     textIcon: {
         color: "white",

@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AccountScreen from './screens/AccountScreen';
 import CreateItineraryScreen from './screens/ItineraryQuizScreen';
 import { Chatbot } from './screens/ChatbotScreen';
+import ItineraryScreen from './screens/ItineraryScreen';
 
 
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -35,7 +36,7 @@ const AppNavigator = () => (
         <Screen name="Account" component={AccountScreen} />
         <Screen name="CreateItinerary" component={CreateItineraryScreen} />
         <Screen name="Chatbot" component={Chatbot} />
-
+        <Screen name="Itinerary" component={ItineraryScreen} />
       </Navigator>
     </NavigationContainer>
 )

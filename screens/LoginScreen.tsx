@@ -5,6 +5,8 @@ import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import {signin} from "./../components/authentication";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Image, StyleSheet } from "react-native";
+import themestyles from "../Colors";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 interface HomeScreenProps {
     navigation: any
@@ -30,6 +32,8 @@ const LoginScreen = (props: HomeScreenProps) => {
     const [passwordReveal, setPasswordReveal] = useState(true);
     
     return(
+        <SafeAreaProvider
+        style={{backgroundColor: themestyles.loginWhite.color}}>
     <Stack spacing={25} style={{justifyContent:"center", alignItems:"center"}}  >
     <Stack >
     <Image
@@ -56,14 +60,16 @@ const LoginScreen = (props: HomeScreenProps) => {
         value={password}
         />
         <Stack style={{marginHorizontal: 85}} spacing={10}>
-         <Button variant="outlined" color="black" title="Login" onPress={login}  />
+         <Button variant="text" color={themestyles.delftBlue.color} title="Login" onPress={login}  />
           <Stack spacing={100}>
-           <Button variant="text" title="Forgot Password?"/>
-           <Button variant="contained" color="secondary" title="Register" onPress={register}  />
+           <Button variant="text" title="Forgot Password?" color={themestyles.delftBlue.color}/>
+           <Button variant="contained" color={themestyles.mintGreen.color} title="Register" onPress={register}  />
           </Stack> 
         </Stack> 
     </Stack> 
      </Stack>
+
+     </SafeAreaProvider>
     );
 }
 

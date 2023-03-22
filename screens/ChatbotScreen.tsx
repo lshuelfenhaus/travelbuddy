@@ -3,6 +3,7 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { StyleSheet, View } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import themestyles from '../Colors';
 import { BottomNavigation } from '../components/bottomnavigation';
 
 interface HomeScreenProps {
@@ -54,6 +55,6 @@ export function Chatbot(props: HomeScreenProps) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f5f5f5', paddingBottom:30},
-  content: { backgroundColor: "#ffffff", flex: 1,  }
+  container: { flex: 1, backgroundColor: themestyles.eggshell.color, paddingBottom:30},
+  content: { backgroundColor: themestyles.powderBlue.color, flex: 1,  }
 })
