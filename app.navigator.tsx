@@ -25,8 +25,8 @@ const AppNavigator = () => (
           headerTitle: "",
           headerTitleStyle: {
             fontSize: 20,
-            fontFamily: "Helvetica",
-            fontWeight: "400"
+            fontFamily: "Roboto",
+            fontWeight: "500"
           }
         }}
         >
