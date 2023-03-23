@@ -109,7 +109,7 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
         </>
     )
 }
-const SPACING = 30;
+const SPACING = 20;
 const ICONSIZE = 30;
 const OURPURPLE = "#6200EE";
 const styles = StyleSheet.create({
