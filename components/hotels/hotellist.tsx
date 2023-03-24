@@ -21,7 +21,7 @@ const HotelList = (props: HoteListProps) => {
                 
                 {items.map((item)=>{
                     return (
-                        <ItemCard price={item.price} title={item.name} id={item.id}/>
+                        <ItemCard key={item.id} price={item.price} title={item.name} id={item.id}/>
                         )
                     })}
             </VStack>

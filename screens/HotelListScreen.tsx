@@ -1,11 +1,28 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import * as Hotel from "../components/hotels/hotelinteraction";
 import HotelList from '../components/hotels/hotellist';
-const HotelListScreen = () => {
+import {Room} from './../components/hotels/HotelInterface';
+export interface HotelListSCreenProps{
+    maxPrice?: number,
+    minPrice?: number,
+    location: string,
+    startDate?: Date,
+    endDate?: Date,
+    room: Room,
+    navigation: any
+}
+const HotelListScreen = (props: HotelListSCreenProps) => {
+
     useEffect(()=>{
-       /*  Hotel.getLocation('San Jose').then((geoID:string)=>{
-            Hotel.getHotels(geoID,new Date('2023-12-01'),new Date('2023-12-05'));
-        }); */
+        Hotel.getLocationBaseOnType('San Jose','city').then((geoID:any)=>{
+            Hotel.getHotels(
+                geoID,
+                props.startDate?props.startDate : new Date(),
+                props.startDate?props.startDate : new Date(), 
+                props.minPrice?props.minPrice : 0, 
+                props.maxPrice?props.maxPrice : 0,
+                props.room)
+        }); 
     },[])
     return (
         <HotelList location={"San Jose"}/>

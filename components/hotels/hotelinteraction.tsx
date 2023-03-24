@@ -1,51 +1,79 @@
 import React from 'react'
 import axios from 'axios'
-export const getLocation = (location: string) => {
-    const options = {
+import {Room} from "./HotelInterface";
+export const getLocationBaseOnType = (location: string,rType: string) => {
+    const options = { //right now we conduct hotel search within US, thus the site Id is 300000001
         method: 'GET',
-        url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchLocation',
-        params: {query: location},
+        url: 'https://hotels4.p.rapidapi.com/locations/v3/search',
+        params: {q: location, locale: 'en_US', langid: '1033', siteId: 300000001},
         headers: {
-            'X-RapidAPI-Key': '99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91',
-            'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
+          'X-RapidAPI-Key': '4954808daemsh8c28b07faccd7c3p12ce85jsn42818613f228',
+          'X-RapidAPI-Host': 'hotels4.p.rapidapi.com'
         }
     };
 
     const dataPromise = axios.request(options).then(function (response) {
         //get the geo ids so that we can pass this into the search hotels later
-        const listOfLocation: Array<any> = response.data.data;//An array
-        const geoID: string = listOfLocation[0].geoId; 
-        return geoID;
+        const listOfLocations: Array<any> = response.data.sr;//An array
+        let region_ID = 0;
+        for( const {type,gaiaId} of listOfLocations){
+            if (type.toLowerCase() === rType){
+                region_ID = gaiaId; 
+            }
+        }
+        return region_ID;
     });
     return dataPromise;
 }
 
-export const getHotels = (geoID: string, checkIn: Date, checkOut: Date) => {
+export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: number, max: number, rooms: Room) => {
     
-    const today = new Date();
-    if (checkIn === undefined) checkIn = today;
-    if (checkOut === undefined) checkOut = today;
-    const options = {
-        method: 'GET',
-        url: 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotels',
-        params: {
-          geoId: geoID,
-          checkIn: checkIn.toISOString().slice(0, 10),//to get date string format yyyy-mm-dd
-          checkOut: checkOut.toISOString().slice(0, 10),
-          pageNumber: '1',
-          currencyCode: 'USD'
+    const SORT = "PRICE_LOW_TO_HIGH";
+   
+    let search = {
+        "currency": "USD",
+        "locale": "en_US",
+        "siteId": 300000001,
+        "destination": {
+            "regionId": "3179"
         },
-        headers: {
-          'X-RapidAPI-Key': '99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91',
-          'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
+        "checkInDate": {
+            "day": checkIn.getUTCDate(),
+            "month": checkIn.getUTCMonth() + 1,
+            "year": checkIn.getUTCFullYear()
+        },
+        "checkOutDate": {
+            "day": checkOut.getUTCDate(),
+            "month": checkOut.getUTCMonth() + 1,
+            "year": checkOut.getUTCFullYear()
+        },
+        "rooms": [
+           rooms
+        ],
+        "resultsStartingIndex": 0,
+        "resultsSize": 200,
+        "sort": SORT,
+        "filters":{
+            "price":{
+                max: max? max : Infinity,
+                min: min? min : 0
+            }
         }
+    }
+    const options = {
+        method: 'POST',
+        url: 'https://hotels4.p.rapidapi.com/properties/v2/list',
+        headers: {
+          'content-type': 'application/json',
+          'X-RapidAPI-Key': '4954808daemsh8c28b07faccd7c3p12ce85jsn42818613f228',
+          'X-RapidAPI-Host': 'hotels4.p.rapidapi.com'
+        },
+        data: search
       };
       
       axios.request(options).then(function (response) {
-          const listofHotels = response.data.data.data;
-          for (const {title} of listofHotels){
-            console.log(title);
-          }
+          const listofHotels = response.data;
+         console.log(listofHotels)
         
       }).catch(function (error) {
           console.error(error);

@@ -6,7 +6,7 @@ import LoginScreen from "./screens/LoginScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CreateItineraryScreen from './screens/ItineraryQuizScreen';
-import HotelListScreen from './screens/HotelListScreen';
+import HotelSearchScreen from './screens/HotelSearchScreen';
 
 
 const { Navigator, Screen } = createNativeStackNavigator();
@@ -15,7 +15,7 @@ const { Navigator, Screen } = createNativeStackNavigator();
 const AppNavigator = () => (
     <NavigationContainer>
         <Navigator
-        initialRouteName="HotelList"
+        initialRouteName="HotelSearch"
         screenOptions={{ 
           headerBackButtonMenuEnabled: false,
           headerBackTitleVisible: false,
@@ -23,7 +23,6 @@ const AppNavigator = () => (
           headerTitle: "",
           headerTitleStyle: {
             fontSize: 20,
-            fontFamily: "Helvetica",
             fontWeight: "400"
           }
         }}
@@ -32,7 +31,7 @@ const AppNavigator = () => (
         <Screen name="Login" component={LoginScreen} />
         <Screen name="SignUp" component={SignUpScreen} />
         <Screen name="CreateItinerary" component={CreateItineraryScreen} />
-        <Screen name="HotelList" component={HotelListScreen} />
+        <Screen name="HotelSearch" component={HotelSearchScreen} />
       </Navigator>
     </NavigationContainer>
 )
