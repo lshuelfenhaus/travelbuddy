@@ -3,7 +3,9 @@ import { Ionicons, Entypo, MaterialCommunityIcons, AntDesign } from '@expo/vecto
 import {logout} from './authentication';
 import {StyleSheet, View } from "react-native";
 import Modal from 'react-native-modal'
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import themestyles from "../Colors";
+
 interface BottomNavigationProps {
     navigation: any;
 }
@@ -16,7 +18,53 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
         }catch(e){
           console.log(e);
         }
-    } 
+    }
+    
+    const chatbot = async () => {
+        try {
+            props.navigation.navigate("Chatbot")
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+
+    const home = async () => {
+        try {
+            props.navigation.navigate("Home")
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+
+    const account = async () => {
+        try {
+            props.navigation.navigate("Account")
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+
+    const itinerary = async () => {
+        try {
+            props.navigation.navigate("Itinerary")
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
+
+    const createItinerary = async () => {
+        try {
+            props.navigation.navigate("CreateItinerary")
+        }
+        catch(e){
+            console.log(e)
+        }
+    }
+
     return (
         <>
 {/*             <Modal animationIn="slideInRight" animationOut="slideOutRight" isVisible={modalVisible}>
@@ -28,7 +76,7 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
                 </VStack>
             </Modal> */}
             <AppBar
-                color="primary"
+                color={themestyles.charcoal.color}
                 variant="bottom"  
                 contentContainerStyle={styles.contentContainer}   
                 leadingContainerStyle={styles.leadingContainer}
@@ -36,21 +84,21 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
                 <HStack style={styles.hstack} spacing={SPACING}>
                                         
                     <View style={styles.iconContainer}>
-                        <IconButton icon={<MaterialCommunityIcons name="home-heart" size={ICONSIZE} color="white"/>} />
+                        <IconButton icon={<MaterialCommunityIcons name="home-heart" size={ICONSIZE} color="white"/>} onPress={home} />
                         <Text style={styles.textIcon}>Home</Text> 
                     </View>    
             
                     <View style={styles.iconContainer}>
-                        <IconButton icon={<Ionicons color="white" size={ICONSIZE} name="chatbubble-ellipses" /> } />
+                        <IconButton icon={<Ionicons color="white" size={ICONSIZE} name="chatbubble-ellipses" /> } onPress={chatbot}/>
                         <Text style={styles.textIcon}>Buddy</Text> 
                     </View>    
-                    <IconButton style = {styles.centralIcon} icon={<Ionicons style={ {textAlign:"center"}} name="add" size={50} color="#6200EE" /> }/>
+                    <IconButton style = {styles.centralIcon} icon={<Ionicons style={ {justifyContent:"center", alignItems:"center"}} name="add" size={50} color={themestyles.charcoal.color} /> } onPress={createItinerary} />
                     <View style={styles.iconContainer}>
-                            <IconButton  icon={props => <Entypo name="list" size={ICONSIZE} color="white" />  } />
+                            <IconButton  icon={props => <Entypo name="list" size={ICONSIZE} color="white" />  } onPress={itinerary} />
                             <Text style={styles.textIcon}>Itinerary</Text>
                     </View>
                     <View style={styles.iconContainer}>
-                        <IconButton  icon={<MaterialCommunityIcons name="account" size={ICONSIZE} color="white" />}/>
+                        <IconButton  icon={<MaterialCommunityIcons name="account" size={ICONSIZE} color="white" />} onPress={account} />
                         <Text style={styles.textIcon}>Account</Text> 
                     </View>
                 </HStack>
@@ -61,7 +109,7 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
         </>
     )
 }
-const SPACING = 30;
+const SPACING = 20;
 const ICONSIZE = 30;
 const OURPURPLE = "#6200EE";
 const styles = StyleSheet.create({
@@ -101,9 +149,9 @@ const styles = StyleSheet.create({
         textAlign: "center",
         width: 60,
         height: 60,
-        borderWidth: 1,
-        marginTop: -10,
-        borderColor: OURPURPLE
+        borderWidth: 2,
+        marginTop: -15,
+        borderColor: themestyles.powderBlue.color,
     },
     textIcon: {
         color: "white",
@@ -116,7 +164,7 @@ const styles = StyleSheet.create({
         start: 0, 
         end: 0, 
         bottom: 0, 
-        height: 55,
+        height: 65,
     },
     menuContainer:{
         height:"100%",
