@@ -1,7 +1,7 @@
 export interface Room {
-    adults: number,
+    adults: any,
     children?: Array<Child>
 }
 export interface Child {
-    age: number
+    "age": any
 }

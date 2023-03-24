@@ -2,13 +2,14 @@ import React from 'react';
 import { VStack, HStack, Badge, Button } from '@react-native-material/core';
 import { Text, View, StyleSheet, Image } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'; 
+import StarRatings from './starratings';
 interface ItemCardProps {
     navigation?: any,
     title?: string,
-    rating?: number,
     price?: number,
     address?: string,
     id?: string,
+    reviews?: number,
 }
 const ItemCard = (props: ItemCardProps) => {
     return (
@@ -19,7 +20,7 @@ const ItemCard = (props: ItemCardProps) => {
                 <Image style={styles.image} source={require("./../assets/hotelimages/hotel3.jpg")}/>
             </HStack>
             <Text style={styles.title}>{props.title}</Text>
-            {/**Rating component to be implemented */}
+            <StarRatings style={styles.stars} score={props.reviews?props.reviews:5} scale={10}/>
             <Text style={styles.price}>$ {props.price}</Text>
               {/**Address section */}
             <HStack>
@@ -68,6 +69,9 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
         borderRadius: BORDER_RADIUS
+    },
+    stars:{
+        marginBottom: L_SPACE
     }
 })
 

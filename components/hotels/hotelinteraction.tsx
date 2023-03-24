@@ -15,27 +15,27 @@ export const getLocationBaseOnType = (location: string,rType: string) => {
     const dataPromise = axios.request(options).then(function (response) {
         //get the geo ids so that we can pass this into the search hotels later
         const listOfLocations: Array<any> = response.data.sr;//An array
-        let region_ID = 0;
-        for( const {type,gaiaId} of listOfLocations){
-            if (type.toLowerCase() === rType){
-                region_ID = gaiaId; 
+        //For now we look for hotels in the U.S
+        for( const {type,gaiaId, regionNames} of listOfLocations){
+            if (type.toLowerCase() === rType && regionNames.fullName.includes("United States")){
+                return gaiaId; 
             }
         }
-        return region_ID;
+        return null;
     });
     return dataPromise;
 }
 
 export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: number, max: number, rooms: Room) => {
-    
     const SORT = "PRICE_LOW_TO_HIGH";
-   
+    console.log(checkIn, checkOut);
     let search = {
         "currency": "USD",
+        "eapid": 1,
         "locale": "en_US",
         "siteId": 300000001,
         "destination": {
-            "regionId": "3179"
+            "regionId": geoID
         },
         "checkInDate": {
             "day": checkIn.getUTCDate(),
@@ -48,17 +48,35 @@ export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: num
             "year": checkOut.getUTCFullYear()
         },
         "rooms": [
-           rooms
+            {
+                "adults": 2,
+                "children": [
+                    {
+                        "age": 5
+                    },
+                    {
+                        "age": 7
+                    }
+                ]
+            }
         ],
         "resultsStartingIndex": 0,
-        "resultsSize": 200,
-        "sort": SORT,
-        "filters":{
-            "price":{
-                max: max? max : Infinity,
-                min: min? min : 0
-            }
-        }
+        "resultsSize": 40
+       /*  "currency": "USD",
+       "currency": "USD",
+        "eapid": 1,
+        "locale": "en_US",
+        "siteId": 300000001,
+        "destination": {
+            "regionId": geoID
+        },
+
+        "rooms": [
+           { "adults":1, "children":{"age":2}}
+            //rooms
+        ],
+        "resultsStartingIndex": 0,
+        "resultSize": 200, */
     }
     const options = {
         method: 'POST',
@@ -71,37 +89,17 @@ export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: num
         data: search
       };
       
-      axios.request(options).then(function (response) {
-          const listofHotels = response.data;
-         console.log(listofHotels)
-        
+    const hotelsPromise = axios.request(options).then(function (response) {
+          const listofHotels = response.data.data.propertySearch.properties;
+          return listofHotels;
       }).catch(function (error) {
           console.error(error);
-      });
+          return null;
+    });
+    //do this so that we can chain with this method as promise chain
+    return hotelsPromise;
 }
 
-export const getHotelsBasedOnLocation = () => {
-/*     const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '4954808daemsh8c28b07faccd7c3p12ce85jsn42818613f228',
-            'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
-        }
-    };
-    fetch('https://hotels-com-provider.p.rapidapi.com/v2/regions?locale=en_GB&query=San%Jose&domain=AE', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err)); */
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '4954808daemsh8c28b07faccd7c3p12ce85jsn42818613f228',
-            'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
-        }
-    };
-    
-    fetch('https://hotels-com-provider.p.rapidapi.com/v2/hotels/search?domain=AE&sort_order=REVIEW&locale=en_GB&checkout_date=2023-09-27&region_id=2872&adults_number=1&checkin_date=2023-09-26&available_filter=SHOW_AVAILABLE_ONLY&meal_plan=FREE_BREAKFAST&guest_rating_min=8&price_min=10&page_number=1&children_ages=4%2C0%2C15&amenities=WIFI%2CPARKING&price_max=500&lodging_type=HOTEL%2CHOSTEL%2CAPART_HOTEL&payment_type=PAY_LATER%2CFREE_CANCELLATION&star_rating_ids=3%2C4%2C5', options)
-        .then(response => response.json())
-        .then(response => console.log( response ))
-        .catch(err => console.error(err));
+export const getHotelsWithFilters = ( filterType:string, filterOptions:any) =>{
+
 }

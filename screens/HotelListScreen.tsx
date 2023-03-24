@@ -7,6 +7,7 @@ export interface HotelListSCreenProps{
     route: any,
 }
 const HotelListScreen = (props: HotelListSCreenProps) => {
+    const [hotels,setHotels] = useState([]);
     const params = props.route.params;
     const processParamsFromNavigation = (paramName:string, defaultVal: any) =>{
         return params[paramName] ? params[paramName] : defaultVal
@@ -15,20 +16,22 @@ const HotelListScreen = (props: HotelListSCreenProps) => {
         Hotel.getLocationBaseOnType('San Jose','city').then((geoID:any)=>{
            Hotel.getHotels(
             geoID,
-            new Date(processParamsFromNavigation("startDate",new Date())),
-            new Date(processParamsFromNavigation("endDate",new Date())),
+            processParamsFromNavigation("startDate",new Date()),
+            processParamsFromNavigation("endDate",new Date()),
             processParamsFromNavigation("minPrice",0), 
-            800,
+            processParamsFromNavigation("maxPrice",0),
             {
                 adults: processParamsFromNavigation("adults",2),
                 children:[
-                    {age: 1}
+                    {"age": 1}
                 ]
+            }).then(hotelItems => {
+                setHotels(hotelItems);
             }) 
-        }); 
+        });  
     },[])
     return (
-        <HotelList location={"San Jose"}/>
+        <HotelList navigation={props.navigation} items={hotels} location={params["location"]}/>
     )
 }
 
