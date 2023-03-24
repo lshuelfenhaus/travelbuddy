@@ -13,7 +13,7 @@ const HotelListScreen = (props: HotelListSCreenProps) => {
         return params[paramName] ? params[paramName] : defaultVal
     } 
     useEffect(()=>{
-        Hotel.getLocationBaseOnType('San Jose','city').then((geoID:any)=>{
+        Hotel.getLocationBaseOnType(processParamsFromNavigation("location",""),'city').then((geoID:any)=>{
            Hotel.getHotels(
             geoID,
             processParamsFromNavigation("startDate",new Date()),

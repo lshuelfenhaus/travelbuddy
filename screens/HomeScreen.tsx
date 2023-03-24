@@ -11,7 +11,9 @@ interface HomeScreenProps {
 }
 
 const HomeScreen = (props: HomeScreenProps) => { 
-
+  const hotelSearch=()=>{
+    props.navigation.navigate("HotelSearch");
+  }
   return(
         <SafeAreaProvider
         style={{backgroundColor: themestyles.eggshell.color}}
@@ -21,7 +23,7 @@ const HomeScreen = (props: HomeScreenProps) => {
           <Card
           containerStyle={{height:170, justifyContent:'center', alignItems:'center'}}
           >
-          <Button title="Hotels" variant="text" color={themestyles.charcoal.color}/>
+          <Button title="Hotels" variant="text" color={themestyles.charcoal.color} onPress={hotelSearch}/>
           </Card>
           <Card
           containerStyle={{height:170, justifyContent:'center', alignItems:'center'}}          

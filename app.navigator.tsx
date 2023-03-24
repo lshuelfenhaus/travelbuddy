@@ -17,7 +17,7 @@ const { Navigator, Screen } = createNativeStackNavigator();
 const AppNavigator = () => (
     <NavigationContainer>
         <Navigator
-        initialRouteName="Home"
+        initialRouteName="Login"
         screenOptions={{ 
           headerBackButtonMenuEnabled: false,
           headerBackTitleVisible: false,

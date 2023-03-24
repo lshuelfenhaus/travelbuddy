@@ -28,7 +28,6 @@ export const getLocationBaseOnType = (location: string,rType: string) => {
 
 export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: number, max: number, rooms: Room) => {
     const SORT = "PRICE_LOW_TO_HIGH";
-    console.log(checkIn, checkOut);
     let search = {
         "currency": "USD",
         "eapid": 1,
