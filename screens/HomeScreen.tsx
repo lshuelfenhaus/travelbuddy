@@ -33,7 +33,7 @@ const HomeScreen = (props: HomeScreenProps) => {
           <Card
           containerStyle={{height:170, justifyContent:'center', alignItems:'center'}}          
           >
-          <Button title="Restaurants" variant="text" color={themestyles.charcoal300.color}/>
+          <Button title="Attractions" variant="text" color={themestyles.charcoal300.color}/>
           </Card>
           <Card
           containerStyle={{height:170, justifyContent:'center', alignItems:'center'}}          
