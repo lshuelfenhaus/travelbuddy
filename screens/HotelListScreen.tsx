@@ -13,6 +13,8 @@ const HotelListScreen = (props: HotelListSCreenProps) => {
         return params[paramName] ? params[paramName] : defaultVal
     } 
     useEffect(()=>{
+
+        //TODO: implement loading screen here, load the images from the data
         Hotel.getLocationBaseOnType(processParamsFromNavigation("location",""),'city').then((geoID:any)=>{
            Hotel.getHotels(
             geoID,
