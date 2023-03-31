@@ -13,7 +13,7 @@ const HotelListScreen = (props: HotelListSCreenProps) => {
         return params[paramName] ? params[paramName] : defaultVal
     } 
     useEffect(()=>{
-        /* Hotel.getLocationBaseOnType(processParamsFromNavigation("location",""),'city').then((geoID:any)=>{
+        Hotel.getLocationBaseOnType(processParamsFromNavigation("location",""),'city').then((geoID:any)=>{
            Hotel.getHotels(
             geoID,
             processParamsFromNavigation("startDate",new Date()),
@@ -28,7 +28,7 @@ const HotelListScreen = (props: HotelListSCreenProps) => {
             }).then(hotelItems => {
                 setHotels(hotelItems);
             }) 
-        });   */
+        });   
     },[])
     return (
         <HotelList navigation={props.navigation} items={hotels} location={params["location"]}/>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { VStack, HStack, Badge, Button } from '@react-native-material/core';
 import { Text, View, StyleSheet, Image } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'; 
@@ -10,27 +10,35 @@ interface ItemCardProps {
     address?: string,
     id?: string,
     reviews?: number,
+    imageSrc?: string,
+    tags?: Array<any>
 }
 const ItemCard = (props: ItemCardProps) => {
     return (
         <VStack style={styles.container} key={props.id} spacing={L_SPACE}>
             <HStack spacing={M_SPACE}>
-                <Image style={styles.image} source={require("./../assets/hotelimages/hotel1.jpg")}/>
-                <Image style={styles.image} source={require("./../assets/hotelimages/hotel2.jpg")}/>
-                <Image style={styles.image} source={require("./../assets/hotelimages/hotel3.jpg")}/>
+                <Image style={styles.image} source={props.imageSrc? {uri: props.imageSrc}  : require("./../assets/hotelimages/hotel1.jpg")}/>
             </HStack>
             <Text style={styles.title}>{props.title}</Text>
             <StarRatings style={styles.stars} score={props.reviews?props.reviews:5} scale={10}/>
             <Text style={styles.price}>$ {props.price}</Text>
               {/**Address section */}
-            <HStack>
+            {props.address && <HStack>
                 <MaterialIcons name="location-pin" size={30} color={OUR_PURPLE} />
                 <VStack spacing={S_SPACE}>
                     <Text style={styles.address}>Address line 1</Text>
                     <Text style={styles.address}>Address line 2</Text>
                     <Text style={styles.address}>Address line 3</Text>
                 </VStack>
-            </HStack>
+            </HStack>}
+            {/*Item tags*/}
+            {
+                props.tags && <HStack>
+                    {props.tags.map((item,index)=>{
+                        return <Badge labelStyle={styles.label} key={index} label={ (item.label == null ? 0 : item.label) + " " + (item.postLabel ? item.postLabel : "")}/>
+                    }) }
+                </HStack>
+            }
             <Button style={styles.button} title="View Detail"/>
         </VStack>
     )
@@ -54,7 +62,7 @@ const styles = StyleSheet.create({
     },
     title:{
         fontWeight:"bold",
-        fontSize: 20
+        fontSize: 16
     },
     price:{
         color: OUR_PURPLE,
@@ -66,13 +74,13 @@ const styles = StyleSheet.create({
         fontSize: 16
     },
     image:{
-        width: 100,
-        height: 100,
+        width: "100%",
+        height: 150,
         borderRadius: BORDER_RADIUS
     },
     stars:{
         marginBottom: L_SPACE
-    }
+    },
 })
 
 export default ItemCard;

@@ -27,7 +27,6 @@ export const getLocationBaseOnType = (location: string,rType: string) => {
 }
 
 export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: number, max: number, rooms: Room) => {
-    const SORT = "PRICE_LOW_TO_HIGH";
     let search = {
         "currency": "USD",
         "eapid": 1,
@@ -46,9 +45,10 @@ export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: num
             "month": checkOut.getUTCMonth() + 1,
             "year": checkOut.getUTCFullYear()
         },
+        
         "rooms": [
             {
-                "adults": 2,
+                "adults": rooms.adults? rooms.adults : 1,
                 "children": [
                     {
                         "age": 5

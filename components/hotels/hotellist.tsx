@@ -28,9 +28,9 @@ const HotelList = (props: HoteListProps) => {
                         )
                     }) */}
 
-                {props.items && props.items.map((item) => {
+                {props.items && props.items.map((item,index) => {
                     return (
-                        <ItemCard key={item.id} title={item.name} price={item.price.lead.amount} reviews={item.reviews.score} id={item.id}/>
+                        <ItemCard key={index} title={item.name} price={item.price.lead.amount} tags={[{label: item.availability.minRoomsLeft, postLabel: "Rooms Left"}]} imageSrc={item.propertyImage.image.url} reviews={item.reviews.score} id={item.id}/>
                     )
                     }) 
                 }

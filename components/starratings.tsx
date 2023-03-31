@@ -11,11 +11,7 @@ interface StarRatingsProps{
 }
 
 const StarRatings = (props: StarRatingsProps) => {
-    const [score, setScore] = useState(0);
     const SIZE = 20;
-    useMemo(()=>{
-        setScore(Math.floor( (props.score / (props.scale ? props.scale:5)) * (props.starNo? props.starNo : 5)));
-    }, [props])
     return(
         <View style={props.style}>
             <HStack>
