@@ -14,6 +14,15 @@ interface ItemCardProps {
     tags?: Array<any>
 }
 const ItemCard = (props: ItemCardProps) => {
+    const goToDetail = (id: any) => {
+        if(!id){
+            //Display error message
+        } else {
+            props.navigation.navigate('ItemDetail',{
+                id: id
+            })
+        }
+    }
     return (
         <VStack style={styles.container} key={props.id} spacing={L_SPACE}>
             <HStack spacing={M_SPACE}>
@@ -35,11 +44,11 @@ const ItemCard = (props: ItemCardProps) => {
             {
                 props.tags && <HStack>
                     {props.tags.map((item,index)=>{
-                        return <Badge labelStyle={styles.label} key={index} label={ (item.label == null ? 0 : item.label) + " " + (item.postLabel ? item.postLabel : "")}/>
+                        return <Badge key={index} label={ (item.label == null ? 0 : item.label) + " " + (item.postLabel ? item.postLabel : "")}/>
                     }) }
                 </HStack>
             }
-            <Button style={styles.button} title="View Detail"/>
+            <Button style={styles.button} title="View Detail" onPress={event => goToDetail(props.id)}/>
         </VStack>
     )
 }
@@ -80,7 +89,7 @@ const styles = StyleSheet.create({
     },
     stars:{
         marginBottom: L_SPACE
-    },
+    }
 })
 
 export default ItemCard;

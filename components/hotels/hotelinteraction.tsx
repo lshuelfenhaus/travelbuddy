@@ -7,7 +7,7 @@ export const getLocationBaseOnType = (location: string,rType: string) => {
         url: 'https://hotels-com-provider.p.rapidapi.com/v2/regions',
         params: {locale: 'en_US', query: location, domain: 'US'},
         headers: {
-          'X-RapidAPI-Key': '99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91',
+          'X-RapidAPI-Key': '4954808daemsh8c28b07faccd7c3p12ce85jsn42818613f228',
           'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
         }
       };
@@ -98,8 +98,9 @@ export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: num
           locale: 'en_US',
           checkout_date: checkOut.toISOString().substring(0,10),
           region_id: geoID,
-          adults_number: rooms.adults,
-          checkin_date: checkIn.toISOString().substring(0,10)
+          adults_number: 1,
+          checkin_date: checkIn.toISOString().substring(0,10),
+          available_filter: "SHOW_AVAILABLE_ONLY"
           //OPTIONALS PARAMS FOLLOWS
          /*  available_filter: 'SHOW_AVAILABLE_ONLY',
           meal_plan: 'FREE_BREAKFAST',
@@ -120,7 +121,7 @@ export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: num
       };
       
     const hotelsPromise = axios.request(options).then(function (response) {
-          const listofHotels = response.data.data.propertySearch.properties;
+          const listofHotels = response.data.properties;
           return listofHotels;
       }).catch(function (error) {
           console.error(error);
@@ -142,7 +143,7 @@ export const getHotelDetail = (id: string) => {
         url: 'https://hotels-com-provider.p.rapidapi.com/v2/hotels/details',
         params: {domain: 'US', locale: 'en_US', hotel_id: id},
         headers: {
-          'X-RapidAPI-Key': '99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91',
+          'X-RapidAPI-Key': '4954808daemsh8c28b07faccd7c3p12ce85jsn42818613f228',
           'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
         }
       };
