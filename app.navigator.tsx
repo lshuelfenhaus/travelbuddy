@@ -11,6 +11,7 @@ import HotelSearchScreen from './screens/HotelSearchScreen';
 import HotelListScreen from './screens/HotelListScreen';
 import { Chatbot } from './screens/ChatbotScreen';
 import ItineraryScreen from './screens/ItineraryScreen';
+import HotelDetailScreen from './screens/HotelDetailScreen';
 const { Navigator, Screen } = createNativeStackNavigator();
 
 
@@ -38,6 +39,7 @@ const AppNavigator = () => (
         <Screen name="HotelList" component={HotelListScreen} />
         <Screen name="Chatbot" component={Chatbot} />
         <Screen name="Itinerary" component={ItineraryScreen} />
+        <Screen name="HotelDetail" component={HotelDetailScreen} />
       </Navigator>
     </NavigationContainer>
 )

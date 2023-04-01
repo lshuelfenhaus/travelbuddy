@@ -30,7 +30,7 @@ const HotelList = (props: HoteListProps) => {
 
                 {props.items && props.items.map((item,index) => {
                     return (
-                        <ItemCard key={index} title={item.name} price={item.price.lead.amount} tags={[{label: item.availability.minRoomsLeft, postLabel: "Rooms Left"}]} imageSrc={item.propertyImage.image.url} reviews={item.reviews.score} id={item.id}/>
+                        <ItemCard navigation = {props.navigation}type={"hotel"} key={index} title={item.name} price={item.price.lead.amount} tags={[{label: item.availability.minRoomsLeft, postLabel: "Rooms Left"}]} imageSrc={item.propertyImage.image.url} reviews={item.reviews.score} id={item.id}/>
                     )
                     }) 
                 }

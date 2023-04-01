@@ -11,15 +11,26 @@ interface ItemCardProps {
     id?: string,
     reviews?: number,
     imageSrc?: string,
-    tags?: Array<any>
+    tags?: Array<any>,
+    type: string
 }
+const get_detail_navigation = (type: string) =>{
+    switch(type){
+        case "hotel":
+            return "HotelDetail";
+        case "attraction":
+            return "AttractionDetail";
+        case "flight":
+            return "FlightDetail";
+    }
+} 
 const ItemCard = (props: ItemCardProps) => {
     const goToDetail = (id: any) => {
         if(!id){
             //Display error message
         } else {
-            props.navigation.navigate('ItemDetail',{
-                id: id
+            props.navigation.navigate(get_detail_navigation(props.type),{
+                id: id,
             })
         }
     }
