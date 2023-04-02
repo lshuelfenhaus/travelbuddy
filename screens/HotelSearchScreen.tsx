@@ -10,7 +10,7 @@ const HotelSearchScreen = (props: HotelSearchScreenProps) => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date((new Date()).getTime() + 86400000));
     const [location, setLocation] = useState("");
-    const [adults, setAdults] = useState("0");
+    const [adults, setAdults] = useState("1");
     const [children, setChildren] = useState([]);
     const [maxPrice, setMaxPrice] = useState("0");
     const [minPrice, setMinPrice] = useState("0");

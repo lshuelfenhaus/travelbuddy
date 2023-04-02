@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Room} from "./HotelInterface";
-const API_KEY =  '4954808daemsh8c28b07faccd7c3p12ce85jsn42818613f228';
+const API_KEY =  '99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91';
 export const getLocationBaseOnType = (location: string,rType: string) => {
     const options = {
         method: 'GET',
@@ -150,8 +150,8 @@ export const getHotelDetail = (id: string) => {
       };
 
     const dataPromise = axios.request(options).then(function (response:any) {
-        let PropertyInfo = response.data.summary;
-        {/*
+        let PropertyInfo = response.data;
+        {/*   
         summary:{
             id:
             name:
@@ -173,12 +173,28 @@ export const getHotelDetail = (id: string) => {
                     countryCode:
                 }
             }
-        }
+            map:{
+                markers:[ skip the last item in array since it is the hotel itself
+                    {
+                        title: "Name of the location"
+                        subtitle: "n min drive"
+                    }
+                ]
+            },
+        },
+        propertyGallery:{
+                images:[
+                    {
+                        image:{
+                            url:
+                            description: //for viewing up close? future update
+                        }
+                    }
+                ]
+            }
         */}
-        console.log(PropertyInfo);
         return PropertyInfo;
     }).catch(function (error:any) {
-        console.error(error);
         return null
     });
     return dataPromise;
@@ -195,7 +211,7 @@ export const getHotelReviews = (id: string) => {
       };
       
     const promiseData = axios.request(options).then(function (response) {
-        return response.data.reviews;
+        return response.data.reviewInfo.reviews;
         /* 
         {
             id:
@@ -211,7 +227,7 @@ export const getHotelReviews = (id: string) => {
     }).catch(function (error) {
         return [];
     });
-    console.log(promiseData);
+    return promiseData;
 }
 
 export const getRooms = (hotelId: string, checkIn: Date, checkOut: Date, adults: number) => {   
@@ -296,5 +312,6 @@ export const getRooms = (hotelId: string, checkIn: Date, checkOut: Date, adults:
       return [];
   });
 
-  console.log(dataPromise);
+  return dataPromise;
+
 }
