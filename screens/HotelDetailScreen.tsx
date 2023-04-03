@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { MaterialIcons, AntDesign } from '@expo/vector-icons'; 
 import {getRooms,getHotelDetail,getHotelReviews} from '../components/hotels/hotelinteraction'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { VStack } from '@react-native-material/core';
+import { Flex, HStack, VStack,Badge, IconButton } from '@react-native-material/core';
 import { Image } from 'react-native-elements';
+import Units from '../components/hotels/units';
+import ReviewsSection from '../components/reviewssection';
 interface HotelDetailScreenProps {
     navigation?:any,
     route: any
 }
 const HotelDetailScreen = (props: HotelDetailScreenProps) => {
-    const [rooms, setRooms] = useState<Array<any>>([]);
+    const [units, setUnits] = useState<Array<any>>([]);
     const [hotelDetail, setHotelDetail] = useState<any>();
     const [hotelReviews, setHotelReviews] = useState<Array<any>>([]);
     const params = props.route.params;
     const paramProcess = (key:string, def:any) => {
         return params[key] ? params[key] : def
+    }
+    const back = () =>{
+        if(props.navigation.canGoBack()){
+            props.navigation.goBack();
+        }   
     }
     async function getItemFromAsync (key : string){
         try{
@@ -43,12 +51,12 @@ const HotelDetailScreen = (props: HotelDetailScreenProps) => {
             let check_in = new Date(Date.parse(values[0]));
             let check_out = new Date(Date.parse(values[1]));
             let adults = values[2];
-            let rooms = require('./../JSON DATA/hotel_offers.json').units;
+            let units = require('./../JSON DATA/hotel_offers.json');
             let details = require('./../JSON DATA/hotel_detail.json');
-            let reviews = require('./../JSON DATA/hotel_reviews.json').reviewInfo.reviews;
-            setRooms(rooms);
+            let reviews = require('./../JSON DATA/hotel_reviews.json');
+            setUnits(units.units);
             setHotelDetail(details);
-            setHotelReviews(reviews);
+            setHotelReviews(reviews.reviewInfo.reviews);
         });
 /* 
     { a unit
@@ -119,7 +127,8 @@ const HotelDetailScreen = (props: HotelDetailScreenProps) => {
             }); */
     },[]);
     return(
-        <ScrollView>
+    <>
+        <ScrollView style={styles.screenBody}>
             {/* Image container */}
             <ScrollView style={styles.imageContainer} horizontal={true}>
                 {hotelDetail && hotelDetail.propertyGallery.images.map((img:any,index:number)=> {
@@ -130,22 +139,57 @@ const HotelDetailScreen = (props: HotelDetailScreenProps) => {
                 
                 }   
             </ScrollView>
+            {/* Hotel Information sections */}
+            {hotelDetail &&
+            <VStack spacing={ELEMENT_SPACING}>
+                 <Text>{hotelDetail.summary.name}</Text>
+                 <Flex direction="row" wrap={true} >
+                     {hotelDetail.summary.amenities.topAmenities.items.map((item:any,index:number)=>{
+                         return(
+                             <Badge key={index} label={item.text}/>
+                         )
+                     }) }
+                 </Flex>
+                 <HStack>
+                     <MaterialIcons name="location-pin" size={24} color="black" />
+                     <VStack spacing = {ELEMENT_SPACING} >
+                         <Text>{hotelDetail.summary.location.address.firstAddressLine}</Text> 
+                         <Text>{hotelDetail.summary.location.address.secondAddressLine}</Text>     
+                     </VStack>
+                 </HStack>
+            </VStack>
+            }
+            {/* Hotel units information */}
+            <Units  units={units}></Units>
+            {/* Hotel reviews sections */}
+            {hotelReviews && <ReviewsSection reviews={hotelReviews}></ReviewsSection>}
         </ScrollView>
+        <IconButton style={styles.floatButton} onPress={back} icon={props => <AntDesign name="back" size = {40}  />} />
+    </>
     )
 }
 const BORDER_RADIUS = 8;
 const MARGIN = 8;
-const PADDING = 50;
+const SPACE = 40;
+const ELEMENT_SPACING = 16;
 const styles = StyleSheet.create({
     propImage: {
         width: 400,
         height: 200,
         borderRadius: BORDER_RADIUS,
-        marginRight: PADDING
+        marginRight: SPACE
     },
     imageContainer:{
-        paddingHorizontal: PADDING,
         width: "100%"
+    },
+    screenBody:{
+        padding: ELEMENT_SPACING,
+    },
+    floatButton:{
+        position: 'absolute',
+        right: MARGIN,
+        bottom: MARGIN,
+        zIndex: 5000
     }
 })
 export default HotelDetailScreen;
