@@ -28,6 +28,7 @@
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
     "react-native-calendar-picker": "^7.1.4",
+    "react-native-config": "^1.5.0",
     "react-native-dialogflow": "^3.2.2",
     "react-native-elements": "^3.4.3",
     "react-native-gesture-handler": "~2.8.0",

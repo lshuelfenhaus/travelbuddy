@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import {Room} from "./HotelInterface";
-const API_KEY =  '99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91';
+import { HOTEL_API_KEY } from '../../config';
+const API_KEY =  HOTEL_API_KEY;
 export const getLocationBaseOnType = (location: string,rType: string) => {
     const options = {
         method: 'GET',
