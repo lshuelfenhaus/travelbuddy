@@ -2,7 +2,8 @@ import { HStack, Text, VStack } from '@react-native-material/core';
 import React, { useEffect, useState } from 'react';
 import StarRatings from './starratings';
 import { StyleSheet } from 'react-native';
-
+import * as STYLE_CONSTANTS from '../StyleConstants';
+import themestyles from '../Colors';
 interface ReviewsSectionProps{
     reviews: Array<any>,
 }
@@ -43,17 +44,17 @@ const ReviewsSection = (props:ReviewsSectionProps) => {
             <VStack>
                 <Text style={styles.overallTitle}>{"Overall Score"}</Text>
                 <HStack>
-                    <Text>{overall}</Text>
+                    <Text style={{fontSize: STYLE_CONSTANTS.TEXT_REGULAR}}>{overall}</Text>
                     {/* Some time there is a array size error pop up in Star ratings, I dont know why */}
-                    {overall && <StarRatings score={overall} scale={scale} filledColor='purple' size={24}></StarRatings>}
+                    {overall && <StarRatings score={overall} scale={scale} filledColor={themestyles.delftBlue.color} size={24}></StarRatings>}
                 </HStack>
                 <VStack spacing={ELEMENT_SPACING}>
                     {props.reviews && props.reviews.map( (review:any, index:number) => {
                         return(
                             <VStack key={index}>
-                                <Text style={styles.reviewTitle}>{review.stayDuration}</Text>
+                                <Text style={styles.reviewTitle}>{review.stayDuration?review.stayDuration:"Anonymous User"}</Text>
                                 {review.reviewScoreWithDescription.value && <StarRatings scale={scale} score={getScoreFromString(review.reviewScoreWithDescription.value)}></StarRatings>}
-                                <Text>{review.text}</Text>
+                                <Text style={{fontSize: STYLE_CONSTANTS.TEXT_REGULAR}}>{review.text.length > 0 ? review.text : "No comment"}</Text>
                             </VStack>
                         )
                     })}
@@ -65,7 +66,8 @@ const ReviewsSection = (props:ReviewsSectionProps) => {
 const ELEMENT_SPACING = 8;
 const styles = StyleSheet.create({
     reviewTitle:{
-        fontWeight: "bold"
+        fontWeight: "bold",
+        fontSize: STYLE_CONSTANTS.TEXT_REGULAR
     },
     overallTitle:{
         fontWeight: "bold",

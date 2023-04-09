@@ -7,6 +7,8 @@ import { Flex, HStack, VStack,Badge, IconButton } from '@react-native-material/c
 import { Image } from 'react-native-elements';
 import Units from '../components/hotels/units';
 import ReviewsSection from '../components/reviewssection';
+import * as STYLE_CONSTANTS from '../StyleConstants';
+import themestyles from '../Colors';
 interface HotelDetailScreenProps {
     navigation?:any,
     route: any
@@ -27,10 +29,10 @@ const HotelDetailScreen = (props: HotelDetailScreenProps) => {
     async function getItemFromAsync (key : string){
         try{
             const global_val = await AsyncStorage.getItem(key);
-            if(!global_val){//no global check in check out and adults which are used when creating itinerary
+            if(global_val === null){//no global check in check out and adults which are used when creating itinerary
                 //try pair with type Ex: key = check_in_hotel
                 try{
-                    const val = await AsyncStorage.getItem(key+"_"+paramProcess('type',''));
+                    const val = await AsyncStorage.getItem(key+"_"+"hotel");
                     return val;
                 }catch(error){
                     return null;
@@ -51,12 +53,21 @@ const HotelDetailScreen = (props: HotelDetailScreenProps) => {
             let check_in = new Date(Date.parse(values[0]));
             let check_out = new Date(Date.parse(values[1]));
             let adults = values[2];
-            let units = require('./../JSON DATA/hotel_offers.json');
+            getRooms(paramProcess('id',""), check_in, check_out, adults).then((units)=>{
+                setUnits(units);
+            });
+            getHotelDetail(paramProcess('id',"")).then((details:any)=>{
+                setHotelDetail(details);
+            });
+            getHotelReviews(paramProcess('id',"")).then((reviews)=>{
+                setHotelReviews(reviews);
+            });
+           /*  let units = require('./../JSON DATA/hotel_offers.json');
             let details = require('./../JSON DATA/hotel_detail.json');
             let reviews = require('./../JSON DATA/hotel_reviews.json');
             setUnits(units.units);
             setHotelDetail(details);
-            setHotelReviews(reviews.reviewInfo.reviews);
+            setHotelReviews(reviews.reviewInfo.reviews); */
         });
 /* 
     { a unit
@@ -117,14 +128,8 @@ const HotelDetailScreen = (props: HotelDetailScreenProps) => {
         ]
     }
   */
-/*          getRooms(paramProcess('id',""), check_in, check_out, adults).then((units)=>{
-                setRooms(units);
-            });
-            getHotelDetail(paramProcess('id',"")).then((detail)=>{
-                
-            });
-            getHotelReviews(paramProcess('id',""));
-            }); */
+
+
     },[]);
     return(
     <>
@@ -142,19 +147,19 @@ const HotelDetailScreen = (props: HotelDetailScreenProps) => {
             {/* Hotel Information sections */}
             {hotelDetail &&
             <VStack spacing={ELEMENT_SPACING}>
-                 <Text>{hotelDetail.summary.name}</Text>
+                 <Text style={{fontSize:STYLE_CONSTANTS.TEXT_XLARGE}}>{hotelDetail.summary.name}</Text>
                  <Flex direction="row" wrap={true} >
                      {hotelDetail.summary.amenities.topAmenities.items.map((item:any,index:number)=>{
                          return(
-                             <Badge key={index} label={item.text}/>
+                             <Text  style={styles.badge} key={index}>{item.text}</Text>
                          )
                      }) }
                  </Flex>
                  <HStack>
-                     <MaterialIcons name="location-pin" size={24} color="black" />
+                     <MaterialIcons name="location-pin" size={24} color={themestyles.delftBlue.color} />
                      <VStack spacing = {ELEMENT_SPACING} >
-                         <Text>{hotelDetail.summary.location.address.firstAddressLine}</Text> 
-                         <Text>{hotelDetail.summary.location.address.secondAddressLine}</Text>     
+                         <Text style={{fontSize: STYLE_CONSTANTS.TEXT_REGULAR}}>{hotelDetail.summary.location.address.firstAddressLine}</Text> 
+                         <Text style={{fontSize: STYLE_CONSTANTS.TEXT_REGULAR}}>{hotelDetail.summary.location.address.secondAddressLine}</Text>     
                      </VStack>
                  </HStack>
             </VStack>
@@ -190,6 +195,16 @@ const styles = StyleSheet.create({
         right: MARGIN,
         bottom: MARGIN,
         zIndex: 5000
+    },
+    badge:{
+        backgroundColor: themestyles.charcoal300.color,
+        fontSize: STYLE_CONSTANTS.TEXT_SMALL,
+        fontWeight: 'bold',
+        padding: STYLE_CONSTANTS.PADDING_REGULAR,
+        borderRadius: BORDER_RADIUS * 3,
+        marginRight: MARGIN,
+        marginBottom: MARGIN,
+        color: 'white',
     }
 })
 export default HotelDetailScreen;

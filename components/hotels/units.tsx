@@ -2,7 +2,9 @@ import { Flex, HStack, Pressable, VStack } from '@react-native-material/core';
 import React, { useState } from 'react';
 import { Image } from 'react-native-elements';
 import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
+import themeStyles from './../../Colors'
 import Modal from 'react-native-modal';
+import * as STYLE_CONSTANTS  from './../../StyleConstants';
 interface UnitsProps{
     units: Array<any>
 }
@@ -14,16 +16,17 @@ const Units = (props:UnitsProps) => {
     const viewUnit = (event:any,unit:any) => {
         setModalVisible(true);
         setCurUnit(unit);
+        setCurPlan(unit.ratePlans[0].priceDetails[0])
     }
     const setCurrentPlan = (event:any, curP: any) => {
         setCurPlan(curP);
     }
     return(
         <>
-      <Modal animationIn="fadeIn" animationOut="fadeOut" isVisible={modalVisible}>
-            <View style={{borderRadius: 16,overflow: 'hidden'}}>
+      <Modal style={{padding:STYLE_CONSTANTS.PADDING_XLARGE}} animationIn="fadeIn" animationOut="fadeOut" isVisible={modalVisible}>
+            <View style={{borderRadius: STYLE_CONSTANTS.BORDER_RADIUS, overflow:"hidden"}}>
             <ScrollView style={styles.screenBody}>
-                {curUnit && 
+                {curUnit &&
                 <>
                     <ScrollView style={styles.imageContainer} horizontal={true}>
                         {curUnit.unitGallery.gallery.map((img:any,index:number)=> {
@@ -32,20 +35,21 @@ const Units = (props:UnitsProps) => {
                             )
                         })}   
                     </ScrollView>
-                    <Text>{curUnit.header.text}</Text>
+                    <Text style={[styles.textMainTitle]}>{curUnit.header.text}</Text>
                     {/* Rate Plan */}
                     <VStack>
+                        <Text style={[styles.textSubTitle]}>Offers</Text>
                         {curUnit.ratePlans &&
                         curUnit.ratePlans.map((plan:any,index:number)=>{
                             return(
                                 plan.priceDetails.map( (detail:any, index: number) => {
                                     return(
                                         <Pressable onPress={event=>setCurrentPlan(event,detail)}>
-                                            <HStack style={curPlan == detail ? styles.curPlan : styles.planDetail}>
-                                                <Text>{detail.price.lead.amount}</Text>
+                                            <HStack style={[styles.planDetail, curPlan == detail ? styles.curPlan : {}]}>
+                                                <Text style={[styles.textRegular,styles.planPrice, curPlan == detail ? {color: 'white'}: {}]}>$ {Math.round(detail.price.lead.amount)}</Text>
                                                 <VStack>
-                                                    <Text>{detail.depositPolicies}</Text>
-                                                    <Text>{detail.paymentModel}</Text>
+                                                    <Text style={[styles.textRegular, curPlan == detail ? {color: 'white'}: {}]}>{detail.depositPolicies}</Text>
+                                                    <Text style={[styles.textRegular, curPlan == detail ? {color: 'white'}: {}]}>{detail.paymentModel}</Text>
                                                 </VStack>
                                             </HStack>
                                         </Pressable>
@@ -57,18 +61,18 @@ const Units = (props:UnitsProps) => {
 
                     </VStack>
 
-                    <VStack spacing={ELEMENT_SPACING}>
-                        <Text>Room Amenities</Text>
+                    <VStack spacing={STYLE_CONSTANTS.ELEMENT_SPACING}>
+                        <Text style={[styles.textSubTitle]}>Room Amenities</Text>
                         {curUnit.roomAmenities.bodySubSections[0].contents &&
                         curUnit.roomAmenities.bodySubSections[0].contents.map((content:any, index:number) => {
                             return(
-                                <VStack>
-                                    <Text style={styles.amenityTitle}>{content.header.text}</Text>
+                                <VStack key={index}>
+                                    <Text style={[styles.amenityTitle,styles.textSubTitle]}>{content.header.text}</Text>
                                     {content.items && content.items.map((item:any, index:number)=>{
                                         let amenities = item.content.text.replace(/<ul>|<li>|<\/ul>|<\/li>/gi, " ").trim().split("  ");
                                         return(
                                             amenities.map((item:any,index:number)=>
-                                                <Text>{item.trim()}</Text>
+                                                item !== "" ? <Text style={[styles.textRegular]}>{item.trim()}</Text> : null
                                             )
                                         )
                                     })}
@@ -80,31 +84,31 @@ const Units = (props:UnitsProps) => {
                 </>
                 }
             </ScrollView>
-            <Flex  direction='row' >
+            {curPlan && <Flex  direction='row' >
                <Pressable onPress={(event)=>{
                 setModalVisible(false);
-               }} style={styles.modalButton}>
-                    <Text style={styles.buttonText}>Close</Text>
+               }} style={[styles.modalButton,styles.closeButton]}>
+                    <Text style={[styles.buttonText, styles.textSubTitle]}>Close</Text>
                </Pressable>
-               <Pressable style={styles.modalButton}>
+               <Pressable style={[styles.modalButton,styles.reserveButton]}>
                 <HStack>                    
-                    <Text style={styles.buttonText}>Reserve with current Plan</Text>
-                    <Text style={styles.buttonTextPrice}>$ {curPlan.price.lead.amount}</Text>
+                    <Text style={[styles.buttonText,styles.textSubTitle]}>Save Offer</Text>
+                    <Text style={[styles.buttonTextPrice,styles.textSubTitle]}>$ {Math.round(curPlan.price.lead.amount)}</Text>
                 </HStack>
 
                </Pressable>
-            </Flex>
+            </Flex>}
             </View>
         </Modal>
 
         <ScrollView horizontal={true}>
         { props.units && props.units.map((unit,index)=>(
             <Pressable key={index} onPress={event=>viewUnit(event,unit)}>
-                <VStack key = {index} style={styles.unitSmallBox} spacing={ELEMENT_SPACING}>
+                <VStack key = {index} style={styles.unitSmallBox} spacing={STYLE_CONSTANTS.ELEMENT_SPACING}>
                     <Image style={styles.unitThumbnail} source={{uri:unit.unitGallery.gallery[0].image.url }}/>
-                    <Text>{unit.header.text}</Text>
-                    {unit.ratePlans[0] ? <Text>{ unit.ratePlans[0].priceDetails[0].price.lead.amount}</Text>
-                    :<Text>{"Not Available"}</Text>}
+                    <Text style={styles.textRegular}>{unit.header.text}</Text>
+                    {unit.ratePlans[0] ? <Text style={styles.textRegular}>{ unit.ratePlans[0].priceDetails[0].price.lead.amount}</Text>
+                    :<Text style={styles.textRegular}>{"Not Available"}</Text>}
                 </VStack>
             </Pressable>
             )
@@ -114,17 +118,14 @@ const Units = (props:UnitsProps) => {
         </>
     )
 }
-const BORDER_RADIUS = 8;
-const MARGIN = 8;
-const SPACE = 40;
-const ELEMENT_SPACING = 16;
+
 const styles = StyleSheet.create({
     unitThumbnail:{
         width: 200,
         height: 100
     },
     unitSmallBox:{
-        marginRight: ELEMENT_SPACING
+        marginRight: STYLE_CONSTANTS.ELEMENT_SPACING
     },
     imageContainer:{
         width: "100%"
@@ -132,28 +133,40 @@ const styles = StyleSheet.create({
     propImage: {
         width: 400,
         height: 200,
-        borderRadius: BORDER_RADIUS,
-        marginRight: SPACE
+        borderRadius: STYLE_CONSTANTS.BORDER_RADIUS,
+        marginRight: STYLE_CONSTANTS.SPACE
     },
     screenBody:{
-        padding: ELEMENT_SPACING,
+        padding: STYLE_CONSTANTS.ELEMENT_SPACING,
         backgroundColor: 'white',
     },
     amenityTitle:{
         fontWeight: 'bold'
     },
     planDetail:{
-
+        padding: STYLE_CONSTANTS.PADDING_REGULAR,
+        borderWidth: 1,
+        borderRadius: STYLE_CONSTANTS.BORDER_RADIUS,
+        marginBottom: STYLE_CONSTANTS.MARGIN,
+        borderColor: 'grey',
+        alignItems: 'center',
+        minWidth: 200
     },
     curPlan:{
-        backgroundColor: 'grey'
+        backgroundColor: themeStyles.charcoal400.color,
+        color: 'white'
     },
     modalButton:{
-        backgroundColor: 'blue',
-        padding: ELEMENT_SPACING,
+        backgroundColor: themeStyles.delftBlue.color,
+        padding: STYLE_CONSTANTS.ELEMENT_SPACING,
         justifyContent: 'center',
         alignItems: 'center',
         display: 'flex'
+    },
+    closeButton:{
+        backgroundColor: STYLE_CONSTANTS.CLOSE_BUTTON_COLOR,
+        color: 'white',
+        paddingHorizontal: STYLE_CONSTANTS.PADDING_XLARGE * 2
     },
     buttonText:{
         fontSize: 20,
@@ -161,7 +174,25 @@ const styles = StyleSheet.create({
     },
     buttonTextPrice:{
         fontWeight: 'bold',
-        color: 'white'
+        color: 'white',
+        marginLeft: STYLE_CONSTANTS.MARGIN
+    },
+    textRegular:{
+        fontSize: STYLE_CONSTANTS.TEXT_REGULAR
+    },
+    textSubTitle:{
+        fontSize: STYLE_CONSTANTS.TEXT_LARGE
+    },
+    textMainTitle:{
+        fontSize: STYLE_CONSTANTS.TEXT_XLARGE
+    },
+    planPrice:{
+        maxWidth: 250,
+        marginRight: STYLE_CONSTANTS.MARGIN,
+        fontWeight: 'bold',
+    },
+    reserveButton:{
+        flex: 1
     }
 })
 

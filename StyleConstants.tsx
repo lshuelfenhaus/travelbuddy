@@ -1,0 +1,12 @@
+export const BORDER_RADIUS = 8;
+export const MARGIN = 8;
+export const SPACE = 40;
+export const ELEMENT_SPACING = 16;
+export const TEXT_SMALL = 16;
+export const TEXT_REGULAR = 20;
+export const TEXT_LARGE = 24;
+export const TEXT_XLARGE = 32;
+export const CLOSE_BUTTON_COLOR = 'tomato';
+export const PADDING_REGULAR = 8;
+export const PADDING_LARGE = 12;
+export const PADDING_XLARGE = 16; 

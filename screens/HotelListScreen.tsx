@@ -9,24 +9,27 @@ export interface HotelListSCreenProps{
     route: any,
 }
 const HotelListScreen = (props: HotelListSCreenProps) => {
-    const [hotels,setHotels] = useState([]);
+    const [hotels, setHotels] = useState<Array<Room>>([]);  
     const params = props.route.params;
+    
     const processParamsFromNavigation = (paramName:string, defaultVal: any) =>{
         return params[paramName] ? params[paramName] : defaultVal
     }
+
     async function setDates  (checkIn: Date, checkOut: Date) {
-        console.log(checkIn, checkOut);
-        await AsyncStorage.setItem("@check_in_hotel", processParamsFromNavigation("startDate", new Date()).toISOString());
-        await AsyncStorage.setItem("@check_out_hotel", processParamsFromNavigation("endDate", new Date()).toISOString());
+        await AsyncStorage.setItem("@check_in_hotel", checkIn.toISOString());
+        await AsyncStorage.setItem("@check_out_hotel", checkOut.toISOString());
     }
     async function setAdults (n: number) {
         await AsyncStorage.setItem("@adults_hotel", processParamsFromNavigation("adults",1))
     }
+    
+
     useEffect(()=>{
         setDates(processParamsFromNavigation("startDate",new Date()),processParamsFromNavigation("endDate",new Date()));
         setAdults(processParamsFromNavigation("adults",1));
         //TODO: implement loading screen here, load the images from the data
-       /*  Hotel.getLocationBaseOnType(processParamsFromNavigation("location",""),'city').then((geoID:any)=>{
+       Hotel.getLocationBaseOnType(processParamsFromNavigation("location",""),'city').then((geoID:any)=>{
            Hotel.getHotels(
             geoID,
             processParamsFromNavigation("startDate",new Date()),
@@ -41,11 +44,10 @@ const HotelListScreen = (props: HotelListSCreenProps) => {
             }).then(hotelItems => {
                 setHotels(hotelItems);
             }) 
-        });    */
+        });  
     },[])
     return (
-        <Button title={'detail'} onPress={(event) => {props.navigation.navigate("HotelDetail", {id:'849504',type:'hotel'})}} />
-        //<HotelList navigation={props.navigation} items={hotels} location={params["location"]}/>
+        <HotelList navigation={props.navigation} items={hotels} location={params["location"]}/>
     )
 }
 

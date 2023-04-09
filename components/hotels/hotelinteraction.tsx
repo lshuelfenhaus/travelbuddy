@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import {Room} from "./HotelInterface";
-import { HOTEL_API_KEY } from '../../config';
-const API_KEY =  HOTEL_API_KEY;
+
+const API_KEY =  "99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91";
 export const getLocationBaseOnType = (location: string,rType: string) => {
     const options = {
         method: 'GET',
@@ -13,7 +13,6 @@ export const getLocationBaseOnType = (location: string,rType: string) => {
           'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
         }
       };
-
     const dataPromise = axios.request(options).then(function (response) {
         //get the geo ids so that we can pass this into the search hotels later
         const listOfLocations: Array<any> = response.data.data;//An array (might be one data)
@@ -121,7 +120,6 @@ export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: num
           'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
         }
       };
-      
     const hotelsPromise = axios.request(options).then(function (response) {
           const listofHotels = response.data.properties;
           return listofHotels;
@@ -138,8 +136,6 @@ export const getHotelsWithFilters = ( filterType:string, filterOptions:any) =>{
 }
 
 export const getHotelDetail = (id: string) => {
-    const axios = require("axios");
-
     const options = {
         method: 'GET',
         url: 'https://hotels-com-provider.p.rapidapi.com/v2/hotels/details',
@@ -212,6 +208,7 @@ export const getHotelReviews = (id: string) => {
       };
       
     const promiseData = axios.request(options).then(function (response) {
+
         return response.data.reviewInfo.reviews;
         /* 
         {

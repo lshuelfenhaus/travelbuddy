@@ -12,13 +12,14 @@ import HotelListScreen from './screens/HotelListScreen';
 import { Chatbot } from './screens/ChatbotScreen';
 import ItineraryScreen from './screens/ItineraryScreen';
 import HotelDetailScreen from './screens/HotelDetailScreen';
+import ReservationScreen from './screens/RerservationScreen';
 const { Navigator, Screen } = createNativeStackNavigator();
 
 
 const AppNavigator = () => (
     <NavigationContainer>
         <Navigator
-        initialRouteName="HotelDetail"
+        initialRouteName="HotelSearch"
         screenOptions={{ 
           headerBackButtonMenuEnabled: false,
           headerBackTitleVisible: false,
@@ -40,6 +41,7 @@ const AppNavigator = () => (
         <Screen name="Chatbot" component={Chatbot} />
         <Screen name="Itinerary" component={ItineraryScreen} />
         <Screen name="HotelDetail" component={HotelDetailScreen} />
+        <Screen name="Reservation" component={ReservationScreen} />
       </Navigator>
     </NavigationContainer>
 )
