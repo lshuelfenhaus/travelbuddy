@@ -1,18 +1,18 @@
 import React from 'react'
 import axios from 'axios'
 
-const API_KEY = '4954808daemsh8c28b07faccd7c3p12ce85jsn42818613f228'
+const API_KEY = '9a08860ac3mshdeb21522541f3eap11d480jsn05a1721050d6'
 
-export const getFlights = () => {
+export const getFlights = (from_location: string, to_location: string, flight_date: Date, adults_number: number) => {
         
     const options = {
         method: 'GET',
         url: 'https://flight-fare-search.p.rapidapi.com/v2/flight/',
         params: {
-          from: 'SJC',
-          to: 'JFK',
-          date: '2023-05-09',
-          adult: '1',
+          from: from_location,
+          to: to_location,
+          date: flight_date.toISOString().substring(0,10),
+          adult: adults_number,
           type: 'economy',
           currency: 'USD'
         },
@@ -23,7 +23,9 @@ export const getFlights = () => {
       };
       
       const flightsPromise = axios.request(options).then(function (response) {
-          console.log(response.data);
+        let flightRequest = response.data;
+        console.log(response.data);
+        return flightRequest;
       }).catch(function (error) {
           console.error(error);
       });

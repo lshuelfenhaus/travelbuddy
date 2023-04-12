@@ -11,7 +11,7 @@ interface FlightListProps {
 const items = [{id:'1',name:"airline name 1", price: 800, reviews: 10},{id:'2', price: 200,name:"airline name 2", reviews: 9},{id:'2', price: 50, name:"airline name 3", reviews: 4.5}]
 const FlightList = (props: FlightListProps) => {
     const back = () =>{
-        props.navigation.navigate("HotelSearch");
+        props.navigation.navigate("FlightSearch");
     }
     return (
         <ScrollView>        

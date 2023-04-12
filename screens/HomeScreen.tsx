@@ -14,6 +14,10 @@ const HomeScreen = (props: HomeScreenProps) => {
   const hotelSearch=()=>{
     props.navigation.navigate("HotelSearch");
   }
+
+  const flightSearch=()=>{
+    props.navigation.navigate("FlightSearch");
+  }
   return(
         <SafeAreaProvider
         style={{backgroundColor: themestyles.eggshell.color}}
@@ -28,7 +32,7 @@ const HomeScreen = (props: HomeScreenProps) => {
           <Card
           containerStyle={{height:170, justifyContent:'center', alignItems:'center'}}          
           >
-          <Button title="Flights" variant="text" color={themestyles.charcoal200.color}/>
+          <Button title="Flights" variant="text" color={themestyles.charcoal200.color} onPress={flightSearch}/>
           </Card>
           <Card
           containerStyle={{height:170, justifyContent:'center', alignItems:'center'}}          
