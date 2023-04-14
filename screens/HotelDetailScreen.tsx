@@ -197,14 +197,17 @@ const styles = StyleSheet.create({
         zIndex: 5000
     },
     badge:{
-        backgroundColor: themestyles.charcoal300.color,
+        backgroundColor: STYLE_CONSTANTS.BADGE_COLOR,
         fontSize: STYLE_CONSTANTS.TEXT_SMALL,
         fontWeight: 'bold',
-        padding: STYLE_CONSTANTS.PADDING_REGULAR,
+        paddingHorizontal: STYLE_CONSTANTS.PADDING_REGULAR,
+        paddingVertical: STYLE_CONSTANTS.PADDING_REGULAR/2,
         borderRadius: BORDER_RADIUS * 3,
         marginRight: MARGIN,
         marginBottom: MARGIN,
-        color: 'white',
+        minWidth: STYLE_CONSTANTS.BADGE_MIN_WIDTH,
+        textAlign: 'center',
+        color: STYLE_CONSTANTS.BADGE_TEXT_COLOR,
     }
 })
 export default HotelDetailScreen;

@@ -34,14 +34,8 @@ const HotelListScreen = (props: HotelListSCreenProps) => {
             geoID,
             processParamsFromNavigation("startDate",new Date()),
             processParamsFromNavigation("endDate",new Date()),
-            processParamsFromNavigation("minPrice",0), 
-            processParamsFromNavigation("maxPrice",0),
-            {
-                adults: processParamsFromNavigation("adults",1),
-                children:[
-                    {"age": 1}
-                ]
-            }).then(hotelItems => {
+            processParamsFromNavigation("adults",1)
+            ).then(hotelItems => {
                 setHotels(hotelItems);
             }) 
         });  

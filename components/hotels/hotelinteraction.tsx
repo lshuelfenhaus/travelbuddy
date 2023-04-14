@@ -27,8 +27,7 @@ export const getLocationBaseOnType = (location: string,rType: string) => {
     return dataPromise;
 }
 
-export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: number, max: number, rooms: Room) => {
-        /*
+export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, adults: number) => {
         let search = {
         "currency": "USD",
         "eapid": 1,
@@ -50,19 +49,14 @@ export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: num
         
         "rooms": [
             {
-                "adults": rooms.adults? rooms.adults : 1,
+                "adults": adults,
                 "children": [
-                    {
-                        "age": 5
-                    },
-                    {
-                        "age": 7
-                    }
                 ]
             }
         ],
         "resultsStartingIndex": 0,
         "resultsSize": 40
+        }
        /*  "currency": "USD",
        "currency": "USD",
         "eapid": 1,

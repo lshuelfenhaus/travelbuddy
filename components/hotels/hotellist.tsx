@@ -3,6 +3,7 @@ import { VStack,IconButton } from '@react-native-material/core';
 import ItemCard from './../itemcard';
 import {ScrollView,FlatList, StyleSheet, Text, View} from 'react-native';
 import { AntDesign } from '@expo/vector-icons'; 
+import themestyles from '../../Colors';
 interface HoteListProps {
     navigation?: any,
     items?: Array<any>,
@@ -16,7 +17,7 @@ const HotelList = (props: HoteListProps) => {
     return (
         <ScrollView>        
             <VStack spacing={16} style={styles.container}>
-                <IconButton style={styles.floatButton} onPress={back} icon={props => <AntDesign name="back" size = {40} color={OUR_PURPLE} />} />
+                <IconButton style={styles.floatButton} onPress={back} icon={props => <AntDesign name="back" size = {40} color={themestyles.delftBlue.color} />} />
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>Hotels at </Text>
                     <Text style={styles.location}>{props.location}</Text>
@@ -30,7 +31,16 @@ const HotelList = (props: HoteListProps) => {
 
                 {props.items && props.items.map((item,index) => {
                     return (
-                        <ItemCard navigation = {props.navigation}type={"hotel"} key={index} title={item.name} price={item.price.lead.amount} tags={[{label: item.availability.minRoomsLeft, postLabel: "Rooms Left"}]} imageSrc={item.propertyImage.image.url} reviews={item.reviews.score} id={item.id}/>
+                        <ItemCard 
+                            navigation = {props.navigation}
+                            type = {"hotel"} 
+                            key = {index} 
+                            title = {item.name} 
+                            price = {item.price.lead.amount} 
+                            tags = {[{label: item.availability.minRoomsLeft, postLabel: "Rooms Left"}]} 
+                            imageSrc = {item.propertyImage.image.url} 
+                            reviews = {item.reviews.score} 
+                            id = {item.id}/>
                     )
                     }) 
                 }
@@ -39,7 +49,6 @@ const HotelList = (props: HoteListProps) => {
 
     )
 }
-const OUR_PURPLE = "#6200EE";
 const styles = StyleSheet.create({
     container:{
         padding: 16
@@ -56,7 +65,7 @@ const styles = StyleSheet.create({
     },
     location:{
         fontWeight: 'bold',
-        color: OUR_PURPLE,
+        color: themestyles.delftBlue.color,
         fontSize: 28
     },
     floatButton:{
