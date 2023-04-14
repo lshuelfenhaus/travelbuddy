@@ -1,0 +1,427 @@
+{
+    "__typename": "PropertyInfo",
+    "id": "1105156",
+    "reviewInfo": {
+      "__typename": "PropertyReviews",
+      "reviews": [
+        {
+          "__typename": "PropertyReview",
+          "id": "640f7493d7d4a41b12fbceba",
+          "brandType": "Hotels",
+          "reviewScoreWithDescription": {
+            "__typename": "LodgingEnrichedMessage",
+            "accessibilityLabel": null,
+            "value": "10/10 Exceptional"
+          },
+          "reviewAuthorAttribution": null,
+          "travelers": [],
+          "submissionTimeLocalized": "13 Mar 2023",
+          "themes": null,
+          "title": "",
+          "text": "The staff was amazing. Took care of any issues immediately and very helpful with questions we had about the city. Great location for the money! ",
+          "photos": [],
+          "stayDuration": "John, 3-night trip",
+          "reviewInteractionSections": [],
+          "managementResponses": [
+            {
+              "__typename": "ManagementResponse",
+              "header": {
+                "__typename": "LodgingHeader",
+                "text": "Response from Petr on 20 Mar 2023"
+              },
+              "response": "Dear Traveler, many thanks, we much appreciate your visit and comment. Kindest regards Petr"
+            }
+          ],
+          "translationInfo": null
+        },
+        {
+          "__typename": "PropertyReview",
+          "id": "64078c2b964edf0774813b90",
+          "brandType": "Hotels",
+          "reviewScoreWithDescription": {
+            "__typename": "LodgingEnrichedMessage",
+            "accessibilityLabel": null,
+            "value": "10/10 Exceptional"
+          },
+          "reviewAuthorAttribution": null,
+          "travelers": [],
+          "submissionTimeLocalized": "7 Mar 2023",
+          "themes": null,
+          "title": "Příjemný víkendový pobyt.",
+          "text": "Výborný hotel s dobrým poměrem ceny a služeb. Velice příjemná obsluha a lidé v hotelu. Kéž by všude byli takový lidé. Děkujeme.",
+          "photos": [],
+          "stayDuration": "1-night family trip",
+          "reviewInteractionSections": [],
+          "managementResponses": [
+            {
+              "__typename": "ManagementResponse",
+              "header": {
+                "__typename": "LodgingHeader",
+                "text": "Response from Petr on 7 Mar 2023"
+              },
+              "response": "Dear Traveler, many thanks, we much appreciate your visit and comment.Kindest regards Petr"
+            }
+          ],
+          "translationInfo": null
+        },
+        {
+          "__typename": "PropertyReview",
+          "id": "63e156e808be29081aa7b1b8",
+          "brandType": "Hotels",
+          "reviewScoreWithDescription": {
+            "__typename": "LodgingEnrichedMessage",
+            "accessibilityLabel": null,
+            "value": "10/10 Exceptional"
+          },
+          "reviewAuthorAttribution": null,
+          "travelers": [],
+          "submissionTimeLocalized": "6 Feb 2023",
+          "themes": null,
+          "title": "Comfortable hotel, perfect location.",
+          "text": "Large comfortable hotel in a traditional style. Rooms clean, comfortable and quiet, with all amenities. Great water pressure in shower. Bed linen and towels crisp and fresh. Breakfast buffet is one of the best I've had. Fabulous choice hot, cold and pastries. Location is across the river from the old town in quieter embassy area. Old town is reach in a few.minutes stroll across the bridge. Some great restaurants and bars close buy with good value food and drinks. Tramlines and bus run close to hotel making easy access to the city. We would happily stay there again. ",
+          "photos": [],
+          "stayDuration": "3-night trip with friends",
+          "reviewInteractionSections": [],
+          "managementResponses": [
+            {
+              "__typename": "ManagementResponse",
+              "header": {
+                "__typename": "LodgingHeader",
+                "text": "Response from TOM on 10 Feb 2023"
+              },
+              "response": "Dear Traveler, thank you very much for a such a nice review, it was big pleasure to welcome you here at hotel, we look forward to your next reservation. Kindest regards Tomas"
+            }
+          ],
+          "translationInfo": null
+        },
+        {
+          "__typename": "PropertyReview",
+          "id": "63da7ff00ff10302fdfaaf4d",
+          "brandType": "Hotels",
+          "reviewScoreWithDescription": {
+            "__typename": "LodgingEnrichedMessage",
+            "accessibilityLabel": null,
+            "value": "10/10 Exceptional"
+          },
+          "reviewAuthorAttribution": null,
+          "travelers": [],
+          "submissionTimeLocalized": "1 Feb 2023",
+          "themes": null,
+          "title": "AMAZING!",
+          "text": "I have only great things to say about our 3 night stay.  Location, staff, cleanliness, room size were all amazing. The buffet breakfast has lots of options to suit all tastes. I would stay here again in a second & would recommend to anyone visiting Prague. ",
+          "photos": [],
+          "stayDuration": "Sarah, 3-night trip",
+          "reviewInteractionSections": [],
+          "managementResponses": [
+            {
+              "__typename": "ManagementResponse",
+              "header": {
+                "__typename": "LodgingHeader",
+                "text": "Response from TOM on 3 Feb 2023"
+              },
+              "response": "Dear Mrs.Sarah, it makes us very happy that you enjhoyed your stay, we much appreciate your visit and comment. We look forward to your next visit.Regards Tomas"
+            }
+          ],
+          "translationInfo": null
+        },
+        {
+          "__typename": "PropertyReview",
+          "id": "63d51af7972bdc22060c31b5",
+          "brandType": "Hotels",
+          "reviewScoreWithDescription": {
+            "__typename": "LodgingEnrichedMessage",
+            "accessibilityLabel": null,
+            "value": "10/10 Exceptional"
+          },
+          "reviewAuthorAttribution": null,
+          "travelers": [],
+          "submissionTimeLocalized": "28 Jan 2023",
+          "themes": null,
+          "title": "Exclusive stay in Prag",
+          "text": "Late night check-in allowed, clean room, everyday change of towels, breakfast super, in front of hotel tram station, near the Carls bridge and historic centre",
+          "photos": [],
+          "stayDuration": "Ladislav, 3-night trip",
+          "reviewInteractionSections": [],
+          "managementResponses": [
+            {
+              "__typename": "ManagementResponse",
+              "header": {
+                "__typename": "LodgingHeader",
+                "text": "Response from TOM on 30 Jan 2023"
+              },
+              "response": "Dear Mr. Ladislav, we are very happy that you enjoyed your stay with us, we much appreciate it. Regards Tomas"
+            }
+          ],
+          "translationInfo": null
+        },
+        {
+          "__typename": "PropertyReview",
+          "id": "63c3bf5a4dd51755aa69f35c",
+          "brandType": "Hotels",
+          "reviewScoreWithDescription": {
+            "__typename": "LodgingEnrichedMessage",
+            "accessibilityLabel": null,
+            "value": "10/10 Exceptional"
+          },
+          "reviewAuthorAttribution": null,
+          "travelers": [],
+          "submissionTimeLocalized": "15 Jan 2023",
+          "themes": null,
+          "title": "Great stay!",
+          "text": "Very friendly and helpful staff who also make recommendations on where we could go visit. ",
+          "photos": [],
+          "stayDuration": "3-night trip",
+          "reviewInteractionSections": [],
+          "managementResponses": [
+            {
+              "__typename": "ManagementResponse",
+              "header": {
+                "__typename": "LodgingHeader",
+                "text": "Response from TOM on 16 Jan 2023"
+              },
+              "response": "Dear Traveler, we much appreciate your visit and comments. Thank you very much.Regards Tomas"
+            }
+          ],
+          "translationInfo": null
+        },
+        {
+          "__typename": "PropertyReview",
+          "id": "63b10368b4bbca00b704cb70",
+          "brandType": "Hotels",
+          "reviewScoreWithDescription": {
+            "__typename": "LodgingEnrichedMessage",
+            "accessibilityLabel": null,
+            "value": "6/10 Good"
+          },
+          "reviewAuthorAttribution": null,
+          "travelers": [],
+          "submissionTimeLocalized": "1 Jan 2023",
+          "themes": null,
+          "title": "",
+          "text": "More like a 3 star hotel, the location is very good, and the rooms are OK. The superior room is listed as city view, mine did not have a view at all (had a view of a wall), so if you’re paying extra for the view, you might not get it.",
+          "photos": [],
+          "stayDuration": "Shahab, 5-night trip",
+          "reviewInteractionSections": [],
+          "managementResponses": [
+            {
+              "__typename": "ManagementResponse",
+              "header": {
+                "__typename": "LodgingHeader",
+                "text": "Response from TOM on 6 Jan 2023"
+              },
+              "response": "Dear Shahab, many thanks for your visit, we much appreciate it. Regards Tomas"
+            }
+          ],
+          "translationInfo": null
+        },
+        {
+          "__typename": "PropertyReview",
+          "id": "63a58278759e576135402b3d",
+          "brandType": "Hotels",
+          "reviewScoreWithDescription": {
+            "__typename": "LodgingEnrichedMessage",
+            "accessibilityLabel": null,
+            "value": "10/10 Exceptional"
+          },
+          "reviewAuthorAttribution": null,
+          "travelers": [],
+          "submissionTimeLocalized": "23 Dec 2022",
+          "themes": null,
+          "title": "Great value",
+          "text": "Great location and extremely good value",
+          "photos": [],
+          "stayDuration": "Andy, 3-night trip",
+          "reviewInteractionSections": [],
+          "managementResponses": [
+            {
+              "__typename": "ManagementResponse",
+              "header": {
+                "__typename": "LodgingHeader",
+                "text": "Response from TOM on 23 Dec 2022"
+              },
+              "response": "Dear Traveler Andy, thank you very much for your visit , we are happy that you enjoyed your stay.Merry Christmas and Happy New Year.Regards Tomas"
+            }
+          ],
+          "translationInfo": null
+        },
+        {
+          "__typename": "PropertyReview",
+          "id": "63990e507c2637418f594106",
+          "brandType": "Orbitz",
+          "reviewScoreWithDescription": {
+            "__typename": "LodgingEnrichedMessage",
+            "accessibilityLabel": null,
+            "value": "10/10 Exceptional"
+          },
+          "reviewAuthorAttribution": null,
+          "travelers": [],
+          "submissionTimeLocalized": "13 Dec 2022",
+          "themes": null,
+          "title": "",
+          "text": "Great Breakfast buffet, location walkable to the whole downtown area.  Safe and quiet.",
+          "photos": [],
+          "stayDuration": null,
+          "reviewInteractionSections": [],
+          "managementResponses": [
+            {
+              "__typename": "ManagementResponse",
+              "header": {
+                "__typename": "LodgingHeader",
+                "text": "Response from TOM on 14 Dec 2022"
+              },
+              "response": "Dear Traveler,we much appreciate your visit and comment , thank you . we wish you Merry Christmas.Regards Tomas"
+            }
+          ],
+          "translationInfo": null
+        },
+        {
+          "__typename": "PropertyReview",
+          "id": "63983c48daf95619c121d290",
+          "brandType": "Expedia",
+          "reviewScoreWithDescription": {
+            "__typename": "LodgingEnrichedMessage",
+            "accessibilityLabel": null,
+            "value": "10/10 Exceptional"
+          },
+          "reviewAuthorAttribution": null,
+          "travelers": [],
+          "submissionTimeLocalized": "13 Dec 2022",
+          "themes": null,
+          "title": "",
+          "text": "",
+          "photos": [],
+          "stayDuration": "Catherine, 3-night trip",
+          "reviewInteractionSections": [],
+          "managementResponses": [],
+          "translationInfo": null
+        }
+      ],
+      "summary": {
+        "__typename": "PropertyReviewSummary",
+        "totalCount": {
+          "__typename": "FormattedNumber",
+          "raw": 1000
+        }
+      },
+      "reviewFlag": null,
+      "writeReviewLink": {
+        "__typename": "LodgingLinkMessage",
+        "link": {
+          "__typename": "LodgingLink",
+          "clientSideAnalytics": {
+            "__typename": "ClientSideAnalytics",
+            "linkName": "writeReview",
+            "referrerId": "Hotel-Information.write.reviews.link"
+          },
+          "uri": {
+            "__typename": "HttpURI",
+            "value": "https://www.hotels.com/trips"
+          }
+        },
+        "value": "Write a review",
+        "icon": null,
+        "accessibilityLabel": "Write a review"
+      },
+      "sortAndFilter": {
+        "__typename": "SortAndFilterViewModel",
+        "sortAndFilter": [
+          {
+            "__typename": "FilterViewModel",
+            "title": "travelerType",
+            "label": "Traveller type",
+            "options": [
+              {
+                "__typename": "OptionViewModel",
+                "label": "Couples",
+                "isSelected": false,
+                "optionValue": "couples",
+                "description": null
+              },
+              {
+                "__typename": "OptionViewModel",
+                "label": "Solo travellers",
+                "isSelected": false,
+                "optionValue": "solo_travelers",
+                "description": null
+              },
+              {
+                "__typename": "OptionViewModel",
+                "label": "Business travellers",
+                "isSelected": false,
+                "optionValue": "business_travelers",
+                "description": null
+              },
+              {
+                "__typename": "OptionViewModel",
+                "label": "Families",
+                "isSelected": false,
+                "optionValue": "families",
+                "description": null
+              },
+              {
+                "__typename": "OptionViewModel",
+                "label": "Families with small children",
+                "isSelected": false,
+                "optionValue": "families_with_small_children",
+                "description": null
+              },
+              {
+                "__typename": "OptionViewModel",
+                "label": "Groups",
+                "isSelected": false,
+                "optionValue": "groups",
+                "description": null
+              },
+              {
+                "__typename": "OptionViewModel",
+                "label": "Travellers with pets",
+                "isSelected": false,
+                "optionValue": "travelers_with_pets",
+                "description": null
+              }
+            ]
+          },
+          {
+            "__typename": "FilterViewModel",
+            "title": "sortBy",
+            "label": "Sort by",
+            "options": [
+              {
+                "__typename": "OptionViewModel",
+                "label": "Most relevant",
+                "isSelected": false,
+                "optionValue": "NEWEST_TO_OLDEST_BY_LANGUAGE",
+                "description": null
+              },
+              {
+                "__typename": "OptionViewModel",
+                "label": "Most recent",
+                "isSelected": false,
+                "optionValue": "NEWEST_TO_OLDEST",
+                "description": null
+              },
+              {
+                "__typename": "OptionViewModel",
+                "label": "Highest guest rating",
+                "isSelected": false,
+                "optionValue": "HIGHEST_TO_LOWEST_RATED",
+                "description": null
+              },
+              {
+                "__typename": "OptionViewModel",
+                "label": "Lowest guest rating",
+                "isSelected": false,
+                "optionValue": "LOWEST_TO_HIGHEST_RATED",
+                "description": null
+              }
+            ]
+          }
+        ]
+      },
+      "reviewsExpando": {
+        "__typename": "EGDSExpandoPeek",
+        "collapsedLabel": "See more",
+        "expandedLabel": "See less"
+      }
+    }
+  }

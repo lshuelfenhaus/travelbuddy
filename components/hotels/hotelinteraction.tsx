@@ -1,17 +1,18 @@
 import React from 'react'
 import axios from 'axios'
 import {Room} from "./HotelInterface";
+
+const API_KEY =  "99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91";
 export const getLocationBaseOnType = (location: string,rType: string) => {
     const options = {
         method: 'GET',
         url: 'https://hotels-com-provider.p.rapidapi.com/v2/regions',
         params: {locale: 'en_US', query: location, domain: 'US'},
         headers: {
-          'X-RapidAPI-Key': '4954808daemsh8c28b07faccd7c3p12ce85jsn42818613f228',
+          'X-RapidAPI-Key': API_KEY,
           'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
         }
       };
-
     const dataPromise = axios.request(options).then(function (response) {
         //get the geo ids so that we can pass this into the search hotels later
         const listOfLocations: Array<any> = response.data.data;//An array (might be one data)
@@ -26,8 +27,7 @@ export const getLocationBaseOnType = (location: string,rType: string) => {
     return dataPromise;
 }
 
-export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: number, max: number, rooms: Room) => {
-        /*
+export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, adults: number) => {
         let search = {
         "currency": "USD",
         "eapid": 1,
@@ -49,19 +49,14 @@ export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: num
         
         "rooms": [
             {
-                "adults": rooms.adults? rooms.adults : 1,
+                "adults": adults,
                 "children": [
-                    {
-                        "age": 5
-                    },
-                    {
-                        "age": 7
-                    }
                 ]
             }
         ],
         "resultsStartingIndex": 0,
         "resultsSize": 40
+        }
        /*  "currency": "USD",
        "currency": "USD",
         "eapid": 1,
@@ -115,11 +110,10 @@ export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, min: num
           star_rating_ids: '3,4,5' */
         },
         headers: {
-          'X-RapidAPI-Key': '99ed015561msh9d752cc737a2229p16d10djsn3a3da691ca91',
+          'X-RapidAPI-Key': API_KEY,
           'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
         }
       };
-      
     const hotelsPromise = axios.request(options).then(function (response) {
           const listofHotels = response.data.properties;
           return listofHotels;
@@ -136,25 +130,180 @@ export const getHotelsWithFilters = ( filterType:string, filterOptions:any) =>{
 }
 
 export const getHotelDetail = (id: string) => {
-    const axios = require("axios");
-
     const options = {
         method: 'GET',
         url: 'https://hotels-com-provider.p.rapidapi.com/v2/hotels/details',
         params: {domain: 'US', locale: 'en_US', hotel_id: id},
         headers: {
-          'X-RapidAPI-Key': '4954808daemsh8c28b07faccd7c3p12ce85jsn42818613f228',
+          'X-RapidAPI-Key': API_KEY,
           'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
         }
       };
 
     const dataPromise = axios.request(options).then(function (response:any) {
         let PropertyInfo = response.data;
-        console.log(PropertyInfo);
+        {/*   
+        summary:{
+            id:
+            name:
+            amenities:{
+                topAmenities:{
+                    items:[
+                        {
+                            text:
+                        }
+                    ]
+                }
+            }
+            location: {
+                address:{
+                    addressLine: 
+                    firstAddressLine:
+                    secondAddressLine:
+                    city:
+                    countryCode:
+                }
+            }
+            map:{
+                markers:[ skip the last item in array since it is the hotel itself
+                    {
+                        title: "Name of the location"
+                        subtitle: "n min drive"
+                    }
+                ]
+            },
+        },
+        propertyGallery:{
+                images:[
+                    {
+                        image:{
+                            url:
+                            description: //for viewing up close? future update
+                        }
+                    }
+                ]
+            }
+        */}
         return PropertyInfo;
     }).catch(function (error:any) {
-        console.error(error);
         return null
     });
     return dataPromise;
+}
+export const getHotelReviews = (id: string) => {
+    const options = {
+        method: 'GET',
+        url: 'https://hotels-com-provider.p.rapidapi.com/v2/hotels/reviews/list',
+        params: {domain: 'US', locale: 'en_US', hotel_id: id, page_number: '1'},
+        headers: {
+          'X-RapidAPI-Key': API_KEY,
+          'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
+        }
+      };
+      
+    const promiseData = axios.request(options).then(function (response) {
+
+        return response.data.reviewInfo.reviews;
+        /* 
+        {
+            id:
+            reviewScoreWithDescription:{
+                value: "00/00 Text"
+            }
+            submissionTimeLocalized: "00 Mar 2023"
+            text:
+            title:
+            stayDuration: "name, text"
+        }
+        */
+    }).catch(function (error) {
+        return [];
+    });
+    return promiseData;
+}
+
+export const getRooms = (hotelId: string, checkIn: Date, checkOut: Date, adults: number) => {   
+    const options = {
+        method: 'GET',
+        url: 'https://hotels-com-provider.p.rapidapi.com/v2/hotels/offers',
+        params: {
+            domain: 'US',
+            locale: 'en_US',
+            checkout_date: checkOut.toISOString().substring(0,10),
+            hotel_id: hotelId,
+            adults_number: adults,
+            checkin_date: checkIn.toISOString().substring(0,10),
+        },
+        headers: {
+        'X-RapidAPI-Key': API_KEY,
+        'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
+        }
+    };
+  /* 
+    { a unit
+        id:
+        header: { //overall description may be add as the room title
+            text:
+        },
+        unitGallery:{ //images
+            gallery:[
+                {   image: {
+                        description:
+                        url:
+                    }
+                }
+            ]
+        },
+        roomAmenities:{
+            bodySubSections:[ usually the first one in the array 
+                {
+                    contents:[
+                        {
+                            header:{
+                                text: title of the amenities
+                            }
+                            items:[
+                                { //first item in the array usually
+                                    content:{
+                                        text: item will be put in <ul> and <li> so need to process them
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+        features:[
+            {
+                text:
+            }
+        ],
+        ratePlans:[ //different paying options for room, if unit does not have rate plan => not available so grey out but still render
+            {
+                id:
+                fees: [
+                    check if this empty to calculate fee plus price plus 12% tax
+                ]
+                PriceDetails:[ //let payer know that price will go up when pay later
+                    {
+                        depositPolicies: "Non-refundable" low price vs "Free Cancelation" high price,
+                        paymentModel: "PAY_NOW" low price vs "PAY_LATER" high price,
+                        price: {
+                            lead: amount per night
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+  */
+  const dataPromise = axios.request(options).then(function (response) {
+      return response.data.units;
+  }).catch(function (error) {
+      return [];
+  });
+
+  return dataPromise;
+
 }

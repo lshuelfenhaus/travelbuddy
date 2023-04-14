@@ -7,11 +7,12 @@ interface StarRatingsProps{
     scale?: number,
     starNo?: number,
     filledColor?: string,
-    style?:any
+    style?:any,
+    size?:number
 }
 
 const StarRatings = (props: StarRatingsProps) => {
-    const SIZE = 20;
+    const SIZE = props.size? props.size : 20 ;
     return(
         <View style={props.style}>
             <HStack>
