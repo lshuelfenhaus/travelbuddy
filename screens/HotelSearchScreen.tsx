@@ -1,7 +1,10 @@
 import { Button, Text, TextInput, VStack } from '@react-native-material/core';
 import React, {useState, useEffect} from 'react';
-import { Platform, LogBox } from 'react-native';
+import { Platform, LogBox, StyleSheet } from 'react-native';
+import { Entypo } from '@expo/vector-icons'; 
 import CalendarPicker from 'react-native-calendar-picker';
+import { ScrollView } from 'react-native-gesture-handler';
+import themestyles from '../Colors';
 LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
 interface HotelSearchScreenProps {
     navigation: any
@@ -10,18 +13,15 @@ const HotelSearchScreen = (props: HotelSearchScreenProps) => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date((new Date()).getTime() + 86400000));
     const [location, setLocation] = useState("");
-    const [adults, setAdults] = useState("0");
-    const [children, setChildren] = useState([]);
-    const [maxPrice, setMaxPrice] = useState("0");
-    const [minPrice, setMinPrice] = useState("0");
+    const [adults, setAdults] = useState("1");
     const [showStartDateCalendar, setShowStartDateCalendar] = useState(false);
     const [showEndDateCalendar, setShowEndDateCalendar] = useState(false);
     const onStartDateChange = (date:any) => {
-        setShowStartDateCalendar(state => !state);
+        setShowStartDateCalendar(false);
         setStartDate(new Date(date));
     }
     const onEndDateChange = (date:any) => {
-        setShowStartDateCalendar(state => !state);
+        setShowEndDateCalendar(false);
         setEndDate(new Date(date));
     }
     const searchForHotel = () => {
@@ -30,27 +30,45 @@ const HotelSearchScreen = (props: HotelSearchScreenProps) => {
             startDate: startDate,
             endDate: endDate,
             adults: adults,
-            chidren: children,
-            maxPrice: maxPrice,
-            minPrice: minPrice
         })
     }
     return (
-        <VStack>
-            <Text>{"Let's search your hotels"}</Text>
-            <TextInput label="Destination" value={location} onChangeText={setLocation} variant='outlined'/>
-            <TextInput label="Number of adult" value={adults} onChangeText={setAdults} variant='outlined'/>
-            {/*Create two button to reveal the calendar one for start date one for end date */}
-            {/*Create input fields for max price, min price */}
-            <TextInput label='Min Price' value={minPrice} onChangeText={setMinPrice} variant='outlined' /> 
-            <TextInput label = 'Max Price' value={maxPrice} onChangeText={setMaxPrice} variant='outlined'/>
-            <Button variant="outlined" title="Start Date" onPress={event => {setShowStartDateCalendar(state => !state)}}/>
-            {showStartDateCalendar && <CalendarPicker onDateChange={(date) => onStartDateChange(date)}></CalendarPicker>}
-            <Button variant="outlined" title="End Date" onPress={event => {setShowEndDateCalendar(state => !state)}}/>
-            {showEndDateCalendar && <CalendarPicker onDateChange={(date) => onEndDateChange(date)} ></CalendarPicker>}
-            <Button  title="search" onPress={searchForHotel}/>
-        </VStack>
+        <ScrollView>
+            <VStack>
+                <Text>{"Let's search your hotels"}</Text>
+                <TextInput label="Destination" value={location} onChangeText={setLocation} variant='outlined'/>
+                <TextInput label="Number of adults" value={adults} onChangeText={setAdults} variant='outlined'/>
+                {/*Create two button to reveal the calendar one for start date one for end date */}
+                {/*Create input fields for max price, min price */}
+                <Button 
+                    variant="outlined" 
+                    leading={props => <Entypo name="calendar" size={24} color={FORM_BUTTON_ICON_COLOR} />} 
+                    title={"Start Date " + startDate.toISOString().substring(0,10) } onPress={event => {setShowStartDateCalendar(state => !state)}}
+                    color={BUTTON_COLOR}    
+                />
+                {showStartDateCalendar && 
+                <CalendarPicker onDateChange={(date) => onStartDateChange(date)}></CalendarPicker>}
+
+                <Button 
+                    variant="outlined" 
+                    leading={props => <Entypo name="calendar" size={24} color={FORM_BUTTON_ICON_COLOR} />} 
+                    title={"End Date " + endDate.toISOString().substring(0,10)} onPress={event => {setShowEndDateCalendar(state => !state)}}
+                    color={BUTTON_COLOR}
+                />
+                
+                {showEndDateCalendar && 
+                <CalendarPicker onDateChange={(date) => onEndDateChange(date)} ></CalendarPicker>}
+                <Button color={BUTTON_COLOR}  title="search" onPress={searchForHotel}/>
+            </VStack>
+        </ScrollView>
     )
 }
+const BUTTON_COLOR = themestyles.delftBlue.color;
+const FORM_BUTTON_ICON_COLOR = themestyles.charcoal400.color;
+const styles = StyleSheet.create({
+    formButton:{
+        color: themestyles.delftBlue.color,
+    }
+})
 
 export default HotelSearchScreen
