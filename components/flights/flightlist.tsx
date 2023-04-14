@@ -24,7 +24,7 @@ const FlightList = (props: FlightListProps) => {
             
                 {props.items && props.items.map((item,index) => {
                     return (
-                        <ItemCard key={index} title={item.name} price={item.price.lead.amount} tags={[{label: item.availability.minSeatsLeft, postLabel: "Seats Left"}]} imageSrc={item.propertyImage.image.url} reviews={item.reviews.score} id={item.id}/>
+                        <ItemCard type={"flight"} key={index} title={item.name} price={item.price.lead.amount} tags={[{label: item.availability.minSeatsLeft, postLabel: "Seats Left"}]} imageSrc={item.propertyImage.image.url} reviews={item.reviews.score} id={item.id}/>
                     )
                     }) 
                 }
