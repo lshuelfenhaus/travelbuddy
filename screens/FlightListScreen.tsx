@@ -13,8 +13,8 @@ const FlightListScreen = (props: FlightListScreenProps) => {
     } 
     useEffect(()=>{
         Flight.getFlights(
-            "origLocation",
-            "destLocation",
+            processParamsFromNavigation("origlocation",""),
+            processParamsFromNavigation("destlocation",""),
             processParamsFromNavigation("flightDate",new Date()),
             processParamsFromNavigation("adults",1), 
         )
@@ -25,3 +25,8 @@ const FlightListScreen = (props: FlightListScreenProps) => {
 }
 
 export default FlightListScreen;
+
+/* Need: departureAirport:label, arrivalAirport:label, totals:total, duration:text
+Create table within Firebase
+Upload logo images and match it with flight name
+*/
