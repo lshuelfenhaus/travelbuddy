@@ -5,6 +5,7 @@ import { BottomNavigation } from "../components/bottomnavigation";
 import { Card } from "@rneui/base";
 import { Image } from "react-native-elements";
 import themestyles from "../Colors";
+import { Dimensions, StyleSheet } from "react-native";
 
 interface HomeScreenProps {
     navigation: any
@@ -22,7 +23,7 @@ const HomeScreen = (props: HomeScreenProps) => {
         <SafeAreaProvider
         style={{backgroundColor: themestyles.eggshell.color}}
         >   
-        <VStack 
+        <VStack style={styles.container}
         >
           <Card
           containerStyle={{height:170, justifyContent:'center', alignItems:'center'}}
@@ -52,4 +53,10 @@ const HomeScreen = (props: HomeScreenProps) => {
 
 
 }
+const {height} = Dimensions.get("window");
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  }
+})
 export default HomeScreen;

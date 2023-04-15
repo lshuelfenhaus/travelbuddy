@@ -15,6 +15,7 @@ import FlightSearchScreen from './screens/FlightSearchScreen';
 import FlightListScreen from './screens/FlightListScreen';
 import HotelDetailScreen from './screens/HotelDetailScreen';
 import ReservationScreen from './screens/RerservationScreen';
+import ItineraryCreationScreen from './screens/ItineraryCreationScreen';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -22,7 +23,7 @@ const { Navigator, Screen } = createNativeStackNavigator();
 const AppNavigator = () => (
     <NavigationContainer>
         <Navigator
-        initialRouteName="Login"
+        initialRouteName="ItineraryCreation"
         screenOptions={{ 
           headerBackButtonMenuEnabled: false,
           headerBackTitleVisible: false,
@@ -38,7 +39,6 @@ const AppNavigator = () => (
         <Screen name="Login" component={LoginScreen} />
         <Screen name="SignUp" component={SignUpScreen} />
         <Screen name="Account" component={AccountScreen} />
-        <Screen name="CreateItinerary" component={CreateItineraryScreen} />
         <Screen name="HotelSearch" component={HotelSearchScreen} />
         <Screen name="HotelList" component={HotelListScreen} />
         <Screen name="FlightSearch" component={FlightSearchScreen} />
@@ -47,6 +47,7 @@ const AppNavigator = () => (
         <Screen name="Itinerary" component={ItineraryScreen} />
         <Screen name="HotelDetail" component={HotelDetailScreen} />
         <Screen name="Reservation" component={ReservationScreen} />
+        <Screen name="ItineraryCreation" component={ItineraryCreationScreen} />
       </Navigator>
     </NavigationContainer>
 )

@@ -14,7 +14,7 @@ const ItineraryScreen = (props: HomeScreenProps) => {
     return(
         <SafeAreaProvider style={{backgroundColor: themestyles.eggshell.color}}>
             
-            <VStack center spacing={30}>
+            <VStack center style={{flex: 1}} spacing={30}>
                 <Text variant="h2" color={themestyles.charcoal.color}>Upcoming Trip</Text>
 
                 <Card containerStyle={{justifyContent:'center', alignItems:'center'}}>

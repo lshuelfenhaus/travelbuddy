@@ -1,10 +1,11 @@
 import { AppBar, Button, HStack, IconButton, VStack, Text} from "@react-native-material/core";
 import { Ionicons, Entypo, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons'; 
 import {logout} from './authentication';
-import {StyleSheet, View } from "react-native";
+import {Dimensions, StyleSheet, View } from "react-native";
 import Modal from 'react-native-modal'
 import { useEffect, useState } from "react";
 import themestyles from "../Colors";
+import { BOTTOM_NAVIGATION_HEIGHT } from "../StyleConstants";
 
 interface BottomNavigationProps {
     navigation: any;
@@ -58,7 +59,7 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
 
     const createItinerary = async () => {
         try {
-            props.navigation.navigate("CreateItinerary")
+            props.navigation.navigate("ItineraryCreation")
         }
         catch(e){
             console.log(e)
@@ -81,7 +82,7 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
                 contentContainerStyle={styles.contentContainer}   
                 leadingContainerStyle={styles.leadingContainer}
                 leading={(
-                <HStack style={styles.hstack} spacing={SPACING}>
+                <HStack style={styles.hstack}>
                                         
                     <View style={styles.iconContainer}>
                         <IconButton icon={<MaterialCommunityIcons name="home-heart" size={ICONSIZE} color="white"/>} onPress={home} />
@@ -92,7 +93,7 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
                         <IconButton icon={<Ionicons color="white" size={ICONSIZE} name="chatbubble-ellipses" /> } onPress={chatbot}/>
                         <Text style={styles.textIcon}>Buddy</Text> 
                     </View>    
-                    <IconButton style = {styles.centralIcon} icon={<Ionicons style={ {justifyContent:"center", alignItems:"center"}} name="add" size={50} color={themestyles.charcoal.color} /> } onPress={createItinerary} />
+                    <IconButton style = {styles.centralIcon} icon={<Ionicons style={ {justifyContent:"center", alignItems:"center"}} name="add" size={ICONSIZE*1.5} color={themestyles.charcoal.color} /> } onPress={createItinerary} />
                     <View style={styles.iconContainer}>
                             <IconButton  icon={props => <Entypo name="list" size={ICONSIZE} color="white" />  } onPress={itinerary} />
                             <Text style={styles.textIcon}>Itinerary</Text>
@@ -109,8 +110,10 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
         </>
     )
 }
-const SPACING = 20;
-const ICONSIZE = 30;
+var {height} = Dimensions.get("window");
+var {width} = Dimensions.get("window");
+const SPACING = width*0.05;
+const ICONSIZE = width*0.06;
 const OURPURPLE = "#6200EE";
 const styles = StyleSheet.create({
     escape:{
@@ -138,33 +141,32 @@ const styles = StyleSheet.create({
         color: "white"
     },
     iconContainer: {
-        alignItems: "center"
+        alignItems: "center",
+        minWidth: width * 0.2,
     },
 
     centralIcon:{
-        borderRadius: 30,
+        borderRadius: ICONSIZE * 2,
         backgroundColor: 'white',
         justifyContent: "center",
         alignItem: "center",
         textAlign: "center",
-        width: 60,
-        height: 60,
+        width: ICONSIZE * 2,
+        height: ICONSIZE * 2,
         borderWidth: 2,
-        marginTop: -15,
+        marginTop:  -ICONSIZE/4,
         borderColor: themestyles.powderBlue.color,
     },
     textIcon: {
         color: "white",
-        fontSize: 12,
+        fontSize: ICONSIZE/2,
         textAlign: 'center',
-        marginTop: -8
+        marginTop: -ICONSIZE/4,
     },
     navigationBar:{
-        position: "absolute", 
-        start: 0, 
-        end: 0, 
-        bottom: 0, 
-        height: 65,
+        alignSelf: "flex-end",
+        height: height * BOTTOM_NAVIGATION_HEIGHT,
+        width: "100%"
     },
     menuContainer:{
         height:"100%",
