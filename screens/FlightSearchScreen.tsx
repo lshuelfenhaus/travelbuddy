@@ -12,8 +12,6 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
     const [destlocation, setDestLocation] = useState("");
     const [adults, setAdults] = useState("0");
     const [children, setChildren] = useState([]);
-    const [maxPrice, setMaxPrice] = useState("0");
-    const [minPrice, setMinPrice] = useState("0");
     const [showFlightDateCalendar, setShowFlightDateCalendar] = useState(false);
     const onFlightDateChange = (date:any) => {
         setShowFlightDateCalendar(state => !state);
@@ -26,8 +24,6 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
             flightDate: flightDate,
             adults: adults,
             chidren: children,
-            maxPrice: maxPrice,
-            minPrice: minPrice
         })
     }
     return (
@@ -36,8 +32,6 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
             <TextInput label="Origin Location" value={origlocation} onChangeText={setOrigLocation} variant='outlined'/>
             <TextInput label="Destination Location" value={destlocation} onChangeText={setDestLocation} variant='outlined'/>
             <TextInput label="Number of adult(s)" value={adults} onChangeText={setAdults} variant='outlined'/>
-            <TextInput label='Min Price' value={minPrice} onChangeText={setMinPrice} variant='outlined' /> 
-            <TextInput label='Max Price' value={maxPrice} onChangeText={setMaxPrice} variant='outlined'/>
             <Button variant="outlined" title="Flight Date" onPress={event => {setShowFlightDateCalendar(state => !state)}}/>
             {showFlightDateCalendar && <CalendarPicker onDateChange={(date) => onFlightDateChange(date)}></CalendarPicker>}
             <Button  title="search" onPress={searchForFlight}/>
