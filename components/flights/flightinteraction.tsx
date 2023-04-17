@@ -11,7 +11,7 @@ export const getFlights = (from_location: string, to_location: string, flight_da
         params: {
           from: from_location,
           to: to_location,
-          date: '2023-05-09',/*flight_date.toISOString().substring(0,10),*/
+          date: flight_date.toISOString().substring(0,10),
           adult: adults_number,
           type: 'economy',
           currency: 'USD'
@@ -30,28 +30,5 @@ export const getFlights = (from_location: string, to_location: string, flight_da
           console.error(error);
       });
       return flightsPromise;
-      
 
-/*const options = {
-  method: 'GET',
-  url: 'https://flight-fare-search.p.rapidapi.com/v2/flight/',
-  params: {
-    from: 'SJC',
-    to: 'JFK',
-    date: '2023-05-09',
-    adult: '1',
-    type: 'economy',
-    currency: 'USD'
-  },
-  headers: {
-    'X-RapidAPI-Key': '9a08860ac3mshdeb21522541f3eap11d480jsn05a1721050d6',
-    'X-RapidAPI-Host': 'flight-fare-search.p.rapidapi.com'
-  }
-};
-
-axios.request(options).then(function (response: { data: any; }) {
-	console.log(response.data);
-}).catch(function (error: any) {
-	console.error(error);
-});*/
 }

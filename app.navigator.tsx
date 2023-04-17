@@ -22,7 +22,7 @@ const { Navigator, Screen } = createNativeStackNavigator();
 const AppNavigator = () => (
     <NavigationContainer>
         <Navigator
-        initialRouteName="Login"
+        initialRouteName="FlightList"
         screenOptions={{ 
           headerBackButtonMenuEnabled: false,
           headerBackTitleVisible: false,
