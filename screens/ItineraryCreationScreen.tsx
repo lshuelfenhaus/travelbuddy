@@ -7,7 +7,8 @@ import CalendarPicker from 'react-native-calendar-picker';
 import themestyles from "../Colors";
 import { ScrollView } from "react-native-gesture-handler";
 import { BottomNavigation } from "../components/bottomnavigation";
-
+import { addInitialItinerary} from "../components/firestoredbinteractions";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 interface ItineraryCreationScreenProps {
     navigation: any;
 }
@@ -17,7 +18,7 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date((new Date()).getTime() + 86400000));
     const [location, setLocation] = useState('');
-    const [adults, setAdults] = useState('');
+    const [adults, setAdults] = useState("1");
     const [showStartDateCalendar, setShowStartDateCalendar] = useState(false);
     const [showEndDateCalendar, setShowEndDateCalendar] = useState(false);
 
@@ -29,8 +30,18 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
         setShowEndDateCalendar(false);
         setEndDate(new Date(date));
     }
-    const handleSubmit = () => {
-      props.navigation.navigate("Itinerary");
+    const handleSubmit = async () => {
+      await AsyncStorage.setItem('@username','anhquang2605');//FOR PRODCUTION ONLY, NEED TO REMOVE
+      const succeed = await addInitialItinerary(
+        location, 
+        adults,
+        startDate.toISOString().substring(0,10),
+        endDate.toISOString().substring(0,10),
+        name,
+      )
+      if (succeed){
+        props.navigation.navigate("ItineraryDetail");
+      }
       // Handle form submission logic here
       // set AsyncStorage here, then navigate to ItineraryDetailScreen
     };

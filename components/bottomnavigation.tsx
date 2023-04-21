@@ -50,7 +50,7 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
 
     const itinerary = async () => {
         try {
-            props.navigation.navigate("Itinerary")
+            props.navigation.navigate("Itineraries")
         }
         catch(e){
             console.log(e);
@@ -96,7 +96,7 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
                     <IconButton style = {styles.centralIcon} icon={<Ionicons style={ {justifyContent:"center", alignItems:"center"}} name="add" size={ICONSIZE*1.5} color={themestyles.charcoal.color} /> } onPress={createItinerary} />
                     <View style={styles.iconContainer}>
                             <IconButton  icon={props => <Entypo name="list" size={ICONSIZE} color="white" />  } onPress={itinerary} />
-                            <Text style={styles.textIcon}>Itinerary</Text>
+                            <Text style={styles.textIcon}>Itineraries</Text>
                     </View>
                     <View style={styles.iconContainer}>
                         <IconButton  icon={<MaterialCommunityIcons name="account" size={ICONSIZE} color="white" />} onPress={account} />

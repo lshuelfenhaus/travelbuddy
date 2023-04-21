@@ -10,7 +10,7 @@ interface HomeScreenProps {
     navigation: any,
 }
 
-const ItineraryScreen = (props: HomeScreenProps) => {
+const ItinerariesScreen = (props: HomeScreenProps) => {
     return(
         <SafeAreaProvider style={{backgroundColor: themestyles.eggshell.color}}>
             
@@ -50,4 +50,4 @@ const ItineraryScreen = (props: HomeScreenProps) => {
     );
 }
 
-export default ItineraryScreen;
+export default ItinerariesScreen;

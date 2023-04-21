@@ -45,3 +45,15 @@ export interface Flight {
     name: string;
     itineraryIDs: String[];
   }
+
+  export interface Itinerary{
+    name: string,
+    startDate?: string,
+    endDate?: string,
+    adults?: string,
+    hotelid?: string,
+    flightid?: string,
+    attractionids?: string[],
+    dateAdded: Timestamp,
+    destination:string,
+  }

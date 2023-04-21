@@ -10,12 +10,14 @@ import CreateItineraryScreen from './screens/ItineraryQuizScreen';
 import HotelSearchScreen from './screens/HotelSearchScreen';
 import HotelListScreen from './screens/HotelListScreen';
 import { Chatbot } from './screens/ChatbotScreen';
-import ItineraryScreen from './screens/ItineraryScreen';
+import ItineraryScreen from './screens/ItinerariesScreen';
 import FlightSearchScreen from './screens/FlightSearchScreen';
 import FlightListScreen from './screens/FlightListScreen';
 import HotelDetailScreen from './screens/HotelDetailScreen';
 import ReservationScreen from './screens/RerservationScreen';
 import ItineraryCreationScreen from './screens/ItineraryCreationScreen';
+import ItinerariesScreen from './screens/ItinerariesScreen';
+import ItineraryDetailScreen from './screens/ItineraryDetailScreen';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -44,10 +46,11 @@ const AppNavigator = () => (
         <Screen name="FlightSearch" component={FlightSearchScreen} />
         <Screen name="FlightList" component={FlightListScreen} />
         <Screen name="Chatbot" component={Chatbot} />
-        <Screen name="Itinerary" component={ItineraryScreen} />
+        <Screen name="Itineraries" component={ItinerariesScreen} />
         <Screen name="HotelDetail" component={HotelDetailScreen} />
         <Screen name="Reservation" component={ReservationScreen} />
         <Screen name="ItineraryCreation" component={ItineraryCreationScreen} />
+        <Screen name="ItineraryDetail" component={ItineraryDetailScreen} />
       </Navigator>
     </NavigationContainer>
 )
