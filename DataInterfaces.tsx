@@ -42,8 +42,6 @@ export interface Flight {
     email: string;
     token: string;//hashed value with salt
     salt: string;
-    hotels: Hotel[];
-    flights: Flight[];
-    attractions: Attraction[];
     name: string;
+    itineraryIDs: String[];
   }

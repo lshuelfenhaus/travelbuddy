@@ -45,9 +45,7 @@ export const signup = async (username: string, password: string, email?:string, 
         email: email? email : "",
         token: "",//hashed value with salt, password for now
         salt: "",
-        hotels: [],
-        flights: [],
-        attractions: [],
+        itineraryIDs: [],
         name: name? name : ""
     }
     try{
