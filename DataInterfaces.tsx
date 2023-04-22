@@ -48,12 +48,14 @@ export interface Flight {
 
   export interface Itinerary{
     name: string,
-    startDate?: string,
-    endDate?: string,
+    startDate?: Timestamp,
+    endDate?: Timestamp,
     adults?: string,
     hotelid?: string,
     flightid?: string,
     attractionids?: string[],
     dateAdded: Timestamp,
     destination:string,
+    username: string,
+    placeid: string,
   }

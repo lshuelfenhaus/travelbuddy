@@ -1,16 +1,19 @@
 import { Button, Flex, TextInput, VStack } from "@react-native-material/core";
-import React, { useState } from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, StyleSheet, Dimensions, Alert } from "react-native";
 import { BUTTON_COLOR, ELEMENT_SPACING, FORM_BUTTON_ICON_COLOR, MARGIN, PADDING_XLARGE, TEXT_LARGE, TEXT_REGULAR, TEXT_XLARGE } from "../StyleConstants";
 import { Entypo } from '@expo/vector-icons'; 
 import CalendarPicker from 'react-native-calendar-picker';
 import themestyles from "../Colors";
 import { ScrollView } from "react-native-gesture-handler";
 import { BottomNavigation } from "../components/bottomnavigation";
-import { addInitialItinerary} from "../components/firestoredbinteractions";
+import { addInitialItinerary, getItinerary, updateItinerary} from "../components/firestoredbinteractions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Timestamp } from "firebase/firestore";
+import { getLocationId, getPlaceDetails } from "../components/placesinteractions";
 interface ItineraryCreationScreenProps {
     navigation: any;
+    route: any;
 }
 
 const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
@@ -21,7 +24,8 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
     const [adults, setAdults] = useState("1");
     const [showStartDateCalendar, setShowStartDateCalendar] = useState(false);
     const [showEndDateCalendar, setShowEndDateCalendar] = useState(false);
-
+    const mode = props.route.params ? props.route.params["mode"] : "create";
+    const id = props.route.paramm ? props.route.params["id"] : "";
     const onStartDateChange = (date:any) => {
         setShowStartDateCalendar(false);
         setStartDate(new Date(date));
@@ -31,20 +35,54 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
         setEndDate(new Date(date));
     }
     const handleSubmit = async () => {
-      await AsyncStorage.setItem('@username','anhquang2605');//FOR PRODCUTION ONLY, NEED TO REMOVE
-      const succeed = await addInitialItinerary(
-        location, 
-        adults,
-        startDate.toISOString().substring(0,10),
-        endDate.toISOString().substring(0,10),
-        name,
-      )
-      if (succeed){
-        props.navigation.navigate("ItineraryDetail");
+      const place_id = await getLocationId(location);
+      if(place_id !== null){
+        if(mode !== "edit"){
+        //check if the destination is valid
+          const newId = await addInitialItinerary(
+            location, 
+            adults,
+            startDate,
+            endDate,
+            name,
+            place_id,
+          )
+          if (newId !== null){
+            props.navigation.navigate("ItineraryDetail",{id: newId});
+          }
+        } else {
+          Alert.alert("Invalid Destination, Please try again with differnt destination");
+        } 
+        
+        /* await AsyncStorage.setItem('@username','anhquang2605');//FOR PRODCUTION ONLY, NEED TO REMOVE
+        */
+      }else{
+        const status = await updateItinerary(id,{
+          location: location,
+          adults: adults,
+          startDate: startDate,
+          endDate: endDate,
+          name: name,
+          place: place_id,
+        })
+        if(status){
+          props.navigation.navigate("ItineraryDetail",{id: id});
+        }
       }
-      // Handle form submission logic here
-      // set AsyncStorage here, then navigate to ItineraryDetailScreen
     };
+    useEffect(()=>{
+      if(mode === "edit"){
+        getItinerary(id).then((itinerary) => {
+          if(itinerary){
+            setName(itinerary.name);
+            setLocation(itinerary.location);
+            setAdults(itinerary.adults);
+            setStartDate(itinerary.startDate.toDate());
+            setEndDate(itinerary.endDate.toDate());
+          }
+        })
+      }
+    })
     return (
       
       <>
