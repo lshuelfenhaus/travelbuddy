@@ -10,7 +10,6 @@ const FlightListScreen = (props: FlightListScreenProps) => {
     const [flights,setFlights] = useState([]);
     const params = props.route.params;
     
-    console.log("repeat");
     const processParamsFromNavigation = (paramName:string, defaultVal: any) =>{
         return params[paramName] ? params[paramName] : defaultVal
     }
@@ -27,7 +26,8 @@ const FlightListScreen = (props: FlightListScreenProps) => {
         setFlights(entries.results)
     },[])
     return (
-        <FlightList navigation={props.navigation} items={flights} destlocation={"New York"}/>
+        /*<FlightList navigation={props.navigation} items={flights} destlocation={params["destlocation"]}/>*/
+        <FlightList navigation={props.navigation} items={flights} destlocation={"JFK"}/>
     )
 }
 

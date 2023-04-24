@@ -10,7 +10,6 @@ interface FlightListProps {
     items?: Array<any>,
     destlocation?: string,
 }
-const items = [{id:'1',name:"airline name 1", price: 800, reviews: 10},{id:'2', price: 200,name:"airline name 2", reviews: 9},{id:'3', price: 50, name:"airline name 3", reviews: 4.5}]
 const FlightList = (props: FlightListProps) => {
     const back = () =>{
         props.navigation.navigate("FlightSearch");
@@ -25,16 +24,18 @@ const FlightList = (props: FlightListProps) => {
                 </View>
             
                 {props.items && props.items.map((item,index) => {
+                    let round = item.totals.total.toFixed(2);
+                    console.log(item.id)
                     return (
                         <ItemCard 
                         navigation = {props.navigation}
                         type={"flight"} 
                         key={index} 
                         title={item.flight_name} 
-                        price={item.totals.total} 
-                        tags={[{label: item.duration.text, postLabel: "Duration of Flight"}]} 
-                        imageSrc={"image"} 
-                        reviews={0} 
+                        price={round} 
+                        tags={[{preLabel: "Duration: ", label: item.duration.text}]} 
+                        imageSrc={"https://download.logo.wine/logo/JetBlue/JetBlue-Logo.wine.png"} 
+                        reviews = {6}
                         id={item.id}/>
                     )
                     }) 
