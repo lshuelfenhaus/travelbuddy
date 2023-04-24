@@ -57,13 +57,15 @@ const ItemCard = (props: ItemCardProps) => {
             {
                 props.tags && <HStack>
                     {props.tags.map((item,index)=>{
-                        return <Text style={styles.badge} key={index}> {(item.label == null ? 0 : item.label) + " " + (item.postLabel ? item.postLabel : "")}</Text>
+                        return <Text style={styles.badge} key={index}> {(item.preLabel ? item.preLabel : "") + (item.label == null ? 0 : item.label) + " " + (item.postLabel ? item.postLabel : "")}</Text>
                     }) }
                 </HStack>
             }
             <Button style={styles.button} title="View Detail" onPress={event => goToDetail(props.id)}/>
         </VStack>
     )
+        
+        
 }
 
 var {height} = Dimensions.get("window");

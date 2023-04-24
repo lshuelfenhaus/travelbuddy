@@ -23,8 +23,8 @@ export const getFlights = (from_location: string, to_location: string, flight_da
       }
       
       const flightsPromise = axios.request(options).then(function (response) {
-        let flightRequest = response.data;
-        console.log(response.data);
+        let flightRequest = response.data.results;
+        console.log(response.data.results);
         return flightRequest;
       }).catch(function (error) {
           console.error(error);
