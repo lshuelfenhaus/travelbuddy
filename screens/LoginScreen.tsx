@@ -1,6 +1,6 @@
 import React from "react";
 import {useState} from "react";
-import { Stack, TextInput, IconButton, Button, VStack } from "@react-native-material/core";
+import { Stack, TextInput, IconButton, Button } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import {signin} from "./../components/authentication";
 import AsyncStorage from '@react-native-async-storage/async-storage';

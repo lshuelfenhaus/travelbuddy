@@ -1,4 +1,3 @@
-import { Button, Divider, Spacer, Stack, VStack } from '@react-native-material/core';
 import React, { useState, useCallback, useEffect } from 'react'
 import { StyleSheet, View } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat'
