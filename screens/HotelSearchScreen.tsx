@@ -5,6 +5,7 @@ import { Entypo } from '@expo/vector-icons';
 import CalendarPicker from 'react-native-calendar-picker';
 import { ScrollView } from 'react-native-gesture-handler';
 import themestyles from '../Colors';
+import { ELEMENT_SPACING, TEXT_LARGE, TEXT_XLARGE } from '../StyleConstants';
 LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
 interface HotelSearchScreenProps {
     navigation: any
@@ -24,6 +25,9 @@ const HotelSearchScreen = (props: HotelSearchScreenProps) => {
         setShowEndDateCalendar(false);
         setEndDate(new Date(date));
     }
+    const back = () =>{
+            props.navigation.navigate("Home");
+    }
     const searchForHotel = () => {
         props.navigation.navigate("HotelList",{
             location: location,
@@ -34,10 +38,10 @@ const HotelSearchScreen = (props: HotelSearchScreenProps) => {
     }
     return (
         <ScrollView>
-            <VStack>
-                <Text>{"Let's search your hotels"}</Text>
-                <TextInput label="Destination" value={location} onChangeText={setLocation} variant='outlined'/>
-                <TextInput label="Number of adults" value={adults} onChangeText={setAdults} variant='outlined'/>
+            <VStack spacing={ELEMENT_SPACING}>
+                <Text style={styles.title}>{"Let's search your hotel"}</Text>
+                <TextInput variant="outlined"  label="Destination" value={location} onChangeText={setLocation} />
+                <TextInput variant="outlined" label="Number of adults" value={adults} onChangeText={setAdults} />
                 {/*Create two button to reveal the calendar one for start date one for end date */}
                 {/*Create input fields for max price, min price */}
                 <Button 
@@ -46,19 +50,30 @@ const HotelSearchScreen = (props: HotelSearchScreenProps) => {
                     title={"Start Date " + startDate.toISOString().substring(0,10) } onPress={event => {setShowStartDateCalendar(state => !state)}}
                     color={BUTTON_COLOR}    
                 />
-                {showStartDateCalendar && 
-                <CalendarPicker onDateChange={(date) => onStartDateChange(date)}></CalendarPicker>}
+                               {showStartDateCalendar && 
+                <CalendarPicker 
+                  selectedStartDate={startDate} 
+                  selectedDayColor={themestyles.delftBlue.color}
+                  selectedDayTextColor={"white"} 
+                  onDateChange={(date) => onStartDateChange(date)}></CalendarPicker>}
 
-                <Button 
-                    variant="outlined" 
+                <Button
+                    variant="outlined"  
                     leading={props => <Entypo name="calendar" size={24} color={FORM_BUTTON_ICON_COLOR} />} 
                     title={"End Date " + endDate.toISOString().substring(0,10)} onPress={event => {setShowEndDateCalendar(state => !state)}}
                     color={BUTTON_COLOR}
                 />
                 
                 {showEndDateCalendar && 
-                <CalendarPicker onDateChange={(date) => onEndDateChange(date)} ></CalendarPicker>}
+                <CalendarPicker 
+                  selectedStartDate={endDate} 
+                  selectedDayColor={themestyles.delftBlue.color}
+                  selectedDayTextColor={"white"} 
+                  initialDate={endDate} 
+                  onDateChange={(date) => onEndDateChange(date)} ></CalendarPicker>}
+                
                 <Button color={BUTTON_COLOR}  title="search" onPress={searchForHotel}/>
+                <Button color={BUTTON_COLOR}  title="back" onPress={back}/>
             </VStack>
         </ScrollView>
     )
@@ -67,6 +82,11 @@ const BUTTON_COLOR = themestyles.delftBlue.color;
 const FORM_BUTTON_ICON_COLOR = themestyles.charcoal400.color;
 const styles = StyleSheet.create({
     formButton:{
+        color: themestyles.delftBlue.color,
+    },
+    title:{
+        fontSize: TEXT_XLARGE,
+        textAlign: "center",
         color: themestyles.delftBlue.color,
     }
 })

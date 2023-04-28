@@ -10,12 +10,16 @@ import CreateItineraryScreen from './screens/ItineraryQuizScreen';
 import HotelSearchScreen from './screens/HotelSearchScreen';
 import HotelListScreen from './screens/HotelListScreen';
 import { Chatbot } from './screens/ChatbotScreen';
-import ItineraryScreen from './screens/ItineraryScreen';
+import ItineraryScreen from './screens/ItinerariesScreen';
 import FlightSearchScreen from './screens/FlightSearchScreen';
 import FlightListScreen from './screens/FlightListScreen';
 import FlightDetailScreen from './screens/FlightDetailScreen';
 import HotelDetailScreen from './screens/HotelDetailScreen';
 import ReservationScreen from './screens/RerservationScreen';
+import ItineraryCreationScreen from './screens/ItineraryCreationScreen';
+import ItinerariesScreen from './screens/ItinerariesScreen';
+import ItineraryDetailScreen from './screens/ItineraryDetailScreen';
+import HotelOfferDetailScreen from './screens/HotelOfferDetailScreen';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -39,16 +43,18 @@ const AppNavigator = () => (
         <Screen name="Login" component={LoginScreen} />
         <Screen name="SignUp" component={SignUpScreen} />
         <Screen name="Account" component={AccountScreen} />
-        <Screen name="CreateItinerary" component={CreateItineraryScreen} />
         <Screen name="HotelSearch" component={HotelSearchScreen} />
         <Screen name="HotelList" component={HotelListScreen} />
         <Screen name="FlightSearch" component={FlightSearchScreen} />
         <Screen name="FlightList" component={FlightListScreen} />
         <Screen name="FlightDetail" component={FlightDetailScreen} />
         <Screen name="Chatbot" component={Chatbot} />
-        <Screen name="Itinerary" component={ItineraryScreen} />
+        <Screen name="Itineraries" component={ItinerariesScreen} />
         <Screen name="HotelDetail" component={HotelDetailScreen} />
         <Screen name="Reservation" component={ReservationScreen} />
+        <Screen name="ItineraryCreation" component={ItineraryCreationScreen} />
+        <Screen name="ItineraryDetail" component={ItineraryDetailScreen} />
+        <Screen name="HotelOfferDetail" component={HotelOfferDetailScreen} />
       </Navigator>
     </NavigationContainer>
 )

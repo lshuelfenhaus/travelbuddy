@@ -42,8 +42,20 @@ export interface Flight {
     email: string;
     token: string;//hashed value with salt
     salt: string;
-    hotels: Hotel[];
-    flights: Flight[];
-    attractions: Attraction[];
     name: string;
+    itineraryIDs: String[];
+  }
+
+  export interface Itinerary{
+    name: string,
+    startDate?: Timestamp,
+    endDate?: Timestamp,
+    adults?: string,
+    hotelid?: string,
+    flightid?: string,
+    attractionids?: string[],
+    dateAdded: Timestamp,
+    destination:string,
+    username: string,
+    placeid: string,
   }

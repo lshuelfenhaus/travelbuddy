@@ -12,7 +12,11 @@ interface HoteListProps {
 const items = [{id:'1',name:"hotel name", price: 800, reviews: 10},{id:'3', price: 200,name:"hotel name 2", reviews: 9},{id:'2', price: 50, name:"hotel name 3", reviews: 4.5}]
 const HotelList = (props: HoteListProps) => {
     const back = () =>{
-        props.navigation.navigate("HotelSearch");
+        if(props.navigation.canGoBack()){
+            props.navigation.goBack();
+        }else{
+            props.navigation.navigate("HotelSearch");
+        }
     }
     return (
         <ScrollView>        

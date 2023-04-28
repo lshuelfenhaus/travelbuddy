@@ -30,13 +30,16 @@ export const PADDING_XLARGE = 16;
 export const BUTTON_COLOR = themestyles.delftBlue.color;
 export const CLOSE_BUTTON_COLOR = 'tomato';
 export const HIGHLIGHT_COLOR = themestyles.charcoal300.color;
-
+export const FORM_BUTTON_ICON_COLOR = themestyles.charcoal400.color;
 //ICONS
 export const ICON_COLOR = themestyles.charcoal400.color;
-
+export const ICON_SIZE_L = 40;
+export const ICON_SIZE_M = 20;
+export const ICON_SIZE_S = 12;
 //BADGES
 export const BADGE_COLOR = themestyles.charcoal400.color;
 export const BADGE_TEXT_COLOR = "white";
 export const BADGE_MIN_WIDTH = 100;
 
-
+//BOTTOM NAVIGATION
+export const BOTTOM_NAVIGATION_HEIGHT = 0.07;

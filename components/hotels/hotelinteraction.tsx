@@ -28,35 +28,6 @@ export const getLocationBaseOnType = (location: string,rType: string) => {
 }
 
 export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, adults: number) => {
-        let search = {
-        "currency": "USD",
-        "eapid": 1,
-        "locale": "en_US",
-        "siteId": 300000001,
-        "destination": {
-            "regionId": geoID
-        },
-        "checkInDate": {
-            "day": checkIn.getUTCDate(),
-            "month": checkIn.getUTCMonth() + 1,
-            "year": checkIn.getUTCFullYear()
-        },
-        "checkOutDate": {
-            "day": checkOut.getUTCDate(),
-            "month": checkOut.getUTCMonth() + 1,
-            "year": checkOut.getUTCFullYear()
-        },
-        
-        "rooms": [
-            {
-                "adults": adults,
-                "children": [
-                ]
-            }
-        ],
-        "resultsStartingIndex": 0,
-        "resultsSize": 40
-        }
        /*  "currency": "USD",
        "currency": "USD",
         "eapid": 1,

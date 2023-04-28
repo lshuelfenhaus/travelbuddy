@@ -1,43 +1,30 @@
 import { Flex, HStack, Pressable, VStack } from '@react-native-material/core';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image } from 'react-native-elements';
 import { Alert, Button, ScrollView, StyleSheet, Text, View} from 'react-native';
-import themeStyles from './../../Colors'
+import themeStyles from './../Colors'
 import Modal from 'react-native-modal';
-import * as STYLE_CONSTANTS  from './../../StyleConstants';
+import * as STYLE_CONSTANTS  from './../StyleConstants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { updateItinerary } from '../firestoredbinteractions';
-interface UnitsProps{
-    units: Array<any>
+import { updateItinerary } from '../components/firestoredbinteractions';
+interface HotelOfferDetailScreenProps{
+    navigation: any,
+    route: any,
 }
 
-const Units = (props:UnitsProps) => {
-    const [modalVisible, setModalVisible] = useState(false);
+const HotelOfferDetailScreen = (props:HotelOfferDetailScreenProps) => {
     const [curUnit, setCurUnit] = useState<any>();
     const [curPlan, setCurPlan] = useState<any>();
-    const viewUnit = (event:any,unit:any) => {
-        setModalVisible(true);
-        setCurUnit(unit);
-        setCurPlan(unit.ratePlans[0].priceDetails[0])
-    }
     const setCurrentPlan = (event:any, curP: any) => {
         setCurPlan(curP);
     }
-    const saveOffer = async () => {
-        const id = await AsyncStorage.getItem('@itinerary_id');
-        if(id !== null && id.length > 0){
-            const status = await updateItinerary(id, {unit: curUnit, plan: curPlan});
-            if(status){
-                setModalVisible(false);
-                Alert.alert("Offer saved to itinerary");
-            }else{
-                Alert.alert("Error saving offer to itinerary");
-            }
-        }
-    }
+    useEffect(() => {
+        setCurUnit(props.route.params["unit"]);
+        setCurPlan(props.route.params["plan"]);
+    }, []);
     return(
         <>
-      <Modal style={{padding:STYLE_CONSTANTS.PADDING_XLARGE}} animationIn="fadeIn" animationOut="fadeOut" isVisible={modalVisible}>
+     
             <View style={{borderRadius: STYLE_CONSTANTS.BORDER_RADIUS, overflow:"hidden"}}>
             <ScrollView contentContainerStyle={styles.screenBody}>
                 {curUnit &&
@@ -99,12 +86,7 @@ const Units = (props:UnitsProps) => {
                 }
             </ScrollView>
             {curPlan && <Flex  direction='row' >
-               <Pressable onPress={(event)=>{
-                setModalVisible(false);
-               }} style={[styles.modalButton,styles.closeButton]}>
-                    <Text style={[styles.buttonText, styles.textSubTitle]}>Close</Text>
-               </Pressable>
-               <Pressable onPress={saveOffer} style={[styles.modalButton,styles.reserveButton]}>
+               <Pressable onPress={null} style={[styles.modalButton,styles.reserveButton]}>
                     <HStack>                    
                         <Text style={[styles.buttonText,styles.textSubTitle]}>Save Offer</Text>
                         <Text style={[styles.buttonTextPrice,styles.textSubTitle]}>$ {Math.round(curPlan.price.lead.amount)}</Text>
@@ -113,21 +95,6 @@ const Units = (props:UnitsProps) => {
                </Pressable>
             </Flex>}
             </View>
-        </Modal>
-
-        <ScrollView horizontal={true}>
-        { props.units && props.units.map((unit,index)=>(
-            <Pressable key={index} onPress={event=>viewUnit(event,unit)}>
-                <VStack key = {index} style={styles.unitSmallBox} spacing={STYLE_CONSTANTS.ELEMENT_SPACING}>
-                    <Image style={styles.unitThumbnail} source={{uri:unit.unitGallery.gallery[0].image.url }}/>
-                    <Text style={styles.textRegular}>{unit.header.text}</Text>
-                    {unit.ratePlans[0] ? <Text style={styles.textRegular}>{ unit.ratePlans[0].priceDetails[0].price.lead.amount}</Text>
-                    :<Text style={styles.textRegular}>{"Not Available"}</Text>}
-                </VStack>
-            </Pressable>
-            )
-        )}
-        </ScrollView>
         
         </>
     )
@@ -210,4 +177,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Units;
+export default HotelOfferDetailScreen;
