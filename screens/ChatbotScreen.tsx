@@ -47,6 +47,7 @@ export function Chatbot(props: HomeScreenProps) {
   }, [])
 
   const onSend = useCallback(async (messages:Array<Message> = []) => {
+    console.log(configuration.apiKey);
     setMessages(previousMessages => GiftedChat.append(previousMessages, messages));
     // setAiMessages(previousMessages => [...previousMessages, {'role': 'user', 'content': messages[0].text}]);
     try{
