@@ -1,10 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { StyleSheet } from 'react-native';
+import { SafeAreaViewBase, StyleSheet } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import themestyles from '../Colors';
 import { BottomNavigation } from '../components/bottomnavigation';
-import {Configuration, OpenAIApi} from 'openai';
+import {ChatCompletionRequestMessage, Configuration, CreateChatCompletionRequest, OpenAIApi} from 'openai';
+import { Box, Button, Divider, Spacer, VStack } from '@react-native-material/core';
 
 interface HomeScreenProps {
   navigation: any
@@ -20,15 +21,16 @@ interface Message {
     avatar: string;
   };
 }
+let chatCounter = 1
 export function Chatbot(props: HomeScreenProps) {
-  console.log(process.env.OPENAI_API_KEY)
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
   });
   const openai = new OpenAIApi(configuration);
-
   const [messages, setMessages] = useState<Array<Message>>([]);
-  
+  const [aiMessages, setAiMessages] = useState<Array<ChatCompletionRequestMessage>>([]);
+  console.log(aiMessages)
+  console.log(messages)
   useEffect(() => {
     setMessages([
       {
@@ -45,30 +47,20 @@ export function Chatbot(props: HomeScreenProps) {
   }, [])
 
   const onSend = useCallback(async (messages:Array<Message> = []) => {
-    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
-     const prompt = messages[0]?.text
-     console.log(prompt)
-
-     try{
-      const response = await openai.createCompletion(
-      {
-      model: 'davinci',
-      temperature: 0.7,
-      prompt: prompt,
-      max_tokens: 20,
-      n: 1,
-      stop: ['\n'],
+    setMessages(previousMessages => GiftedChat.append(previousMessages, messages));
+    // setAiMessages(previousMessages => [...previousMessages, {'role': 'user', 'content': messages[0].text}]);
+    try{
+    const apiRequestBody = {
+      model: "gpt-3.5-turbo",
+      messages: aiMessages
     }
-    );
-
-    const completions = await response.data.choices;
-    const text = completions[0]?.text
-    if (!text) {
-      return;
+    const completions = await openai.createChatCompletion(apiRequestBody)
+    if(!completions.data.choices[0].message?.content){
+      return
     }
     const botMessage: Message = {
-      _id: messages.length + 1,
-      text: text,
+      _id: ++chatCounter,
+      text: completions.data.choices[0].message?.content,
       createdAt: new Date(),
       user: {
         _id: 2,
@@ -76,16 +68,14 @@ export function Chatbot(props: HomeScreenProps) {
         avatar: 'https://cdn.dribbble.com/users/722835/screenshots/4082720/bot_icon.gif',
       },
     };
-    setMessages(previousMessages => GiftedChat.append(previousMessages, [botMessage]))
-
-     }
-
-     catch(error){
-      console.log('An error was thrown.')
+    //setMessages(previousMessages => GiftedChat.append(previousMessages, [botMessage]))
+   //setAiMessages(previousMessages => [...previousMessages, {'role': 'assistant', 'content': messages[0].text}])
+    }
+    catch(error){
       console.log(error)
       const botMessage : Message = {
-        _id: messages.length + 1,
-        text: JSON.stringify(error),
+        _id: ++chatCounter,
+        text: 'An error was thrown',
         createdAt: new Date(),
         user: {
           _id: 2,
@@ -94,7 +84,8 @@ export function Chatbot(props: HomeScreenProps) {
         },
       };
       setMessages(previousMessages => GiftedChat.append(previousMessages, [botMessage]))
-     }
+      setAiMessages(previousMessages => [...previousMessages, {'role': 'assistant', 'content': messages[0].text}])
+    }
 
   }, [])
 
@@ -107,7 +98,11 @@ export function Chatbot(props: HomeScreenProps) {
         accessibilityLabel='main'
         testID='main'
     >
-      <GiftedChat
+      {/* <Box pr={220} pl={15} pt={5}>
+      <Button title="Home" color={themestyles.delftBlue.color} ></Button>
+      </Box> */}
+      
+        <GiftedChat
       messages={messages}
       showAvatarForEveryMessage={true}
       onSend={messages => onSend(messages)}
@@ -115,7 +110,8 @@ export function Chatbot(props: HomeScreenProps) {
         _id: 1,
       }}/>
       
-      <BottomNavigation navigation={props.navigation} />
+      
+      {/* <BottomNavigation navigation={props.navigation} />  */}
     </SafeAreaView>
     </SafeAreaProvider>
    
