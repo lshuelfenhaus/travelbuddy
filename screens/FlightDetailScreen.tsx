@@ -7,7 +7,6 @@ import { Flex, HStack, VStack,Badge, IconButton } from '@react-native-material/c
 import { Image } from 'react-native-elements';
 import * as STYLE_CONSTANTS from '../StyleConstants';
 import themestyles from '../Colors';
-
 interface HotelDetailScreenProps {
     navigation?:any,
     route: any

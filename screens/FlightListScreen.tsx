@@ -14,7 +14,7 @@ const FlightListScreen = (props: FlightListScreenProps) => {
         return params[paramName] ? params[paramName] : defaultVal
     }
     useEffect(()=>{
-        Flight.getFlights(
+        /*Flight.getFlights(
             processParamsFromNavigation("origlocation",""),
             processParamsFromNavigation("destlocation",""),
             processParamsFromNavigation("flightDate",new Date()),
