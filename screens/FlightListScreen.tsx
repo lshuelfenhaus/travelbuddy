@@ -14,20 +14,22 @@ const FlightListScreen = (props: FlightListScreenProps) => {
         return params[paramName] ? params[paramName] : defaultVal
     }
     useEffect(()=>{
-        /*Flight.getFlights(
+        Flight.getFlights(
             processParamsFromNavigation("origlocation",""),
             processParamsFromNavigation("destlocation",""),
             processParamsFromNavigation("flightDate",new Date()),
             processParamsFromNavigation("adults",1), 
         ).then(flightItems => {
             setFlights(flightItems);
-        })*/
-        let entries = require('./../JSON DATA/flight_list.json')
-        setFlights(entries.results)
+        })
+
+        //Test flight list
+        /*let entries = require('./../JSON DATA/flight_list.json')
+        setFlights(entries.results)*/
     },[])
     return (
-        /*<FlightList navigation={props.navigation} items={flights} destlocation={params["destlocation"]}/>*/
-        <FlightList navigation={props.navigation} items={flights} destlocation={"JFK"}/>
+        <FlightList navigation={props.navigation} items={flights} destlocation={params["destlocation"]}/>
+        /*<FlightList navigation={props.navigation} items={flights} destlocation={"JFK"}/>*/
     )
 }
 

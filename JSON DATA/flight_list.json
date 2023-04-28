@@ -1,3515 +1,3387 @@
 {
-    "status": 200,
-    "searchData": {
-      "from": "SJC",
-      "to": "JFK",
-      "date": "2023-05-09",
-      "type": "Economy",
-      "adult": 1,
-      "child": 0,
-      "infant": 0,
-      "currency": "USD"
-    },
-    "results": [
-      {
-        "id": "47a189fdb713d1a4617b1cce7a2f128bcdfd6f2d139449853ecb8504261185ac",
-        "careerCode": "B6",
-        "flight_code": "B6-670",
-        "flight_name": "JetBlue Airways",
-        "stops": "Direct",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T22:59:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T07:23:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "B6-670"
-        ],
-        "duration": {
-          "text": "05h 24m",
-          "value": 324
-        },
-        "stopSummary": {},
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 125.12,
-          "tax": 27.200000000000003,
-          "base": 97.92
-        }
-      },
-      {
-        "id": "e732e75c1938e89018e07098162ec9ce13856fcc05f2a7bc48dd15ed07a3b0a7",
-        "careerCode": "DL",
-        "flight_code": "DL-3658",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T11:25:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T23:59:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-3658",
-          "DL-386"
-        ],
-        "duration": {
-          "text": "09h 34m",
-          "value": 574
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "SEA",
-            "stopDuration": 90
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 136,
-          "tax": 38.080000000000005,
-          "base": 97.92
-        }
-      },
-      {
-        "id": "f221d67e3654757e9262210fd83616726801d7c708cfb664278d69539e4489c9",
-        "careerCode": "DL",
-        "flight_code": "DL-3545",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T06:15:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T20:30:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-3545",
-          "DL-510"
-        ],
-        "duration": {
-          "text": "11h 15m",
-          "value": 675
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "SEA",
-            "stopDuration": 183
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 136,
-          "tax": 38.080000000000005,
-          "base": 97.92
-        }
-      },
-      {
-        "id": "a3950d10f52b74c6f4e52361104e9a3a41cedcd22dc1372e48559e4ece610391",
-        "careerCode": "B6",
-        "flight_code": "B6-972",
-        "flight_name": "JetBlue Airways",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T21:39:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T08:59:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "B6-972",
-          "B6-2117"
-        ],
-        "duration": {
-          "text": "08h 20m",
-          "value": 500
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "BOS",
-            "stopDuration": 87
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 141.44,
-          "tax": 38.080000000000005,
-          "base": 103.36000000000001
-        }
-      },
-      {
-        "id": "693b5f8c870f772953105c765aa429e80e399403ba31134983befe82225bb107",
-        "careerCode": "DL",
-        "flight_code": "DL-2339",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T13:30:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T23:58:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-2339",
-          "DL-381"
-        ],
-        "duration": {
-          "text": "07h 28m",
-          "value": 448
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "SLC",
-            "stopDuration": 53
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 176.8,
-          "tax": 40.800000000000004,
-          "base": 136
-        }
-      },
-      {
-        "id": "cccc66ff133c0c2dd0165571e0a1ca5b9cbb6d1ce87ebaf3e44191f0f940bd70",
-        "careerCode": "DL",
-        "flight_code": "DL-3926",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T10:00:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T22:59:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-3926",
-          "DL-670"
-        ],
-        "duration": {
-          "text": "09h 59m",
-          "value": 599
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 171
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 176.8,
-          "tax": 40.800000000000004,
-          "base": 136
-        }
-      },
-      {
-        "id": "a2c83d2015ee93a51378576c584dff59e7142cf2f12930df5392fa325288010f",
-        "careerCode": "DL",
-        "flight_code": "DL-2840",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T17:15:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T06:17:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-2840",
-          "DL-845"
-        ],
-        "duration": {
-          "text": "10h 02m",
-          "value": 602
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "SLC",
-            "stopDuration": 212
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 176.8,
-          "tax": 40.800000000000004,
-          "base": 136
-        }
-      },
-      {
-        "id": "31830ae9c6532d41680fa78982d1906b365db1eaf72fa58245b05d68659c0a26",
-        "careerCode": "DL",
-        "flight_code": "DL-2905",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T06:00:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T19:16:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-2905",
-          "DL-8783"
-        ],
-        "duration": {
-          "text": "10h 16m",
-          "value": 616
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "SLC",
-            "stopDuration": 220
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 176.8,
-          "tax": 40.800000000000004,
-          "base": 136
-        }
-      },
-      {
-        "id": "35667bc6423613ac9675652b7332176970ea86a7e232dd626597acc2c70b6104",
-        "careerCode": "DL",
-        "flight_code": "DL-3926",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T10:00:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T00:45:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-3926",
-          "DL-763"
-        ],
-        "duration": {
-          "text": "11h 45m",
-          "value": 705
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 281
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 209.44000000000003,
-          "tax": 51.68000000000001,
-          "base": 157.76000000000002
-        }
-      },
-      {
-        "id": "80202e3eb8a56768b10cfee13270bb3121c65d4455c18a358b6d7bd1bee763d9",
-        "careerCode": "DL",
-        "flight_code": "DL-3926",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T10:00:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T20:55:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-3926",
-          "DL-678"
-        ],
-        "duration": {
-          "text": "07h 55m",
-          "value": 475
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 41
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 223.04000000000002,
-          "tax": 43.52,
-          "base": 179.52
-        }
-      },
-      {
-        "id": "2f162efcfb95831ac8c9aa75f7ea222ff298cf9460871a9afe7c4254a9976fdb",
-        "careerCode": "DL",
-        "flight_code": "DL-809",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T12:20:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T23:59:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-809",
-          "DL-1528"
-        ],
-        "duration": {
-          "text": "08h 39m",
-          "value": 519
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "ATL",
-            "stopDuration": 83
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 223.04000000000002,
-          "tax": 43.52,
-          "base": 179.52
-        }
-      },
-      {
-        "id": "f3652232ab542b4934662fcb376185bc5b412cbf6754867011cf5057facc96e7",
-        "careerCode": "DL",
-        "flight_code": "DL-3656",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T07:25:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T19:50:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-3656",
-          "DL-562"
-        ],
-        "duration": {
-          "text": "09h 25m",
-          "value": 565
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 136
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 223.04000000000002,
-          "tax": 43.52,
-          "base": 179.52
-        }
-      },
-      {
-        "id": "98c3a546a5e469f9d1b0e552e59c30dc27f098739dfffd2fe79facf3b2d4e51e",
-        "careerCode": "DL",
-        "flight_code": "DL-4136",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T18:45:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T08:37:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-4136",
-          "DL-524"
-        ],
-        "duration": {
-          "text": "10h 52m",
-          "value": 652
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 219
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 223.04000000000002,
-          "tax": 43.52,
-          "base": 179.52
-        }
-      },
-      {
-        "id": "f56a44c6f14e396027e548dd07938d7a169079a1239d36e50926934c2a992df1",
-        "careerCode": "B6",
-        "flight_code": "B6-972",
-        "flight_name": "JetBlue Airways",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T21:39:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T12:59:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "B6-972",
-          "B6-2417"
-        ],
-        "duration": {
-          "text": "12h 20m",
-          "value": 740
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "BOS",
-            "stopDuration": 330
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 223.04000000000002,
-          "tax": 51.68000000000001,
-          "base": 171.36
-        }
-      },
-      {
-        "id": "8eb5a315f20327b6032640d67f2feffaf264b0fdc98ed2c36fc1ece4fc82dab4",
-        "careerCode": "DL",
-        "flight_code": "DL-3656",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T07:25:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T00:45:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-3656",
-          "DL-763"
-        ],
-        "duration": {
-          "text": "14h 20m",
-          "value": 860
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 441
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 239.36,
-          "tax": 54.400000000000006,
-          "base": 184.96
-        }
-      },
-      {
-        "id": "312f7dbb911360a616c37412258970b362f35f533b51a8d7223a797f5da936cc",
-        "careerCode": "DL",
-        "flight_code": "DL-4136",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T18:45:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T14:36:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-4136",
-          "DL-575"
-        ],
-        "duration": {
-          "text": "16h 51m",
-          "value": 1011
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 584
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 239.36,
-          "tax": 54.400000000000006,
-          "base": 184.96
-        }
-      },
-      {
-        "id": "c9bb512f2855b5acd95ab0e553b12a616ad8d73f7c0ada13256dd7fd41c2ca78",
-        "careerCode": "DL",
-        "flight_code": "DL-4136",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T18:45:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T15:49:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-4136",
-          "DL-332"
-        ],
-        "duration": {
-          "text": "18h 04m",
-          "value": 1084
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 659
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 239.36,
-          "tax": 54.400000000000006,
-          "base": 184.96
-        }
-      },
-      {
-        "id": "f9ca2e419a291daf488b94e0600ff9b3e0cd856e467a1c6cdcb0fcfe268b041c",
-        "careerCode": "DL",
-        "flight_code": "DL-3707",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T14:35:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T07:30:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-3707",
-          "DL-280"
-        ],
-        "duration": {
-          "text": "13h 55m",
-          "value": 835
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 415
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 266.56,
-          "tax": 54.400000000000006,
-          "base": 212.16000000000003
-        }
-      },
-      {
-        "id": "a11fa9260f94f8f532d2f4a84c35b26c1e65abf11aff465f7e1483e9846f3a11",
-        "careerCode": "DL",
-        "flight_code": "DL-4136",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T18:45:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T17:59:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-4136",
-          "DL-688"
-        ],
-        "duration": {
-          "text": "20h 14m",
-          "value": 1214
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 779
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 266.56,
-          "tax": 54.400000000000006,
-          "base": 212.16000000000003
-        }
-      },
-      {
-        "id": "6a3004263b163c0610d2c815e157fd6e674f454348d76c0a574611b1098c8c1d",
-        "careerCode": "DL",
-        "flight_code": "DL-4136",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T18:45:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T19:50:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-4136",
-          "DL-562"
-        ],
-        "duration": {
-          "text": "22h 05m",
-          "value": 1325
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 899
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 266.56,
-          "tax": 54.400000000000006,
-          "base": 212.16000000000003
-        }
-      },
-      {
-        "id": "fdc145d51621e78121cf232db4ec99c3a90d846bfdd8d44a033c18f2b91c6b04",
-        "careerCode": "DL",
-        "flight_code": "DL-3856",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T19:15:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T15:46:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-3856",
-          "DL-747"
-        ],
-        "duration": {
-          "text": "17h 31m",
-          "value": 1051
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "SEA",
-            "stopDuration": 565
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 266.56,
-          "tax": 54.400000000000006,
-          "base": 212.16000000000003
-        }
-      },
-      {
-        "id": "a1b362367acf552f591ddc8e397356eb27684fe274a4ba7f0a2014dcfab381b8",
-        "careerCode": "DL",
-        "flight_code": "DL-3856",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T19:15:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T20:30:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-3856",
-          "DL-510"
-        ],
-        "duration": {
-          "text": "22h 15m",
-          "value": 1335
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "SEA",
-            "stopDuration": 835
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 266.56,
-          "tax": 54.400000000000006,
-          "base": 212.16000000000003
-        }
-      },
-      {
-        "id": "cd468714f8175d96b5654a4f9631eca6ba451b70a64984255547240dc0aa0d59",
-        "careerCode": "DL",
-        "flight_code": "DL-3856",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T19:15:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T23:59:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-3856",
-          "DL-386"
-        ],
-        "duration": {
-          "text": "25h 44m",
-          "value": 1544
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "SEA",
-            "stopDuration": 1050
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 266.56,
-          "tax": 54.400000000000006,
-          "base": 212.16000000000003
-        }
-      },
-      {
-        "id": "a488a44151aeaadd2ae72d5f2e27472ddfdedce104afeff7b6b32278a78bca16",
-        "careerCode": "DL",
-        "flight_code": "DL-964",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T22:30:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T09:42:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-964",
-          "DL-1667"
-        ],
-        "duration": {
-          "text": "08h 12m",
-          "value": 492
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "ATL",
-            "stopDuration": 69
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 272,
-          "tax": 48.96,
-          "base": 223.04000000000002
-        }
-      },
-      {
-        "id": "c66c34ce29819cd4254b148a9bb2c26b8bd6f47aee8281d91c616a7bd3c9c026",
-        "careerCode": "DL",
-        "flight_code": "DL-4136",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T18:45:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T06:10:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-4136",
-          "DL-349"
-        ],
-        "duration": {
-          "text": "08h 25m",
-          "value": 505
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 84
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 272,
-          "tax": 48.96,
-          "base": 223.04000000000002
-        }
-      },
-      {
-        "id": "8fb37f91e299231f63d1c6840c60486e05a7d3b113bb9d93c80bee144e0272ce",
-        "careerCode": "DL",
-        "flight_code": "DL-4136",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T18:45:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T07:30:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-4136",
-          "DL-280"
-        ],
-        "duration": {
-          "text": "09h 45m",
-          "value": 585
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 159
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 272,
-          "tax": 48.96,
-          "base": 223.04000000000002
-        }
-      },
-      {
-        "id": "7c8ad03488549db098c24bbf55fa32047d1d65e41a9584e8236813d75cb65ab0",
-        "careerCode": "DL",
-        "flight_code": "DL-2905",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T06:00:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T20:35:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-2905",
-          "DL-887"
-        ],
-        "duration": {
-          "text": "11h 35m",
-          "value": 695
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "SLC",
-            "stopDuration": 295
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 285.6,
-          "tax": 57.120000000000005,
-          "base": 228.48000000000002
-        }
-      },
-      {
-        "id": "2ce39d7c1bc1c278813e5a1b9351d27aed4234f30ae94cae762de8467b6160a1",
-        "careerCode": "AA",
-        "flight_code": "AA-3437",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T12:48:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T23:08:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-3437",
-          "AA-1388"
-        ],
-        "duration": {
-          "text": "07h 20m",
-          "value": 440
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "PHX",
-            "stopDuration": 28
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 296.48,
-          "tax": 48.96,
-          "base": 247.52
-        }
-      },
-      {
-        "id": "401d4390eb1af2769f6621e785bf7cc641ecb38700be61f9b54135c87c26c783",
-        "careerCode": "DL",
-        "flight_code": "DL-2045",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T09:55:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T20:35:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-2045",
-          "DL-887"
-        ],
-        "duration": {
-          "text": "07h 40m",
-          "value": 460
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "SLC",
-            "stopDuration": 65
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 296.48,
-          "tax": 48.96,
-          "base": 247.52
-        }
-      },
-      {
-        "id": "e297c886552b2094e362344bfe6c9dd9107ec71e3c4cb5f62b82762a439be575",
-        "careerCode": "B6",
-        "flight_code": "B6-972",
-        "flight_name": "JetBlue Airways",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T21:39:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T10:30:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "B6-972",
-          "B6-4528"
-        ],
-        "duration": {
-          "text": "09h 51m",
-          "value": 591
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "BOS",
-            "stopDuration": 171
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 296.48,
-          "tax": 48.96,
-          "base": 247.52
-        }
-      },
-      {
-        "id": "8f7ce2c9cbcdf2ab0217ba85ab961a918976784e11e0241ddeda50e8bffd0dee",
-        "careerCode": "AA",
-        "flight_code": "AA-1019",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T06:10:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T19:30:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-1019",
-          "AA-2743"
-        ],
-        "duration": {
-          "text": "10h 20m",
-          "value": 620
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "DFW",
-            "stopDuration": 176
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 296.48,
-          "tax": 48.96,
-          "base": 247.52
-        }
-      },
-      {
-        "id": "cf81e63e64924c4f00a3216e59d38a0b2e8f4b14596d1cc99839bbdf667a63a4",
-        "careerCode": "AA",
-        "flight_code": "AA-3051",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T17:20:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T06:51:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-3051",
-          "AA-10"
-        ],
-        "duration": {
-          "text": "10h 31m",
-          "value": 631
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 211
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 296.48,
-          "tax": 48.96,
-          "base": 247.52
-        }
-      },
-      {
-        "id": "d95fef1576284a4e877b119d4a78722a38bd5e8d4fa41d04bc66ac827b5c383b",
-        "careerCode": "DL",
-        "flight_code": "DL-4136",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T18:45:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T20:55:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-4136",
-          "DL-678"
-        ],
-        "duration": {
-          "text": "23h 10m",
-          "value": 1390
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 964
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 307.36,
-          "tax": 57.120000000000005,
-          "base": 250.24
-        }
-      },
-      {
-        "id": "36a90e37e7319b2e9788e51ff297165efeb313e2c7511dcee12b8dedbb8c3ca7",
-        "careerCode": "DL",
-        "flight_code": "DL-2905",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T06:00:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T16:38:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-2905",
-          "DL-508"
-        ],
-        "duration": {
-          "text": "07h 38m",
-          "value": 458
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "SLC",
-            "stopDuration": 55
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 340,
-          "tax": 51.68000000000001,
-          "base": 288.32
-        }
-      },
-      {
-        "id": "55aacdcb6a39ade41242546dc3690b59a05a906cadb2d0023763bb98af06046a",
-        "careerCode": "AA",
-        "flight_code": "AA-3051",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T17:20:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T07:58:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-3051",
-          "AA-28"
-        ],
-        "duration": {
-          "text": "11h 38m",
-          "value": 698
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 279
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 448.8,
-          "tax": 68,
-          "base": 380.8
-        }
-      },
-      {
-        "id": "c3b84db56cff3a59329423dd569cddf1333b733d02cfb626aeb2443dc0cbc136",
-        "careerCode": "AA",
-        "flight_code": "AA-3051",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T17:20:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T20:04:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-3051",
-          "AA-04"
-        ],
-        "duration": {
-          "text": "23h 44m",
-          "value": 1424
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 1004
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 448.8,
-          "tax": 68,
-          "base": 380.8
-        }
-      },
-      {
-        "id": "a86b1571a68b97e3a11e1bd2933bb258e80d3ad986794f6fb3c9453ce4824e20",
-        "careerCode": "AA",
-        "flight_code": "AA-3437",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T12:48:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T06:32:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-3437",
-          "AA-1280"
-        ],
-        "duration": {
-          "text": "14h 44m",
-          "value": 884
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "PHX",
-            "stopDuration": 473
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 448.8,
-          "tax": 68,
-          "base": 380.8
-        }
-      },
-      {
-        "id": "a4702ce481bf8867fdcd8516566573fbd24ed5664432bf052747cacd5e089ea6",
-        "careerCode": "AA",
-        "flight_code": "AA-3051",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T17:20:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T14:59:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-3051",
-          "AA-118"
-        ],
-        "duration": {
-          "text": "18h 39m",
-          "value": 1119
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 704
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 448.8,
-          "tax": 68,
-          "base": 380.8
-        }
-      },
-      {
-        "id": "ae678214b625a4aad53d901e5ca4245298944c6969532d8d4680188cab083dc7",
-        "careerCode": "AA",
-        "flight_code": "AA-1019",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T06:10:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T21:30:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-1019",
-          "AA-2292"
-        ],
-        "duration": {
-          "text": "12h 20m",
-          "value": 740
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "DFW",
-            "stopDuration": 292
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 470.56000000000006,
-          "tax": 70.72,
-          "base": 399.84000000000003
-        }
-      },
-      {
-        "id": "286cec1bbc4974720a493fe90c24e94a417669acf85f7fa8804d0fc6781a6586",
-        "careerCode": "AA",
-        "flight_code": "AA-2834",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T14:21:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T16:59:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-2834",
-          "AA-2246"
-        ],
-        "duration": {
-          "text": "23h 38m",
-          "value": 1418
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "DFW",
-            "stopDuration": 986
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 470.56000000000006,
-          "tax": 70.72,
-          "base": 399.84000000000003
-        }
-      },
-      {
-        "id": "7ba6468bcf25b29a538ba5783a562a2992f11d33ab2034207cd49b6682883bf5",
-        "careerCode": "AA",
-        "flight_code": "AA-2046",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T12:17:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T16:59:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-2046",
-          "AA-2246"
-        ],
-        "duration": {
-          "text": "25h 42m",
-          "value": 1542
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "DFW",
-            "stopDuration": 1110
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 470.56000000000006,
-          "tax": 70.72,
-          "base": 399.84000000000003
-        }
-      },
-      {
-        "id": "82660b3019d393d0654bb5a4b82f643c1b195360a9e81d18a5ad9c2367f9f92c",
-        "careerCode": "AA",
-        "flight_code": "AA-2834",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T14:21:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T19:30:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-2834",
-          "AA-2743"
-        ],
-        "duration": {
-          "text": "26h 09m",
-          "value": 1569
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "DFW",
-            "stopDuration": 1136
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 470.56000000000006,
-          "tax": 70.72,
-          "base": 399.84000000000003
-        }
-      },
-      {
-        "id": "1466be47b93d5ffbfdec9762ed0f5de13312e31767f520046d231eb31908b51f",
-        "careerCode": "AA",
-        "flight_code": "AA-2834",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T14:21:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T21:30:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-2834",
-          "AA-2292"
-        ],
-        "duration": {
-          "text": "28h 09m",
-          "value": 1689
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "DFW",
-            "stopDuration": 1252
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 470.56000000000006,
-          "tax": 70.72,
-          "base": 399.84000000000003
-        }
-      },
-      {
-        "id": "c5282e7c18d49174968a0c8312e8a71c97bcc78031489bcc345fa59862db1250",
-        "careerCode": "AA",
-        "flight_code": "AA-2046",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T12:17:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T19:30:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-2046",
-          "AA-2743"
-        ],
-        "duration": {
-          "text": "28h 13m",
-          "value": 1693
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "DFW",
-            "stopDuration": 1260
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 470.56000000000006,
-          "tax": 70.72,
-          "base": 399.84000000000003
-        }
-      },
-      {
-        "id": "99357a5dd40e082b4eb9bdde89de83ae8a812a38fe830bd7479bc2c9482a23f3",
-        "careerCode": "AA",
-        "flight_code": "AA-3051",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T17:20:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T15:40:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-3051",
-          "AA-02"
-        ],
-        "duration": {
-          "text": "19h 20m",
-          "value": 1160
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 734
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 478.72,
-          "tax": 70.72,
-          "base": 408.00000000000006
-        }
-      },
-      {
-        "id": "7271d1065f9eed9c62819c977470afb96a3f1766506273511b8a2c43503ad146",
-        "careerCode": "AA",
-        "flight_code": "AA-3051",
-        "flight_name": "American Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T17:20:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T17:09:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AA-3051",
-          "AA-184"
-        ],
-        "duration": {
-          "text": "20h 49m",
-          "value": 1249
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "LAX",
-            "stopDuration": 824
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 478.72,
-          "tax": 70.72,
-          "base": 408.00000000000006
-        }
-      },
-      {
-        "id": "f2eb6295df7650781a252b7dc54a6a5d0685e46f7d9e7d7d03a8099e7cfb7c9f",
-        "careerCode": "DL",
-        "flight_code": "AS-2150",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T19:10:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T12:30:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AS-2150",
-          "DL-1064"
-        ],
-        "duration": {
-          "text": "14h 20m",
-          "value": 860
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "AUS",
-            "stopDuration": 418
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 505.92,
-          "tax": 70.72,
-          "base": 435.20000000000005
-        }
-      },
-      {
-        "id": "7b170cf3f8b23e97ba730b06be8e98d3ea1c973d3cf15cdd778bb7620a285ce2",
-        "careerCode": "DL",
-        "flight_code": "AS-2150",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T19:10:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T17:15:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AS-2150",
-          "DL-984"
-        ],
-        "duration": {
-          "text": "19h 05m",
-          "value": 1145
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "AUS",
-            "stopDuration": 699
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 505.92,
-          "tax": 70.72,
-          "base": 435.20000000000005
-        }
-      },
-      {
-        "id": "7465aa9646a321886713247162c5987b178cd15cf2e661f1f2bdfe5041570e01",
-        "careerCode": "DL",
-        "flight_code": "AS-2117",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T10:15:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T23:26:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "AS-2117",
-          "DL-1075"
-        ],
-        "duration": {
-          "text": "10h 11m",
-          "value": 611
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "AUS",
-            "stopDuration": 165
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 519.52,
-          "tax": 65.28,
-          "base": 454.24
-        }
-      },
-      {
-        "id": "2308e7ba5a91a317660e99e2a09175e5df65734dee046b09e35d1689e9fe4aa3",
-        "careerCode": "DL",
-        "flight_code": "DL-1034",
-        "flight_name": "Delta Air Lines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T06:20:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-09T23:50:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "DL-1034",
-          "DL-2194"
-        ],
-        "duration": {
-          "text": "14h 30m",
-          "value": 870
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "MSP",
-            "stopDuration": 466
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 524.96,
-          "tax": 73.44000000000001,
-          "base": 451.52000000000004
-        }
-      },
-      {
-        "id": "18c23b091e7072484ccee401ec7ca42c20224804ea348edab9f8df6362d44318",
-        "careerCode": "UA",
-        "flight_code": "UA-557",
-        "flight_name": "United Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T10:59:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T07:28:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "UA-557",
-          "DL-5598"
-        ],
-        "duration": {
-          "text": "17h 29m",
-          "value": 1049
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "DEN",
-            "stopDuration": 181
-          },
-          "1": {
-            "airport": "IAD",
-            "stopDuration": 429
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 614.72,
-          "tax": 84.32000000000001,
-          "base": 530.4000000000001
-        }
-      },
-      {
-        "id": "8c2cb88ca577884847339a834cc3ef2c8415b18e340aac07191a11cb54bab5e7",
-        "careerCode": "UA",
-        "flight_code": "UA-557",
-        "flight_name": "United Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T10:59:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T07:30:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "UA-557",
-          "DL-3586"
-        ],
-        "duration": {
-          "text": "17h 31m",
-          "value": 1051
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "DEN",
-            "stopDuration": 181
-          },
-          "1": {
-            "airport": "IAD",
-            "stopDuration": 424
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 614.72,
-          "tax": 84.32000000000001,
-          "base": 530.4000000000001
-        }
-      },
-      {
-        "id": "83649a4aa07bb15e8dacc158e209fca3dc0690b3f1357accca01d7af73633606",
-        "careerCode": "HR",
-        "flight_code": "HA-43",
-        "flight_name": "China United Airlines",
-        "stops": "1 Stop",
-        "cabinType": "Economy",
-        "baggage": {
-          "cabin": {
-            "qty": 1,
-            "unit": "KG",
-            "text": "7 KG",
-            "allowance": 7
-          },
-          "checkIn": null
-        },
-        "currency": "USD",
-        "departureAirport": {
-          "time": "2023-05-09T07:30:00",
-          "code": "SJC",
-          "tz": "America/Los_Angeles",
-          "timeZone": "-7.00",
-          "type": "2",
-          "label": "Norman Y. Mineta San Jose International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "San Jose"
-        },
-        "arrivalAirport": {
-          "time": "2023-05-10T07:25:00",
-          "code": "JFK",
-          "tz": "America/New_York",
-          "timeZone": "-5.00",
-          "type": "1",
-          "label": "John F. Kennedy International Airport",
-          "country": {
-            "label": "United States",
-            "code": "US"
-          },
-          "city": "New York"
-        },
-        "path": [
-          "HA-43",
-          "HA-50"
-        ],
-        "duration": {
-          "text": "20h 55m",
-          "value": 1255
-        },
-        "stopSummary": {
-          "0": {
-            "airport": "HNL",
-            "stopDuration": 335
-          }
-        },
-        "totals": {
-          "currency": "USD",
-          "baggage": null,
-          "penalty": null,
-          "total": 617.44,
-          "tax": 81.60000000000001,
-          "base": 535.84
-        }
-      }
-    ]
-  }
+	"status": 200,
+	"searchData": {
+		"from": "SJC",
+		"to": "JFK",
+		"date": "2023-05-06",
+		"type": "Economy",
+		"adult": 1,
+		"child": 0,
+		"infant": 0,
+		"currency": "USD"
+	},
+	"results": [
+		{
+			"id": "0d36692c87563975f37f47892456199455472539d3787b139d7f9d22187ccb0a",
+			"careerCode": "DL",
+			"flight_code": "DL-3926",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T10:00:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T21:00:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3926",
+				"DL-678"
+			],
+			"duration": {
+				"text": "08h 00m",
+				"value": 480
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 60
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 136,
+				"tax": 38.080000000000005,
+				"base": 97.92
+			}
+		},
+		{
+			"id": "c262a67bfcf51ae6b423f8daddeb44800fd804041db3efd5a1a89d8a7fbb0ad5",
+			"careerCode": "DL",
+			"flight_code": "DL-809",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T12:34:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T23:55:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-809",
+				"DL-1528"
+			],
+			"duration": {
+				"text": "08h 21m",
+				"value": 501
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "ATL",
+					"stopDuration": 85
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 136,
+				"tax": 38.080000000000005,
+				"base": 97.92
+			}
+		},
+		{
+			"id": "79dba2f034820ab20dd7d4158db38e5b5ff8f2843461cda705e07cce1ed28766",
+			"careerCode": "DL",
+			"flight_code": "DL-3926",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T10:00:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T22:45:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3926",
+				"DL-670"
+			],
+			"duration": {
+				"text": "09h 45m",
+				"value": 585
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 170
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 136,
+				"tax": 38.080000000000005,
+				"base": 97.92
+			}
+		},
+		{
+			"id": "03ae82d581498a8e65273a43b4046c032029bc110727284844e448856f3dc9f5",
+			"careerCode": "B6",
+			"flight_code": "B6-670",
+			"flight_name": "JetBlue Airways",
+			"stops": "Direct",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T22:59:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T07:23:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"B6-670"
+			],
+			"duration": {
+				"text": "05h 24m",
+				"value": 324
+			},
+			"stopSummary": {},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 155.04000000000002,
+				"tax": 29.92,
+				"base": 125.12
+			}
+		},
+		{
+			"id": "b318bd3418d9074d8762ee5fa88aed3e59c1e533fabcdd9be3e67d94e7b79c29",
+			"careerCode": "DL",
+			"flight_code": "DL-2339",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T13:15:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T23:54:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-2339",
+				"DL-381"
+			],
+			"duration": {
+				"text": "07h 39m",
+				"value": 459
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "SLC",
+					"stopDuration": 79
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 165.92000000000002,
+				"tax": 40.800000000000004,
+				"base": 125.12
+			}
+		},
+		{
+			"id": "7280d58a3f128445068f45e5915a5133ff2b4943e13162288b48dd904466edad",
+			"careerCode": "DL",
+			"flight_code": "DL-1034",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T06:25:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T16:29:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-1034",
+				"DL-1191"
+			],
+			"duration": {
+				"text": "07h 04m",
+				"value": 424
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "MSP",
+					"stopDuration": 40
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 228.48000000000002,
+				"tax": 46.24,
+				"base": 182.24
+			}
+		},
+		{
+			"id": "c84f5ec208a301be153a0e037e31d3fc3b564323745b127fa88ab5049404ecbb",
+			"careerCode": "DL",
+			"flight_code": "DL-2045",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T09:58:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T20:25:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-2045",
+				"DL-887"
+			],
+			"duration": {
+				"text": "07h 27m",
+				"value": 447
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "SLC",
+					"stopDuration": 66
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 228.48000000000002,
+				"tax": 46.24,
+				"base": 182.24
+			}
+		},
+		{
+			"id": "4f2abc0bdb7d596ea18c36295b03e7001aa0dcc8e1e6a1d0acf7f99e123dc866",
+			"careerCode": "DL",
+			"flight_code": "DL-3794",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T06:30:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T20:25:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3794",
+				"DL-510"
+			],
+			"duration": {
+				"text": "10h 55m",
+				"value": 655
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "SEA",
+					"stopDuration": 184
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 228.48000000000002,
+				"tax": 46.24,
+				"base": 182.24
+			}
+		},
+		{
+			"id": "7fd01c064d891b92f9385262fce9191656c9459084975dc07aa66dfb66f28b19",
+			"careerCode": "DL",
+			"flight_code": "DL-3640",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T14:34:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T06:05:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3640",
+				"DL-349"
+			],
+			"duration": {
+				"text": "12h 31m",
+				"value": 751
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 340
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 288.32,
+				"tax": 57.120000000000005,
+				"base": 231.20000000000002
+			}
+		},
+		{
+			"id": "b6586e8eebf49a7496720383a81c1430b68d433d36d48b796528e4e244266b29",
+			"careerCode": "DL",
+			"flight_code": "DL-3640",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T14:34:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T07:20:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3640",
+				"DL-543"
+			],
+			"duration": {
+				"text": "13h 46m",
+				"value": 826
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 415
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 288.32,
+				"tax": 57.120000000000005,
+				"base": 231.20000000000002
+			}
+		},
+		{
+			"id": "ef2fb264aaa297837a526f25a4af8055cc1b27557608993bc311e01112ce53c7",
+			"careerCode": "B6",
+			"flight_code": "B6-972",
+			"flight_name": "JetBlue Airways",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T21:39:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T08:59:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"B6-972",
+				"B6-2117"
+			],
+			"duration": {
+				"text": "08h 20m",
+				"value": 500
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "BOS",
+					"stopDuration": 87
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 299.20000000000005,
+				"tax": 48.96,
+				"base": 250.24
+			}
+		},
+		{
+			"id": "9de37dff560cb70de846dc99bb772c12d101dc3d1d347c8831fd2b61575e7852",
+			"careerCode": "DL",
+			"flight_code": "DL-3656",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T07:08:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T17:59:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3656",
+				"DL-688"
+			],
+			"duration": {
+				"text": "07h 51m",
+				"value": 471
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 54
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 318.24,
+				"tax": 51.68000000000001,
+				"base": 266.56
+			}
+		},
+		{
+			"id": "b8180db25cbb25c2abd920716f3a880bffaa57d6d71740392ede7ef6d41e7a98",
+			"careerCode": "AA",
+			"flight_code": "AA-1019",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T06:10:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T19:30:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-1019",
+				"AA-2743"
+			],
+			"duration": {
+				"text": "10h 20m",
+				"value": 620
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "DFW",
+					"stopDuration": 176
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 318.24,
+				"tax": 51.68000000000001,
+				"base": 266.56
+			}
+		},
+		{
+			"id": "1555edc8cf785a265da5e8e9a668f054d70ebdd5db31d309a1aabc1ca23ef64b",
+			"careerCode": "AA",
+			"flight_code": "AA-3051",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T17:20:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T06:51:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-3051",
+				"AA-10"
+			],
+			"duration": {
+				"text": "10h 31m",
+				"value": 631
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 211
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 318.24,
+				"tax": 51.68000000000001,
+				"base": 266.56
+			}
+		},
+		{
+			"id": "851312471cef82663804163eb2bd2828ac8f37117a2ecacad6897e72f8109a78",
+			"careerCode": "DL",
+			"flight_code": "DL-3640",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T14:34:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T14:25:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3640",
+				"DL-575"
+			],
+			"duration": {
+				"text": "20h 51m",
+				"value": 1251
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 840
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 337.28000000000003,
+				"tax": 59.84,
+				"base": 277.44
+			}
+		},
+		{
+			"id": "e4f2105e8a78b5aefcff34f163696bfc69407e84983a7ac7bf9cfd400ccf284f",
+			"careerCode": "DL",
+			"flight_code": "DL-3656",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T07:08:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T19:55:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3656",
+				"DL-562"
+			],
+			"duration": {
+				"text": "09h 47m",
+				"value": 587
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 174
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 348.16,
+				"tax": 54.400000000000006,
+				"base": 293.76000000000005
+			}
+		},
+		{
+			"id": "2a6c7f99dbb51ace767ea1fff659490dc7622f8f9dbfb3695f8c78b3987ad133",
+			"careerCode": "DL",
+			"flight_code": "DL-3926",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T10:00:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T14:25:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3926",
+				"DL-575"
+			],
+			"duration": {
+				"text": "25h 25m",
+				"value": 1525
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 1105
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 348.16,
+				"tax": 59.84,
+				"base": 288.32
+			}
+		},
+		{
+			"id": "f0006c46b732adf1e2d986aaf85764cb0047d9a2b04e827dd67f3dab813849a5",
+			"careerCode": "DL",
+			"flight_code": "DL-3640",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T14:34:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T15:40:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3640",
+				"DL-332"
+			],
+			"duration": {
+				"text": "22h 06m",
+				"value": 1326
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 915
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 386.24,
+				"tax": 62.56,
+				"base": 323.68
+			}
+		},
+		{
+			"id": "1dcfdd582b397f6d93156b1724433468660602b6005d03faa8a215970f93729f",
+			"careerCode": "DL",
+			"flight_code": "DL-3640",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T14:34:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T17:59:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3640",
+				"DL-688"
+			],
+			"duration": {
+				"text": "24h 25m",
+				"value": 1465
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 1050
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 386.24,
+				"tax": 62.56,
+				"base": 323.68
+			}
+		},
+		{
+			"id": "23ac4af1ca347574e44b54852caf0995aa3776d7e5f4f4f40e1811ee8b97cd7f",
+			"careerCode": "DL",
+			"flight_code": "DL-3640",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T14:34:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T19:55:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3640",
+				"DL-562"
+			],
+			"duration": {
+				"text": "26h 21m",
+				"value": 1581
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 1170
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 386.24,
+				"tax": 62.56,
+				"base": 323.68
+			}
+		},
+		{
+			"id": "e93cf33f03492582da65330aab9ae6951d1f95fcb8a48cbb1e724cb9aaacabe1",
+			"careerCode": "DL",
+			"flight_code": "DL-2905",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T06:00:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T16:29:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-2905",
+				"DL-508"
+			],
+			"duration": {
+				"text": "07h 29m",
+				"value": 449
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "SLC",
+					"stopDuration": 65
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 405.28000000000003,
+				"tax": 57.120000000000005,
+				"base": 348.16
+			}
+		},
+		{
+			"id": "0c62120ba27e9bdb26aa6b374c2d10af35d194e2e46c9b4a0d7f436fa8123ec7",
+			"careerCode": "AA",
+			"flight_code": "AA-3051",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T17:20:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T07:58:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-3051",
+				"AA-28"
+			],
+			"duration": {
+				"text": "11h 38m",
+				"value": 698
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 279
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 448.8,
+				"tax": 68,
+				"base": 380.8
+			}
+		},
+		{
+			"id": "4e06dd2c252ac773119c73e66b871b9bb86ee5804ad741a5d38b6b09bfa10e5c",
+			"careerCode": "AA",
+			"flight_code": "AA-3051",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T17:20:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T14:59:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-3051",
+				"AA-118"
+			],
+			"duration": {
+				"text": "18h 39m",
+				"value": 1119
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 704
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 448.8,
+				"tax": 68,
+				"base": 380.8
+			}
+		},
+		{
+			"id": "e00b0ef19d03d12a7dc5c9681c0cdfcbffaeec000e6fd8b7a6f5ddec25bb9ea2",
+			"careerCode": "DL",
+			"flight_code": "DL-2339",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T13:15:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T06:20:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-2339",
+				"DL-845"
+			],
+			"duration": {
+				"text": "14h 05m",
+				"value": 845
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "SLC",
+					"stopDuration": 468
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 456.96000000000004,
+				"tax": 68,
+				"base": 388.96000000000004
+			}
+		},
+		{
+			"id": "c6dc574ea1ed54a5e96f3389a128417755c957980d1abd87b628449da0c4efa3",
+			"careerCode": "AA",
+			"flight_code": "AA-3051",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T17:20:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T15:40:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-3051",
+				"AA-02"
+			],
+			"duration": {
+				"text": "19h 20m",
+				"value": 1160
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 734
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 478.72,
+				"tax": 70.72,
+				"base": 408.00000000000006
+			}
+		},
+		{
+			"id": "c975975a7bb8719b67070ab175baa556bf129bd470b71352fe71819171da7b9d",
+			"careerCode": "DL",
+			"flight_code": "DL-3653",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T16:40:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T07:29:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3653",
+				"DL-426"
+			],
+			"duration": {
+				"text": "11h 49m",
+				"value": 709
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "SEA",
+					"stopDuration": 253
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 489.6,
+				"tax": 70.72,
+				"base": 418.88000000000005
+			}
+		},
+		{
+			"id": "105d7b55b7436537a97b0a31354b5980e7032b6c4d80a738e818334a2684c96c",
+			"careerCode": "DL",
+			"flight_code": "DL-3653",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T16:40:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T15:29:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3653",
+				"DL-747"
+			],
+			"duration": {
+				"text": "19h 49m",
+				"value": 1189
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "SEA",
+					"stopDuration": 730
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 489.6,
+				"tax": 70.72,
+				"base": 418.88000000000005
+			}
+		},
+		{
+			"id": "1f318943177d4254a102286dc4ce12eff6fd4cb5a9c115820b059d1484cca34f",
+			"careerCode": "DL",
+			"flight_code": "AS-3491",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T15:55:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T06:05:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AS-3491",
+				"DL-349"
+			],
+			"duration": {
+				"text": "11h 10m",
+				"value": 670
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 262
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 497.76000000000005,
+				"tax": 70.72,
+				"base": 427.04
+			}
+		},
+		{
+			"id": "426a6d7e803fce8d5b9f7fff1033704aa849374f3fbb1b95b7b89f437d2bcc05",
+			"careerCode": "DL",
+			"flight_code": "AS-3491",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T15:55:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T07:20:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AS-3491",
+				"DL-543"
+			],
+			"duration": {
+				"text": "12h 25m",
+				"value": 745
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 337
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 497.76000000000005,
+				"tax": 70.72,
+				"base": 427.04
+			}
+		},
+		{
+			"id": "4b51dc90288c0b66d35df95d5c2460da55312b29aa4a54ee4ed1698aacacc766",
+			"careerCode": "AA",
+			"flight_code": "AA-761",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T06:10:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T06:32:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-761",
+				"AA-1280"
+			],
+			"duration": {
+				"text": "21h 22m",
+				"value": 1282
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "PHX",
+					"stopDuration": 863
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 497.76000000000005,
+				"tax": 70.72,
+				"base": 427.04
+			}
+		},
+		{
+			"id": "2cd57623e166740c9f236177d3bcf87eafdb8786927d2c04317e8f26693be4f0",
+			"careerCode": "DL",
+			"flight_code": "AS-3445",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T07:15:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T19:55:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AS-3445",
+				"DL-562"
+			],
+			"duration": {
+				"text": "09h 40m",
+				"value": 580
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 165
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 511.36,
+				"tax": 65.28,
+				"base": 446.08000000000004
+			}
+		},
+		{
+			"id": "9dab3d1e99c5be6718894c245ce1adb6dd30988815a7e78e8da09da13dbca4a7",
+			"careerCode": "DL",
+			"flight_code": "AS-3445",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T07:15:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T21:00:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AS-3445",
+				"DL-678"
+			],
+			"duration": {
+				"text": "10h 45m",
+				"value": 645
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 230
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 511.36,
+				"tax": 65.28,
+				"base": 446.08000000000004
+			}
+		},
+		{
+			"id": "c3cb580a7a0a4f7dba4925ce281c2efc088cc5267f6e015be021927a2eaa1119",
+			"careerCode": "DL",
+			"flight_code": "AS-3445",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T07:15:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T22:45:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AS-3445",
+				"DL-670"
+			],
+			"duration": {
+				"text": "12h 30m",
+				"value": 750
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 340
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 519.52,
+				"tax": 73.44000000000001,
+				"base": 446.08000000000004
+			}
+		},
+		{
+			"id": "3170d6dbe5489b42228828e0a5a0d54b7cf9f9f882bd85455a7803800c005473",
+			"careerCode": "DL",
+			"flight_code": "DL-3640",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T14:34:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T21:00:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3640",
+				"DL-678"
+			],
+			"duration": {
+				"text": "27h 26m",
+				"value": 1646
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 1235
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 535.84,
+				"tax": 73.44000000000001,
+				"base": 462.40000000000003
+			}
+		},
+		{
+			"id": "baa6c360692f573e9fc13cabf3a48e35b0c9c593c11e54efbb2e3f60938d2a2b",
+			"careerCode": "AA",
+			"flight_code": "AA-761",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T06:10:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T23:08:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-761",
+				"AA-1388"
+			],
+			"duration": {
+				"text": "13h 58m",
+				"value": 838
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "PHX",
+					"stopDuration": 418
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 549.44,
+				"tax": 76.16000000000001,
+				"base": 473.28000000000003
+			}
+		},
+		{
+			"id": "5cbd9c6352e8cd556e1d2eb66b892ef5da0fb5d97a3534de48f2d6916e270f9e",
+			"careerCode": "AA",
+			"flight_code": "AA-1019",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T06:10:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T21:30:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-1019",
+				"AA-2292"
+			],
+			"duration": {
+				"text": "12h 20m",
+				"value": 740
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "DFW",
+					"stopDuration": 292
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 563.0400000000001,
+				"tax": 76.16000000000001,
+				"base": 486.88000000000005
+			}
+		},
+		{
+			"id": "31159fe81721b3c69630fc480afec7e6d344186cbc7ef8d44eb87c0572659609",
+			"careerCode": "AA",
+			"flight_code": "AA-3051",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T17:20:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T16:54:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-3051",
+				"AA-184"
+			],
+			"duration": {
+				"text": "20h 34m",
+				"value": 1234
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 809
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 563.0400000000001,
+				"tax": 76.16000000000001,
+				"base": 486.88000000000005
+			}
+		},
+		{
+			"id": "670a1ff2d1ba2b0d9849dcb941dcfbb533bd884179227bece8860c66c6abcc49",
+			"careerCode": "AA",
+			"flight_code": "AA-3051",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T17:20:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T19:23:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-3051",
+				"AA-307"
+			],
+			"duration": {
+				"text": "23h 03m",
+				"value": 1383
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 959
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 563.0400000000001,
+				"tax": 76.16000000000001,
+				"base": 486.88000000000005
+			}
+		},
+		{
+			"id": "24c621832eeb9baaf5e7f7d97e4f6fbaaf87d093cb9dd5c5fc6d2d9979672d40",
+			"careerCode": "AA",
+			"flight_code": "AA-3051",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T17:20:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T20:04:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-3051",
+				"AA-04"
+			],
+			"duration": {
+				"text": "23h 44m",
+				"value": 1424
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "LAX",
+					"stopDuration": 1004
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 563.0400000000001,
+				"tax": 76.16000000000001,
+				"base": 486.88000000000005
+			}
+		},
+		{
+			"id": "fcc008951205ac59e221d57ab9a9718f086ff5c34d0fe683f6c49a6a8d583b15",
+			"careerCode": "DL",
+			"flight_code": "DL-2045",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T09:58:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T23:54:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-2045",
+				"DL-381"
+			],
+			"duration": {
+				"text": "10h 56m",
+				"value": 656
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "SLC",
+					"stopDuration": 277
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 579.36,
+				"tax": 76.16000000000001,
+				"base": 503.20000000000005
+			}
+		},
+		{
+			"id": "896d71672d4037f6e50f30a4d43b212aae2004d6b0fb25eafa8561f38ac52ac5",
+			"careerCode": "DL",
+			"flight_code": "DL-2339",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T13:15:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T20:25:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-2339",
+				"DL-887"
+			],
+			"duration": {
+				"text": "28h 10m",
+				"value": 1690
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "SLC",
+					"stopDuration": 1308
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 606.5600000000001,
+				"tax": 78.88000000000001,
+				"base": 527.6800000000001
+			}
+		},
+		{
+			"id": "bc934b4c4a3eae7df2a9684e9dfb1ebf18025dc3e4afb0fa6bacfd68ba487286",
+			"careerCode": "DL",
+			"flight_code": "DL-3653",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T16:40:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T20:25:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-3653",
+				"DL-510"
+			],
+			"duration": {
+				"text": "24h 45m",
+				"value": 1485
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "SEA",
+					"stopDuration": 1019
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 609.2800000000001,
+				"tax": 78.88000000000001,
+				"base": 530.4000000000001
+			}
+		},
+		{
+			"id": "0ca2ac036643ff3aa760c51bf8a16070d22f39b1ae4f24e0d77e4b5eb12dbef4",
+			"careerCode": "AA",
+			"flight_code": "AA-2834",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T14:21:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T16:59:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-2834",
+				"AA-2246"
+			],
+			"duration": {
+				"text": "23h 38m",
+				"value": 1418
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "DFW",
+					"stopDuration": 986
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 620.1600000000001,
+				"tax": 78.88000000000001,
+				"base": 541.2800000000001
+			}
+		},
+		{
+			"id": "db5a42b10660ae889c75971ac39f278d6fef79b4651c74c7721599b62a6dee44",
+			"careerCode": "AA",
+			"flight_code": "AA-2046",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T12:17:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T16:59:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-2046",
+				"AA-2246"
+			],
+			"duration": {
+				"text": "25h 42m",
+				"value": 1542
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "DFW",
+					"stopDuration": 1110
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 620.1600000000001,
+				"tax": 78.88000000000001,
+				"base": 541.2800000000001
+			}
+		},
+		{
+			"id": "f4b664734d76e2195306ade759e033871456d48d1fcf9cda09fe9bbe748790a1",
+			"careerCode": "AA",
+			"flight_code": "AA-2834",
+			"flight_name": "American Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T14:21:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T21:30:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AA-2834",
+				"AA-2292"
+			],
+			"duration": {
+				"text": "28h 09m",
+				"value": 1689
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "DFW",
+					"stopDuration": 1252
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 620.1600000000001,
+				"tax": 78.88000000000001,
+				"base": 541.2800000000001
+			}
+		},
+		{
+			"id": "c6c27e870759ba74d13beaa637750034eca5f05278761e8689388bece3ee0d9d",
+			"careerCode": "UA",
+			"flight_code": "UA-557",
+			"flight_name": "United Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T10:59:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T07:29:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"UA-557",
+				"DL-5598"
+			],
+			"duration": {
+				"text": "17h 30m",
+				"value": 1050
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "DEN",
+					"stopDuration": 181
+				},
+				"1": {
+					"airport": "IAD",
+					"stopDuration": 428
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 644.6400000000001,
+				"tax": 87.04,
+				"base": 557.6
+			}
+		},
+		{
+			"id": "31925a376e873d750243144f3426f8e95b269649edd3df099e148b21d777ab2c",
+			"careerCode": "DL",
+			"flight_code": "AS-2117",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T10:15:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T23:28:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"AS-2117",
+				"DL-1006"
+			],
+			"duration": {
+				"text": "10h 13m",
+				"value": 613
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "AUS",
+					"stopDuration": 175
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 666.4000000000001,
+				"tax": 76.16000000000001,
+				"base": 590.24
+			}
+		},
+		{
+			"id": "2c3b1366e39eac6240095c045c493944adef046e468dc408038c6f8a90b5190b",
+			"careerCode": "UA",
+			"flight_code": "UA-557",
+			"flight_name": "United Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T10:59:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T07:29:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"UA-557",
+				"DL-3586"
+			],
+			"duration": {
+				"text": "17h 30m",
+				"value": 1050
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "DEN",
+					"stopDuration": 181
+				},
+				"1": {
+					"airport": "IAD",
+					"stopDuration": 424
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 685.44,
+				"tax": 89.76,
+				"base": 595.6800000000001
+			}
+		},
+		{
+			"id": "1b656d50a4590e3b5b7f8cef6550f6b0e8b6a55ae53005a697640570e0c8cda3",
+			"careerCode": "UA",
+			"flight_code": "UA-557",
+			"flight_name": "United Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T10:59:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T12:29:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"UA-557",
+				"DL-4674"
+			],
+			"duration": {
+				"text": "22h 30m",
+				"value": 1350
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "DEN",
+					"stopDuration": 181
+				},
+				"1": {
+					"airport": "IAD",
+					"stopDuration": 732
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 723.5200000000001,
+				"tax": 92.48,
+				"base": 631.0400000000001
+			}
+		},
+		{
+			"id": "2d9b160fff22cead032679376307986d9a2739d9f8aaaa1e2e1f103889986a29",
+			"careerCode": "DL",
+			"flight_code": "DL-1034",
+			"flight_name": "Delta Air Lines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T06:25:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-06T22:04:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"DL-1034",
+				"DL-912"
+			],
+			"duration": {
+				"text": "12h 39m",
+				"value": 759
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "MSP",
+					"stopDuration": 370
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 878.5600000000001,
+				"tax": 97.92,
+				"base": 780.6400000000001
+			}
+		},
+		{
+			"id": "1bacff921127cf07ece323ae835aee10c16fce428dbaee92ff5177fde93fcddb",
+			"careerCode": "HR",
+			"flight_code": "HA-43",
+			"flight_name": "China United Airlines",
+			"stops": "1 Stop",
+			"cabinType": "Economy",
+			"baggage": {
+				"cabin": {
+					"qty": 1,
+					"unit": "KG",
+					"text": "7 KG",
+					"allowance": 7
+				},
+				"checkIn": null
+			},
+			"currency": "USD",
+			"departureAirport": {
+				"time": "2023-05-06T07:30:00",
+				"code": "SJC",
+				"tz": "America/Los_Angeles",
+				"timeZone": "-7.00",
+				"type": "2",
+				"label": "Norman Y. Mineta San Jose International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "San Jose"
+			},
+			"arrivalAirport": {
+				"time": "2023-05-07T07:25:00",
+				"code": "JFK",
+				"tz": "America/New_York",
+				"timeZone": "-5.00",
+				"type": "1",
+				"label": "John F. Kennedy International Airport",
+				"country": {
+					"label": "United States",
+					"code": "US"
+				},
+				"city": "New York"
+			},
+			"path": [
+				"HA-43",
+				"HA-50"
+			],
+			"duration": {
+				"text": "20h 55m",
+				"value": 1255
+			},
+			"stopSummary": {
+				"0": {
+					"airport": "HNL",
+					"stopDuration": 335
+				}
+			},
+			"totals": {
+				"currency": "USD",
+				"baggage": null,
+				"penalty": null,
+				"total": 946.5600000000001,
+				"tax": 106.08000000000001,
+				"base": 840.48
+			}
+		}
+	]
+}

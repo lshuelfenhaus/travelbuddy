@@ -17,6 +17,7 @@ export const getFlights = (from_location: string, to_location: string, flight_da
           currency: 'USD'
         },
         headers: {
+          'content-type': 'application/octet-stream',
           'X-RapidAPI-Key': API_KEY,
           'X-RapidAPI-Host': 'flight-fare-search.p.rapidapi.com'
         }

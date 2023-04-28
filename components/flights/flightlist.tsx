@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { VStack,IconButton } from '@react-native-material/core';
-import ItemCard from './../itemcard';
+import FlightItemCard from './flightitemcard';
 import {ScrollView,FlatList, StyleSheet, Text, View} from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import themestyles from '../../Colors';
@@ -25,17 +25,19 @@ const FlightList = (props: FlightListProps) => {
             
                 {props.items && props.items.map((item,index) => {
                     let round = item.totals.total.toFixed(2);
-                    console.log(item.id)
                     return (
-                        <ItemCard 
+                        <FlightItemCard 
                         navigation = {props.navigation}
                         type={"flight"} 
                         key={index} 
-                        title={item.flight_name} 
-                        price={round} 
+                        title={item.flight_name}
+                        orig_airport={item.departureAirport.label} 
+                        dest_airport={item.arrivalAirport.label}
+                        stops={item.stops}
+                        price={round}
+                        duration = {item.duration.text} 
+                        carryon = {item.baggage.cabin.qty}
                         tags={[{preLabel: "Duration: ", label: item.duration.text}]} 
-                        imageSrc={"https://download.logo.wine/logo/JetBlue/JetBlue-Logo.wine.png"} 
-                        reviews = {6}
                         id={item.id}/>
                     )
                     }) 
