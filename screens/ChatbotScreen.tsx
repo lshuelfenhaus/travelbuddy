@@ -67,10 +67,9 @@ export function Chatbot(props: HomeScreenProps) {
         };
         setMessages(previousMessages => GiftedChat.append(previousMessages, [botMessage]))
         setAiMessages(previousMessages => [...previousMessages, {'role': 'assistant', 'content': messages[0].text}])
-      //setMessages(previousMessages => GiftedChat.append(previousMessages, [botMessage]))
-     //setAiMessages(previousMessages => [...previousMessages, {'role': 'assistant', 'content': messages[0].text}])
       }
       catch(error){
+        console.log(error)
         const botMessage : Message = {
           _id: ++chatCounter,
           text: 'An error was thrown',
