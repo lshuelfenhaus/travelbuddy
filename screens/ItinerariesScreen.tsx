@@ -10,7 +10,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import ClickableCard from "../components/clickablecard";
 import { ICON_COLOR, L_SPACE, MARGIN, PADDING_LARGE, PADDING_REGULAR, PADDING_XLARGE, SPACE, S_SPACE } from "../StyleConstants";
 import { ScrollView, StyleSheet } from "react-native";
-
+import { useIsFocused } from "@react-navigation/native";
 interface HomeScreenProps {
     navigation: any,
 }
@@ -18,16 +18,34 @@ interface HomeScreenProps {
 const ItinerariesScreen = (props: HomeScreenProps) => {
     const [earliestItinerary, setEarliestItinerary] = useState<any>(null);
     const [itineraries, setItineraries] = useState<any>([]);
-    useEffect(()=>{
-        //const username = AsyncStorage.getItem("@username");
-        const username = "anhquang2605";
-        getItinerariesFromUser(username).then((results) => {
-            setItineraries(results);
+    const isFocused = useIsFocused();
+    const getDirtyStatus = async () => {
+        const dirty = await AsyncStorage.getItem("@dirty");
+        return dirty;
+    }
+    const getUserName = async () => {
+        const username = await AsyncStorage.getItem("@username");
+        return username;
+    }
+    useEffect( ()=>{
+        getUserName().then((username) => {
+            if(username !== null){
+                getDirtyStatus().then( async (result) => {
+                    if(result === "true" || (result && itineraries.length === 0)){
+                        getItinerariesFromUser(username).then((results) => {
+                            setItineraries(results);
+                        });
+                        getEarliestItineraryFromUser(username).then((results) => {
+                            setEarliestItinerary(results);
+                        });
+                        await AsyncStorage.setItem("@dirty", "false");
+                    }
+                });
+            }
         });
-        getEarliestItineraryFromUser(username).then((results) => {
-            setEarliestItinerary(results);
-        });
-    },[])
+       
+       
+    },[isFocused])
     return(
         <>
         <SafeAreaProvider  style={{flex: 1, backgroundColor: themestyles.eggshell.color}}>
@@ -40,7 +58,7 @@ const ItinerariesScreen = (props: HomeScreenProps) => {
                 <Text variant="h4" color={themestyles.charcoal.color}>Upcoming Trip</Text>
                 <VStack>
                     {earliestItinerary && 
-                        <ClickableCard background={themestyles.mintGreen.color} navigation={props.navigation}>
+                        <ClickableCard background={themestyles.mintGreen.color} navigateEnd={"ItineraryDetail"} params={{id:earliestItinerary.id}} navigation={props.navigation}>
                             <VStack  spacing={S_SPACE}>
                                 <Text variant="h6">{earliestItinerary.name.length ? earliestItinerary.name : `Trip to ${earliestItinerary.destination}`}</Text>
                                 <Text variant="body1">
@@ -67,8 +85,10 @@ const ItinerariesScreen = (props: HomeScreenProps) => {
                         return(
                             <ClickableCard 
                                 key={index} 
-                                navigation={props.navigation}>
-
+                                navigation={props.navigation}
+                                navigateEnd={"ItineraryDetail"} params={{id:itinerary.id}}
+                                >
+                                
                                 <VStack spacing={S_SPACE}>
                                     <Text variant="h6">{itinerary.name.length ? itinerary.name  : `Trip to ${itinerary.destination}`}</Text>
                                     <Text variant="body1">

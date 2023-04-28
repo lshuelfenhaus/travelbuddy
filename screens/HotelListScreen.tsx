@@ -23,9 +23,12 @@ const HotelListScreen = (props: HotelListSCreenProps) => {
     async function setAdults (n: number) {
         await AsyncStorage.setItem("@adults_hotel", processParamsFromNavigation("adults",1))
     }
-    
+    async function setItineraryId (id: string) {
+        await AsyncStorage.setItem("@itinerary_id", id);
+    }
 
     useEffect(()=>{
+        setItineraryId(processParamsFromNavigation("itinerary_id",""));
         setDates(processParamsFromNavigation("startDate",new Date()),processParamsFromNavigation("endDate",new Date()));
         setAdults(processParamsFromNavigation("adults",1));
         //TODO: implement loading screen here, load the images from the data

@@ -20,12 +20,12 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
     const [name, setName] = useState('');
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date((new Date()).getTime() + 86400000));
-    const [location, setLocation] = useState('');
+    const [destination, setDestination] = useState('');
     const [adults, setAdults] = useState("1");
     const [showStartDateCalendar, setShowStartDateCalendar] = useState(false);
     const [showEndDateCalendar, setShowEndDateCalendar] = useState(false);
+    const [id, setId] = useState("");
     const mode = props.route.params ? props.route.params["mode"] : "create";
-    const id = props.route.paramm ? props.route.params["id"] : "";
     const onStartDateChange = (date:any) => {
         setShowStartDateCalendar(false);
         setStartDate(new Date(date));
@@ -35,54 +35,62 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
         setEndDate(new Date(date));
     }
     const handleSubmit = async () => {
-      const place_id = await getLocationId(location);
-      if(place_id !== null){
+      const placeid = await getLocationId(destination);
+      if(placeid !== null){
+        await AsyncStorage.setItem("@dirty", "true");
+
         if(mode !== "edit"){
         //check if the destination is valid
           const newId = await addInitialItinerary(
-            location, 
+            destination, 
             adults,
             startDate,
             endDate,
             name,
-            place_id,
+            placeid,
           )
           if (newId !== null){
             props.navigation.navigate("ItineraryDetail",{id: newId});
           }
         } else {
-          Alert.alert("Invalid Destination, Please try again with differnt destination");
+          const status = await updateItinerary(id,{
+            destination: destination,
+            adults: adults,
+            startDate: startDate,
+            endDate: endDate,
+            name: name,
+            placeid: placeid,
+          })
+          if(status){
+            props.navigation.navigate("ItineraryDetail",{id: id});
+          }
         } 
         
         /* await AsyncStorage.setItem('@username','anhquang2605');//FOR PRODCUTION ONLY, NEED TO REMOVE
         */
+       
       }else{
-        const status = await updateItinerary(id,{
-          location: location,
-          adults: adults,
-          startDate: startDate,
-          endDate: endDate,
-          name: name,
-          place: place_id,
-        })
-        if(status){
-          props.navigation.navigate("ItineraryDetail",{id: id});
-        }
+        Alert.alert("Invalid Destination, Please try again with differnt destination");
       }
     };
     useEffect(()=>{
-      if(mode === "edit"){
+      if(id === "" && mode === "edit"){
+        setId(props.route.params ? props.route.params["id"] : "");
+      }
+    },[]);
+    useEffect(()=>{
+      if(mode === "edit" && id !== ""){
         getItinerary(id).then((itinerary) => {
           if(itinerary){
             setName(itinerary.name);
-            setLocation(itinerary.location);
+            setDestination(itinerary.destination);
             setAdults(itinerary.adults);
             setStartDate(itinerary.startDate.toDate());
             setEndDate(itinerary.endDate.toDate());
           }
         })
       }
-    })
+    },[id])
     return (
       
       <>
@@ -99,8 +107,8 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
               <TextInput
                   label="Destination"
                   variant="outlined"
-                  value={location}
-                  onChangeText={setLocation}
+                  value={destination}
+                  onChangeText={setDestination}
                   style={styles.input}
               />
               <TextInput

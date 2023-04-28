@@ -133,7 +133,7 @@ const HotelDetailScreen = (props: HotelDetailScreenProps) => {
     },[]);
     return(
     <>
-        <ScrollView style={styles.screenBody}>
+        <ScrollView contentContainerStyle={styles.screenBody}>
             {/* Image container */}
             <ScrollView style={styles.imageContainer} horizontal={true}>
                 {hotelDetail && hotelDetail.propertyGallery.images.map((img:any,index:number)=> {

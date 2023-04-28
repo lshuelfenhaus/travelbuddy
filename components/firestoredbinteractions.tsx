@@ -66,7 +66,13 @@ export const getItinerariesFromUser = async (username:string) => {
         where("username","==",username),
         orderBy("dateAdded","desc"));
     const querySnapshots = await getDocs(q);
-    return querySnapshots.docs.map((doc) => doc.data());
+    return querySnapshots.docs.map((doc) => 
+        {
+            let thedoc = doc.data();
+            thedoc.id = doc.id;
+            return thedoc;
+        }  
+    );
 }
 
 export const getItinerary = async (id:string) => {
@@ -83,7 +89,9 @@ export const getEarliestItineraryFromUser = async (username:string) => {
     const q = query(collection(db,"itineraries"),orderBy("startDate","asc"),limit(1));
     const querySnapshot = await getDocs(q);
     for (const doc of querySnapshot.docs) {
-        return doc.data();
+        let thedoc = doc.data();
+        thedoc.id = doc.id;
+        return thedoc;
     }
     return null;
 }

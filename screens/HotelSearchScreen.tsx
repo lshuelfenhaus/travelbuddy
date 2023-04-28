@@ -25,6 +25,9 @@ const HotelSearchScreen = (props: HotelSearchScreenProps) => {
         setShowEndDateCalendar(false);
         setEndDate(new Date(date));
     }
+    const back = () =>{
+            props.navigation.navigate("Home");
+    }
     const searchForHotel = () => {
         props.navigation.navigate("HotelList",{
             location: location,
@@ -70,6 +73,7 @@ const HotelSearchScreen = (props: HotelSearchScreenProps) => {
                   onDateChange={(date) => onEndDateChange(date)} ></CalendarPicker>}
                 
                 <Button color={BUTTON_COLOR}  title="search" onPress={searchForHotel}/>
+                <Button color={BUTTON_COLOR}  title="back" onPress={back}/>
             </VStack>
         </ScrollView>
     )

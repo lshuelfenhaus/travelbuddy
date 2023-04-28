@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = "AIzaSyDok-04MApBdBTZfXZlhfxcL_fSoIF6iRE";
+export const API_KEY = "AIzaSyDok-04MApBdBTZfXZlhfxcL_fSoIF6iRE";
 
 export const getLocationId = async (location: string) => {
     var config = {
@@ -22,8 +22,8 @@ export const getPlaceDetails = async (placeid: string) => {
       };
       
       return axios(config)
-      .then(function (response) {
-        return response.data.result;
+      .then(function (response) {;
+       return response.data["result"];
       })
       .catch(function (error) {
         console.log(error);
@@ -41,10 +41,12 @@ export const getPlaceDetails = async (placeid: string) => {
 export const getPlacePhoto = async (photoreference: string) => {
     var config = {
         method: 'get',
-        url: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoreference}&key=${API_KEY}`,
+        url: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photo_reference=${photoreference}&key=${API_KEY}`,
         headers: { }
       };
       
-      const imageSrc = await axios(config);
-      return imageSrc;
+      const imagePromise = axios(config);
+      return imagePromise.then(function (response:any) {
+        return response.data;
+      });
 }
