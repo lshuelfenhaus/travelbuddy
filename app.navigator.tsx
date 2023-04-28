@@ -13,6 +13,7 @@ import { Chatbot } from './screens/ChatbotScreen';
 import ItineraryScreen from './screens/ItineraryScreen';
 import FlightSearchScreen from './screens/FlightSearchScreen';
 import FlightListScreen from './screens/FlightListScreen';
+import FlightDetailScreen from './screens/FlightDetailScreen';
 import HotelDetailScreen from './screens/HotelDetailScreen';
 import ReservationScreen from './screens/RerservationScreen';
 
@@ -43,6 +44,7 @@ const AppNavigator = () => (
         <Screen name="HotelList" component={HotelListScreen} />
         <Screen name="FlightSearch" component={FlightSearchScreen} />
         <Screen name="FlightList" component={FlightListScreen} />
+        <Screen name="FlightDetail" component={FlightDetailScreen} />
         <Screen name="Chatbot" component={Chatbot} />
         <Screen name="Itinerary" component={ItineraryScreen} />
         <Screen name="HotelDetail" component={HotelDetailScreen} />

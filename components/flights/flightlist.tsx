@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import { VStack,IconButton } from '@react-native-material/core';
-import ItemCard from './../itemcard';
+import FlightItemCard from './flightitemcard';
 import {ScrollView,FlatList, StyleSheet, Text, View} from 'react-native';
-import { AntDesign } from '@expo/vector-icons'; 
+import { AntDesign } from '@expo/vector-icons';
+import themestyles from '../../Colors';
+
 interface FlightListProps {
     navigation?: any,
     items?: Array<any>,
-    location?: string,
+    destlocation?: string,
 }
-const items = [{id:'1',name:"airline name 1", price: 800, reviews: 10},{id:'2', price: 200,name:"airline name 2", reviews: 9},{id:'2', price: 50, name:"airline name 3", reviews: 4.5}]
 const FlightList = (props: FlightListProps) => {
     const back = () =>{
         props.navigation.navigate("FlightSearch");
@@ -16,15 +17,28 @@ const FlightList = (props: FlightListProps) => {
     return (
         <ScrollView>        
             <VStack spacing={16} style={styles.container}>
-                <IconButton style={styles.floatButton} onPress={back} icon={props => <AntDesign name="back" size = {40} color={OUR_PURPLE} />} />
+                <IconButton style={styles.floatButton} onPress={back} icon={props => <AntDesign name="back" size = {40} color={themestyles.delftBlue.color} />} />
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>Flights going to </Text>
-                    <Text style={styles.location}>{props.location}</Text>
+                    <Text style={styles.location}>{props.destlocation}</Text>
                 </View>
             
                 {props.items && props.items.map((item,index) => {
+                    let round = item.totals.total.toFixed(2);
                     return (
-                        <ItemCard type={"flight"} key={index} title={item.name} price={item.price.lead.amount} tags={[{label: item.availability.minSeatsLeft, postLabel: "Seats Left"}]} imageSrc={item.propertyImage.image.url} reviews={item.reviews.score} id={item.id}/>
+                        <FlightItemCard 
+                        navigation = {props.navigation}
+                        type={"flight"} 
+                        key={index} 
+                        title={item.flight_name}
+                        orig_airport={item.departureAirport.label} 
+                        dest_airport={item.arrivalAirport.label}
+                        stops={item.stops}
+                        price={round}
+                        duration = {item.duration.text} 
+                        carryon = {item.baggage.cabin.qty}
+                        tags={[{preLabel: "Duration: ", label: item.duration.text}]} 
+                        id={item.id}/>
                     )
                     }) 
                 }
@@ -61,3 +75,8 @@ const styles = StyleSheet.create({
     }
 })
 export default FlightList;
+
+/* Need: departureAirport:label, arrivalAirport:label, totals:total, duration:text
+Create table within Firebase
+Upload logo images and match it with flight name
+*/

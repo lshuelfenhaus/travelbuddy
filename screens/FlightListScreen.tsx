@@ -5,28 +5,33 @@ export interface FlightListScreenProps{
     navigation: any,
     route: any,
 }
+
 const FlightListScreen = (props: FlightListScreenProps) => {
     const [flights,setFlights] = useState([]);
     const params = props.route.params;
+    
     const processParamsFromNavigation = (paramName:string, defaultVal: any) =>{
         return params[paramName] ? params[paramName] : defaultVal
-    } 
+    }
     useEffect(()=>{
         Flight.getFlights(
             processParamsFromNavigation("origlocation",""),
             processParamsFromNavigation("destlocation",""),
             processParamsFromNavigation("flightDate",new Date()),
             processParamsFromNavigation("adults",1), 
-        )
+        ).then(flightItems => {
+            setFlights(flightItems);
+        })
+
+        //Test flight list
+        /*let entries = require('./../JSON DATA/flight_list.json')
+        setFlights(entries.results)*/
     },[])
     return (
-        <FlightList navigation={props.navigation} items={flights} location={params["destLocation"]}/>
+        <FlightList navigation={props.navigation} items={flights} destlocation={params["destlocation"]}/>
+        /*<FlightList navigation={props.navigation} items={flights} destlocation={"JFK"}/>*/
     )
 }
 
 export default FlightListScreen;
 
-/* Need: departureAirport:label, arrivalAirport:label, totals:total, duration:text
-Create table within Firebase
-Upload logo images and match it with flight name
-*/

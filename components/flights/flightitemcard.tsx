@@ -2,17 +2,18 @@ import React, { useEffect } from 'react';
 import { VStack, HStack, Badge, Button } from '@react-native-material/core';
 import { Text, View, StyleSheet, Image, Dimensions } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'; 
-import StarRatings from './starratings';
-import themestyles from '../Colors';
-import { BADGE_COLOR, BADGE_MIN_WIDTH, BADGE_TEXT_COLOR, BORDER_COLOR, BORDER_RADIUS, BORDER_WIDTH, BUTTON_COLOR, HIGHLIGHT_COLOR, ICON_COLOR, L_SPACE, MARGIN, M_SPACE, PADDING_REGULAR, S_SPACE, TEXT_LARGE, TEXT_REGULAR, TEXT_SMALL } from '../StyleConstants';
+import { BADGE_COLOR, BADGE_MIN_WIDTH, BADGE_TEXT_COLOR, BORDER_COLOR, BORDER_RADIUS, BORDER_WIDTH, BUTTON_COLOR, HIGHLIGHT_COLOR, ICON_COLOR, L_SPACE, MARGIN, M_SPACE, PADDING_REGULAR, S_SPACE, TEXT_LARGE, TEXT_REGULAR, TEXT_SMALL } from '../../StyleConstants';
 interface ItemCardProps {
     navigation?: any,
     title?: string,
     price?: number,
-    address?: string,
+    orig_airport?: string,
+    dest_airport?: string,
+    stops?: string,
     id?: string,
-    reviews?: number,
     imageSrc?: string,
+    duration?: string,
+    carryon?: number,
     tags?: Array<any>,
     type: string
 }
@@ -27,32 +28,54 @@ const get_detail_navigation = (type: string) =>{
     }
 } 
 const ItemCard = (props: ItemCardProps) => {
-    const goToDetail = (id: any) => {
+    let imgDefault = require('../../assets/flightimages/airplane_icon.png');
+    let imgAA = require('../../assets/flightimages/aa.png');
+    let imgDelta = require('../../assets/flightimages/delta.png');
+    let imgJetBlue = require('../../assets/flightimages/jetblue.png');
+    let img = imgDefault;
+    switch (props.title) {
+        case "American Airlines":
+            img = imgAA;
+            break;
+        case "Delta Air Lines":
+            img = imgDelta;
+            break;
+        case "JetBlue Airways":
+            img = imgJetBlue;
+            break;
+    }
+    const goToDetail = (
+        id: any, 
+        title: any, 
+        price: any, 
+        orig_airport: any, 
+        dest_airport: any,
+        carryon: any, 
+        duration: any,
+        stops: any
+        ) => {
         if(!id){
             //Display error message
         } else {
             props.navigation.navigate(get_detail_navigation(props.type),{
                 id: id,
+                title: title,
+                price: price,
+                orig_airport: orig_airport,
+                dest_airport: dest_airport,
+                stops: stops,
+                carryon: carryon,
+                duration: duration
             })
         }
     }
     return (
         <VStack style={styles.container} key={props.id} spacing={L_SPACE}>
             <HStack spacing={M_SPACE}>
-                <Image style={styles.image} source={props.imageSrc? {uri: props.imageSrc}  : require("./../assets/hotelimages/hotel1.jpg")}/>
+                <Image style={styles.image} source={img}/>
             </HStack>
             <Text style={styles.title}>{props.title}</Text>
-            <StarRatings style={styles.stars} score={props.reviews?props.reviews:5} scale={10}/>
             <Text style={styles.price}>$ {props.price}</Text>
-              {/**Address section */}
-            {props.address && <HStack>
-                <MaterialIcons name="location-pin" size={30} color={ICON_COLOR} />
-                <VStack spacing={S_SPACE}>
-                    <Text style={styles.address}>Address line 1</Text>
-                    <Text style={styles.address}>Address line 2</Text>
-                    <Text style={styles.address}>Address line 3</Text>
-                </VStack>
-            </HStack>}
             {/*Item tags*/}
             {
                 props.tags && <HStack>
@@ -61,7 +84,16 @@ const ItemCard = (props: ItemCardProps) => {
                     }) }
                 </HStack>
             }
-            <Button style={styles.button} title="View Detail" onPress={event => goToDetail(props.id)}/>
+            <Button style={styles.button} title="View Detail" onPress={event => goToDetail(
+                props.id, 
+                props.title, 
+                props.price, 
+                props.orig_airport, 
+                props.dest_airport,
+                props.carryon,
+                props.duration,
+                props.stops,
+                )}/>
         </VStack>
     )
         
@@ -96,7 +128,8 @@ const styles = StyleSheet.create({
     },
     image:{
         width: "100%",
-        height: height * 0.25,
+        height: height*.25,
+        resizeMode: 'contain',
         borderRadius: BORDER_RADIUS
     },
     stars:{
