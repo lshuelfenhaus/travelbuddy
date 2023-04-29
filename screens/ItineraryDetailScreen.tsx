@@ -3,12 +3,12 @@ import { Button, HStack, Text, VStack } from '@react-native-material/core';
 import React, { useEffect, useState } from 'react';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { ScrollView } from 'react-native-gesture-handler';
-import { getItinerary } from '../components/firestoredbinteractions';
+import { deleteItinerary, getItinerary } from '../components/firestoredbinteractions';
 import { Timestamp } from 'firebase/firestore';
 import { Card } from "@rneui/base";
 import themestyles from '../Colors';
 import { BottomNavigation } from '../components/bottomnavigation';
-import { Image, StyleSheet } from 'react-native';
+import { Alert, Image, StyleSheet } from 'react-native';
 import { PADDING_XLARGE, BUTTON_COLOR, CLOSE_BUTTON_COLOR, S_SPACE, L_SPACE, ICON_SIZE_L, BORDER_RADIUS } from '../StyleConstants';
 import { API_KEY, getPlaceDetails, getPlacePhoto } from '../components/placesinteractions';
 import { useIsFocused } from '@react-navigation/native';
@@ -42,6 +42,17 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
             plan: itinerary.plan,
         })
     }
+    const cancelTrip = () => {
+        deleteItinerary(id).then((status)=>{
+            if(status){
+                Alert.alert("Itinerary deleted successfully");
+                props.navigation.navigate("Itineraries");
+            }else{
+                Alert.alert("Itinerary deletion failed");
+            }
+                
+        })
+    }
     const edit = () => {
         if(id !== ""){
             props.navigation.navigate("ItineraryCreation", {mode: "edit", id: id});
@@ -54,14 +65,14 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
     }, [])
     useEffect( () => {
         getDirtyStatus().then( async (result) => {
-            if(result === "true" || id == ""){
+            if( (result === "true" || itinerary === null) && id !== ""){
                 getItinerary(id).then((result) => { 
                     setItinerary(result);
+                    AsyncStorage.setItem("@dirty", "false");
                 });
             }
         });
-        
-    }, [id,isFocused])
+    }, [id,isFocused]);
     useEffect(() => {//get place image
         if(itinerary){
             getPlaceDetails(itinerary.placeid).then((result) => {
@@ -69,7 +80,10 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
                    setPlaceImage(result["photos"][0]["photo_reference"]);
                    
                 }
-            })
+            });
+            AsyncStorage.setItem("@check_in", itinerary.startDate.toDate().toISOString());
+            AsyncStorage.setItem("@check_out", itinerary.endDate.toDate().toISOString());
+            AsyncStorage.setItem("@adults", itinerary.adults);
         }
         },[itinerary]);
     const convertToDateString = (tmsp: Timestamp) => {
@@ -131,7 +145,8 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
                     <VStack style={{marginTop: 50}} spacing={L_SPACE}>
                         <Button style={styles.button} color={BUTTON_COLOR} onPress={edit} title="Edit"/>
                     
-                        <Button variant='text' color="error" title="Cancel trip"  style={{
+                        <Button onPress={cancelTrip}
+                        variant='text' color="error" title="Cancel trip"  style={{
                             paddingHorizontal: PADDING_XLARGE,
                         }} />
                     </VStack>                

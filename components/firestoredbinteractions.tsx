@@ -1,5 +1,5 @@
 import db from "./../firebase";
-import {doc,addDoc,setDoc, getDoc,collection, Timestamp, orderBy, limit, query, getDocs, updateDoc, arrayUnion, where} from "firebase/firestore";
+import {doc,addDoc,setDoc, getDoc,collection, Timestamp, orderBy, limit, query, getDocs, updateDoc, arrayUnion, where, deleteDoc} from "firebase/firestore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Itinerary } from "../DataInterfaces";
 //always get username from the AsyncStorage, for async funtion to resolve, use await to get the value from the promise
@@ -24,10 +24,11 @@ export const addInitialItinerary = async (destination:string = "", adutls: strin
                 endDate: dateToTstmp(endDate),
                 dateAdded: current_timestamp,
                 attractionids: [],
-                hotelid: "",
                 flightid: "",
                 username: username,
-                placeid: placeid
+                placeid: placeid,
+                plan: null,
+                unit: null,
             }
             await addDoc(collectionRef, newItinerary);
             const q = query(collectionRef,orderBy("dateAdded","desc"),limit(1));
@@ -52,6 +53,7 @@ export const updateItinerary = async (id:string, fields: any) => {
             payload[key] = fields[key];
         }
         await updateDoc(docRef, payload);
+        await AsyncStorage.setItem("@dirty","true");
         return true;
     
     } catch (error) {
@@ -99,4 +101,14 @@ export const getEarliestItineraryFromUser = async (username:string) => {
 
 export const dateToTstmp = (date:Date) => {
     return Timestamp.fromDate(date);
+}
+
+export const deleteItinerary = async (id:string) => {
+    try{
+        await deleteDoc(doc(db,"itineraries",id));
+        await AsyncStorage.setItem("@dirty","true");
+        return true;
+    } catch (error){
+        return false;
+    }
 }

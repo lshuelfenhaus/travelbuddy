@@ -61,7 +61,7 @@ const HotelDetailScreen = (props: HotelDetailScreenProps) => {
             });
             getHotelReviews(paramProcess('id',"")).then((reviews)=>{
                 setHotelReviews(reviews);
-            });
+            }); 
            /*  let units = require('./../JSON DATA/hotel_offers.json');
             let details = require('./../JSON DATA/hotel_detail.json');
             let reviews = require('./../JSON DATA/hotel_reviews.json');

@@ -71,6 +71,7 @@ export function Chatbot(props: HomeScreenProps) {
      //setAiMessages(previousMessages => [...previousMessages, {'role': 'assistant', 'content': messages[0].text}])
       }
       catch(error){
+        console.log(error);
         const botMessage : Message = {
           _id: ++chatCounter,
           text: 'An error was thrown',

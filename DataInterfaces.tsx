@@ -58,4 +58,6 @@ export interface Flight {
     destination:string,
     username: string,
     placeid: string,
+    plan: any,
+    unit: any,
   }
