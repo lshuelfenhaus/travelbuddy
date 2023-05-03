@@ -1,5 +1,5 @@
 import { Flex, HStack, Pressable, VStack } from '@react-native-material/core';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image } from 'react-native-elements';
 import { Alert, Button, ScrollView, StyleSheet, Text, View} from 'react-native';
 import themeStyles from './../../Colors'
@@ -7,6 +7,7 @@ import Modal from 'react-native-modal';
 import * as STYLE_CONSTANTS  from './../../StyleConstants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { updateItinerary } from '../firestoredbinteractions';
+import { ScreenWidth } from '@rneui/base';
 interface UnitsProps{
     units: Array<any>
 }
@@ -15,6 +16,11 @@ const Units = (props:UnitsProps) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [curUnit, setCurUnit] = useState<any>();
     const [curPlan, setCurPlan] = useState<any>();
+    const [id, setId] = useState<any>();
+    const getItineraryIdFromAsyncStore = async () => {
+        const id = await AsyncStorage.getItem('@itinerary_id');
+        return id;
+    }
     const viewUnit = (event:any,unit:any) => {
         setModalVisible(true);
         setCurUnit(unit);
@@ -24,7 +30,7 @@ const Units = (props:UnitsProps) => {
         setCurPlan(curP);
     }
     const saveOffer = async () => {
-        const id = await AsyncStorage.getItem('@itinerary_id');
+        
         if(id !== null && id.length > 0){
             const status = await updateItinerary(id, {unit: curUnit, plan: curPlan});
             if(status){
@@ -35,9 +41,14 @@ const Units = (props:UnitsProps) => {
             }
         }
     }
+    useEffect(()=>{
+        getItineraryIdFromAsyncStore().then((daid)=>{
+            setId(daid);
+        })
+    } ,[])
     return(
         <>
-      <Modal style={{padding:STYLE_CONSTANTS.PADDING_XLARGE}} animationIn="fadeIn" animationOut="fadeOut" isVisible={modalVisible}>
+      <Modal animationIn="fadeIn" animationOut="fadeOut" isVisible={modalVisible}>
             <View style={{borderRadius: STYLE_CONSTANTS.BORDER_RADIUS, overflow:"hidden"}}>
             <ScrollView contentContainerStyle={styles.screenBody}>
                 {curUnit &&
@@ -59,7 +70,7 @@ const Units = (props:UnitsProps) => {
                                 plan.priceDetails.map( (detail:any, index: number) => {
                                     return(
                                         <Pressable onPress={event=>setCurrentPlan(event,detail)}>
-                                            <HStack style={[styles.planDetail, curPlan == detail ? styles.curPlan : {}]}>
+                                            <HStack spacing={ScreenWidth*0.025} style={[styles.planDetail, curPlan == detail ? styles.curPlan : {}]}>
                                                 <Text style={[styles.textRegular,styles.planPrice, curPlan == detail ? {color: 'white'}: {}]}>$ {Math.round(detail.price.lead.amount)}</Text>
                                                 <VStack>
                                                     <Text style={[styles.textRegular, curPlan == detail ? {color: 'white'}: {}]}>{detail.depositPolicies}</Text>
@@ -104,13 +115,13 @@ const Units = (props:UnitsProps) => {
                }} style={[styles.modalButton,styles.closeButton]}>
                     <Text style={[styles.buttonText, styles.textSubTitle]}>Close</Text>
                </Pressable>
-               <Pressable onPress={saveOffer} style={[styles.modalButton,styles.reserveButton]}>
+               {id && id.length > 0 && <Pressable onPress={saveOffer} style={[styles.modalButton]}>
                     <HStack>                    
                         <Text style={[styles.buttonText,styles.textSubTitle]}>Save Offer</Text>
                         <Text style={[styles.buttonTextPrice,styles.textSubTitle]}>$ {Math.round(curPlan.price.lead.amount)}</Text>
                     </HStack>
 
-               </Pressable>
+               </Pressable>}
             </Flex>}
             </View>
         </Modal>
@@ -180,7 +191,9 @@ const styles = StyleSheet.create({
     closeButton:{
         backgroundColor: STYLE_CONSTANTS.CLOSE_BUTTON_COLOR,
         color: 'white',
-        paddingHorizontal: STYLE_CONSTANTS.PADDING_XLARGE * 2
+        paddingHorizontal: STYLE_CONSTANTS.PADDING_XLARGE * 2,
+        flex: 1,
+        
     },
     buttonText:{
         fontSize: 20,
@@ -205,9 +218,6 @@ const styles = StyleSheet.create({
         marginRight: STYLE_CONSTANTS.MARGIN,
         fontWeight: 'bold',
     },
-    reserveButton:{
-        flex: 1
-    }
 })
 
 export default Units;

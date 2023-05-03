@@ -6,6 +6,7 @@ import CalendarPicker from 'react-native-calendar-picker';
 import { ScrollView } from 'react-native-gesture-handler';
 import themestyles from '../Colors';
 import { ELEMENT_SPACING, TEXT_LARGE, TEXT_XLARGE } from '../StyleConstants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
 interface HotelSearchScreenProps {
     navigation: any
@@ -36,6 +37,9 @@ const HotelSearchScreen = (props: HotelSearchScreenProps) => {
             adults: adults,
         })
     }
+    useEffect(()=>{
+        AsyncStorage.setItem('@itinerary_id',"");
+    },[])
     return (
         <ScrollView>
             <VStack spacing={ELEMENT_SPACING}>
