@@ -2,22 +2,58 @@ import {HStack,VStack} from 'react-native-flex-layout';
 import React, { useEffect, useState } from 'react';
 import { Image } from 'react-native-elements';
 import { Text, Button } from '@react-native-material/core';
-import { Alert, ScrollView, StyleSheet, View} from 'react-native';
+import { Alert, Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 import themeStyles from './../Colors'
 import Modal from 'react-native-modal';
 import * as STYLE_CONSTANTS  from './../StyleConstants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { updateItinerary } from '../components/firestoredbinteractions';
+import { AntDesign } from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons';
+import { CLOSE_BUTTON_COLOR } from './../StyleConstants';
 interface HotelOfferDetailScreenProps{
     navigation: any,
     route: any,
 }
-
+const {width,height} = Dimensions.get('window');
 const HotelOfferDetailScreen = (props:HotelOfferDetailScreenProps) => {
     const [curUnit, setCurUnit] = useState<any>();
     const [curPlan, setCurPlan] = useState<any>();
     const setCurrentPlan = (event:any, curP: any) => {
         setCurPlan(curP);
+    }
+    const goBack = () => {
+        props.navigation.goBack();
+    }
+    const displayRemovalConfirmation = () => {
+        Alert.alert(
+            "Remove Offer",
+            "Are you sure you want to remove this offer from your itinerary?",
+            [
+                {
+                    text: "Cancel",
+                    onPress: () => {},
+                    style: "cancel"
+                },
+                {
+                    text: "Remove",
+                    onPress: () => {
+                        removeOfferFromItinerary();
+                    },
+                    style: "destructive"
+                }
+            ]
+        )
+    }
+    const removeOfferFromItinerary = async () => {
+        updateItinerary(props.route.params["itinerary_id"], {unit: null, plan: null}).then((status)=>{
+            if(status){
+                Alert.alert("Offer removed successfully");
+                props.navigation.navigate("ItineraryDetail");
+            }else{
+                Alert.alert("Offer removal failed");
+            }
+        })
     }
     useEffect(() => {
         setCurUnit(props.route.params["unit"]);
@@ -75,10 +111,22 @@ const HotelOfferDetailScreen = (props:HotelOfferDetailScreenProps) => {
                 </VStack>
                 }
             </ScrollView>
-            <View style={styles.buttonContainer}>
-                <Button contentContainerStyle={styles.button} titleStyle={styles.buttonText}   title="Back"/>
-                <Button contentContainerStyle={styles.button} titleStyle={styles.buttonText}  title="Remove offer"/>
-            </View>
+            <HStack style={styles.buttonContainer}>
+                <Button 
+                pressableContainerStyle={[styles.button,styles.backButton]} 
+                titleStyle={styles.buttonText} 
+                onPress={goBack}   
+                title="Back"
+                leading={<AntDesign name="back" size={width * 0.05} color="white" />}
+                />
+                <Button 
+                    pressableContainerStyle={[styles.button,styles.removeButton]} 
+                    titleStyle={styles.buttonText}  
+                    title="Remove offer"
+                    leading={<FontAwesome name="trash" size={width * 0.05} color="white" />}
+                    onPress={displayRemovalConfirmation}
+                />
+            </HStack>
 
         </>
     )
@@ -144,9 +192,6 @@ const styles = StyleSheet.create({
         borderRadius: STYLE_CONSTANTS.BORDER_RADIUS,
         borderColor: 'black'
     },
-    reserveButton:{
-        flex: 1
-    },
     planInfo:{
         backgroundColor: themeStyles.delftBlue.color,
         padding: STYLE_CONSTANTS.PADDING_REGULAR,
@@ -155,12 +200,20 @@ const styles = StyleSheet.create({
     buttonContainer:{
         flexDirection: 'row',
     },
-    buttonText:{
-        fontSize: STYLE_CONSTANTS.TEXT_XLARGE,
-        color: 'white',
-    },
     button:{
         padding: STYLE_CONSTANTS.PADDING_REGULAR,
+    },
+    backButton:{
+        minWidth: "30%",
+        backgroundColor: themeStyles.delftBlue.color,
+    },
+    removeButton:{
+        minWidth: "70%",
+        backgroundColor: CLOSE_BUTTON_COLOR,
+    },
+    buttonText:{
+        fontSize: STYLE_CONSTANTS.TEXT_XLARGE,
+        
     }
 })
 

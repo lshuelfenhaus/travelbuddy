@@ -40,6 +40,7 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
         props.navigation.navigate( "HotelOfferDetail",{
             unit: itinerary.unit,
             plan: itinerary.plan,
+            itinerary_id: id
         })
     }
     const cancelTrip = () => {
