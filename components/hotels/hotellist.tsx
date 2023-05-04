@@ -4,6 +4,8 @@ import ItemCard from './../itemcard';
 import {ScrollView,FlatList, StyleSheet, Text, View} from 'react-native';
 import { AntDesign } from '@expo/vector-icons'; 
 import themestyles from '../../Colors';
+import { LoadingComponent } from '../loadingspinner';
+
 interface HoteListProps {
     navigation?: any,
     items?: Array<any>,
@@ -26,7 +28,7 @@ const HotelList = (props: HoteListProps) => {
                     <Text style={styles.title}>Hotels at </Text>
                     <Text style={styles.location}>{props.location}</Text>
                 </View>
-                
+                <LoadingComponent/>
                 {/* items.map((item)=>{
                     return (
                         <ItemCard key={item.id} price={item.price} reviews={item.reviews} title={item.name} id={item.id}/>
