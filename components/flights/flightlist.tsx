@@ -4,6 +4,7 @@ import FlightItemCard from './flightitemcard';
 import {ScrollView,FlatList, StyleSheet, Text, View} from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import themestyles from '../../Colors';
+import { LoadingComponent } from '../loadingspinner';
 
 interface FlightListProps {
     navigation?: any,
@@ -11,18 +12,23 @@ interface FlightListProps {
     destlocation?: string,
 }
 const FlightList = (props: FlightListProps) => {
+    
     const back = () =>{
         props.navigation.navigate("FlightSearch");
+
+        
     }
     return (
-        <ScrollView>        
+        <ScrollView>
+                   
             <VStack spacing={16} style={styles.container}>
+                
                 <IconButton style={styles.floatButton} onPress={back} icon={props => <AntDesign name="back" size = {40} color={themestyles.delftBlue.color} />} />
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>Flights going to </Text>
                     <Text style={styles.location}>{props.destlocation}</Text>
                 </View>
-            
+                <LoadingComponent/>
                 {props.items && props.items.map((item,index) => {
                     let round = item.totals.total.toFixed(2);
                     return (

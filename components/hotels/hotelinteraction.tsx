@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Room} from "./HotelInterface";
-
+import { trackPromise } from 'react-promise-tracker';
 const API_KEY =  process.env.HOTEL_API_KEY;
 export const getLocationBaseOnType = (location: string,rType: string) => {
     const options = {
@@ -85,10 +85,10 @@ export const getHotels = (geoID: string, checkIn: Date, checkOut: Date, adults: 
           'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
         }
       };
-    const hotelsPromise = axios.request(options).then(function (response) {
+    const hotelsPromise = trackPromise(axios.request(options).then(function (response) {
           const listofHotels = response.data.properties;
           return listofHotels;
-      }).catch(function (error) {
+      })).catch(function (error) {
           console.error(error);
           return null;
     });
