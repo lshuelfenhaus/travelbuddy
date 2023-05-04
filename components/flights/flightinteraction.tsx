@@ -5,8 +5,6 @@ import axios from 'axios'
 const API_KEY = process.env.FLIGHT_API_KEY;
 
 export const getFlights = (from_location: string, to_location: string, flight_date: Date, adults_number: number) => {
-     console.log(from_location, to_location, flight_date, adults_number);
-     console.log(API_KEY);
     const options = {
         method: 'GET',
         url: 'https://flight-fare-search.p.rapidapi.com/v2/flight/',
