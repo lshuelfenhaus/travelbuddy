@@ -1,14 +1,16 @@
 import {Timestamp} from "firebase/firestore";
 //INTERFACE DECLARATION, I dont know where to put these 
 export interface Flight {
-    id:number;
+    flight_id:string;
     airline_name: string;
-    flightNumber: string;
-    time: Timestamp; 
-    price: number; 
-    startDate: Timestamp; 
-    arrivalDate: Timestamp;
+    flight_price: number;
+    dest_airport_name: string;
+    orig_airport_name: string;
+    duration: string; 
+    stops: string;
+    carryon: number;
   }
+
   export interface Attraction{
     id: number;
     name: string;

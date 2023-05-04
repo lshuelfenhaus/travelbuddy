@@ -6,27 +6,32 @@ import { Flex, HStack, VStack,Badge, IconButton, Pressable } from '@react-native
 import { Image } from 'react-native-elements';
 import * as STYLE_CONSTANTS from '../StyleConstants';
 import themestyles from '../Colors';
-import { updateItinerary, addNewFlightDetail, getFlightDetailDocID } from '../components/firestoredbinteractions';
+import { getFlightDetailDocID } from '../components/firestoredbinteractions';
 
-interface FlightDetailScreenProps {
+interface FlightSavedScreenProps {
     navigation?:any,
     route: any
 }
-const FlightDetailScreen = (props: FlightDetailScreenProps) => {
+const FlightSavedScreen = (props: FlightSavedScreenProps) => {
+
+    
     let imgDefault = require('./../assets/flightimages/airplane_icon.png');
     let imgAA = require('./../assets/flightimages/aa.png');
     let imgDelta = require('./../assets/flightimages/delta.png');
     let imgJetBlue = require('./../assets/flightimages/jetblue.png');
 
-    
-    
-    const [units, setUnits] = useState<Array<any>>([]);
-    const [flightDetail, setFlightDetail] = useState<any>();
+
+
     const params = props.route.params;
     const paramProcess = (key:string, def:any) => {
         return params[key] ? params[key] : def
     }
-    let flight_id = paramProcess('id', "");
+    let flight_id = props.route.params["flightid"];
+    console.log(flight_id);
+
+    let docID = getFlightDetailDocID(flight_id);
+    console.log(docID);
+
     let airline_name = paramProcess('title', "");
     let flight_price = paramProcess('price', "");
     let dest_airport_name = paramProcess('dest_airport', "");
@@ -36,27 +41,6 @@ const FlightDetailScreen = (props: FlightDetailScreenProps) => {
     let carryon = paramProcess('carryon', "");
     
 
-    const saveOffer = async () => {
-        const id = await AsyncStorage.getItem('@itinerary_id');
-        if(id !== null && id.length > 0){
-            const status2 = await addNewFlightDetail(
-                flight_id,
-                airline_name,
-                flight_price,
-                dest_airport_name,
-                orig_airport_name,
-                duration,
-                stops,
-                carryon
-            )
-            const status = await updateItinerary(id, {flightid: flight_id});
-            if(status || status2){
-                Alert.alert("Offer saved to itinerary");
-            }else{
-                Alert.alert("Error saving offer to itinerary");
-            }
-        }
-    }
     
     let img = imgDefault;
 
@@ -160,14 +144,7 @@ const FlightDetailScreen = (props: FlightDetailScreenProps) => {
             </VStack>
             }
         </ScrollView>
-        <HStack>
-        <Pressable onPress={saveOffer} style={[styles.modalButton,styles.reserveButton]}>
-                    <HStack>                    
-                        <Text style={[styles.buttonText,styles.textSubTitle]}>Save Offer</Text>
-                    </HStack>
-                    </Pressable>
-            
-        </HStack>
+        
     </>)
 }
 const BORDER_RADIUS = 8;
@@ -233,4 +210,4 @@ const styles = StyleSheet.create({
         color: STYLE_CONSTANTS.BADGE_TEXT_COLOR,
     }
 })
-export default FlightDetailScreen;
+export default FlightSavedScreen;
