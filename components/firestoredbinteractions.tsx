@@ -1,7 +1,7 @@
 import db from "./../firebase";
 import {doc,addDoc,setDoc, getDoc,collection, Timestamp, orderBy, limit, query, getDocs, updateDoc, arrayUnion, where, deleteDoc, arrayRemove} from "firebase/firestore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Itinerary } from "../DataInterfaces";
+import { Itinerary, Flight } from "../DataInterfaces";
 //always get username from the AsyncStorage, for async funtion to resolve, use await to get the value from the promise
 export const addItineraryToUser = async (itineraryid:string, username:string) => {
     const userRef = doc(db, 'users', username);
@@ -45,6 +45,51 @@ export const addInitialItinerary = async (destination:string = "", adutls: strin
         return null;
     }
 }
+
+export const addNewFlightDetail = async (
+    newid: string, 
+    new_airline: string,
+    new_price: number,
+    new_dest: string,
+    new_orig: string,
+    new_duration: string,
+    new_stops: string,
+    new_carryon: number) => {
+    const username = await AsyncStorage.getItem('@username');
+    try {
+        if(username !== null) {
+            const flightsCollection = collection(db, "flights");
+            let newFlightDetail: Flight = {
+                flight_id: newid,
+                airline_name: new_airline,
+                flight_price: new_price,
+                dest_airport_name: new_dest,
+                orig_airport_name: new_orig,
+                duration: new_duration,
+                stops: new_stops,
+                carryon: new_carryon,
+            }
+            await addDoc(flightsCollection, newFlightDetail);
+            
+        } else {
+            return null;
+        }
+    }catch(error){
+        console.log("There was something wrong" + error);
+        return null;
+    }
+}
+
+export const getFlightDetailDocID = async (flightid:string) => {
+    const q = query(
+        collection(db,"flights"),
+        where("flight_id", "==", flightid),
+        limit(1));
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs[0].id;
+        
+}
+
 export const updateItinerary = async (id:string, fields: any) => {
     try{
         const docRef = doc(db,"itineraries",id);

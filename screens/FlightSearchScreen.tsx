@@ -5,26 +5,43 @@ import CalendarPicker from 'react-native-calendar-picker';
 import themestyles from '../Colors';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Entypo } from '@expo/vector-icons'; 
+<<<<<<< HEAD
 import { ELEMENT_SPACING, PADDING_XLARGE, TEXT_LARGE, TEXT_XLARGE } from '../StyleConstants';
+=======
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { ELEMENT_SPACING, TEXT_LARGE, TEXT_XLARGE } from '../StyleConstants';
+>>>>>>> ab55b91 (FlightDetail styled. Still working on saved offer)
 LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
 interface FlightSearchScreenProps {
     navigation: any
+    route: any,
 }
 const FlightSearchScreen = (props: FlightSearchScreenProps) => {
+    async function setItineraryId (id: string) {
+        await AsyncStorage.setItem("@itinerary_id", id);
+    }
+    const params = props.route.params;
     const [flightDate, setFlightDate] = useState(new Date());
     const [origlocation, setOrigLocation] = useState("");
     const [destlocation, setDestLocation] = useState("");
     const [adults, setAdults] = useState("1");
     const [children, setChildren] = useState([]);
     const [showFlightDateCalendar, setShowFlightDateCalendar] = useState(false);
+    const processParamsFromNavigation = (paramName:string, defaultVal: any) =>{
+        return params[paramName] ? params[paramName] : defaultVal
+    }
+
     const onFlightDateChange = (date:any) => {
         setShowFlightDateCalendar(state => !state);
         setFlightDate(new Date(date));
     }
     const back = () =>{
-        props.navigation.navigate("Home");
+        if(props.navigation.canGoBack()){
+            props.navigation.goBack();
+        }
 }
     const searchForFlight = () => {
+        setItineraryId(processParamsFromNavigation("itinerary_id",""));
         props.navigation.navigate("FlightList",{
             origlocation: origlocation,
             destlocation: destlocation,

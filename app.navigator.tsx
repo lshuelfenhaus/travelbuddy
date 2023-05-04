@@ -14,6 +14,7 @@ import ItineraryScreen from './screens/ItinerariesScreen';
 import FlightSearchScreen from './screens/FlightSearchScreen';
 import FlightListScreen from './screens/FlightListScreen';
 import FlightDetailScreen from './screens/FlightDetailScreen';
+import FlightSavedScreen from './screens/FlightSavedScreen';
 import HotelDetailScreen from './screens/HotelDetailScreen';
 import ReservationScreen from './screens/RerservationScreen';
 import ItineraryCreationScreen from './screens/ItineraryCreationScreen';
@@ -48,6 +49,7 @@ const AppNavigator = () => (
         <Screen name="FlightSearch" component={FlightSearchScreen} />
         <Screen name="FlightList" component={FlightListScreen} />
         <Screen name="FlightDetail" component={FlightDetailScreen} />
+        <Screen name="FlightSaved" component={FlightSavedScreen} />
         <Screen name="Chatbot" component={Chatbot} />
         <Screen name="Itineraries" component={ItinerariesScreen} />
         <Screen name="HotelDetail" component={HotelDetailScreen} />

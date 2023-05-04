@@ -53,7 +53,6 @@ const FlightList = (props: FlightListProps) => {
 
     )
 }
-const OUR_PURPLE = "#6200EE";
 const styles = StyleSheet.create({
     container:{
         padding: 16
@@ -70,7 +69,7 @@ const styles = StyleSheet.create({
     },
     location:{
         fontWeight: 'bold',
-        color: OUR_PURPLE,
+        color: themestyles.delftBlue.color,
         fontSize: 28
     },
     floatButton:{
