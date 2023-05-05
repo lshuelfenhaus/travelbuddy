@@ -1,17 +1,11 @@
 import db from "./../firebase";
-import {doc,setDoc, getDoc,collection} from "firebase/firestore";
+import {doc,setDoc, getDoc,collection, updateDoc} from "firebase/firestore";
 import {User} from "./../DataInterfaces";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const crypto = require("crypto-js");
-  
-/**
- * This function set user on firestore database, used to initiate user for development only
- * @param docName the unique identifier for the doc 
- * @param password a string which will be the token used to sign in, we will use hash function with salt to generate token, for now we just hard code the password
- * @param collectionName which collection to add the document to, in this case, "users" since we want to add user
- * @param data the data object that will be used to update the doc, similar to adding an entry to a table. Think: collections = tables, doc = entry but in object form
- */
+const SALT_LENGTH = 5;
+
 export const setUser = async (docName: string, token: string, salt: string, collectionName: string, data: User) => {
     try{
         data.username = docName;
@@ -49,7 +43,7 @@ export const signup = async (username: string, password: string, email?:string, 
         name: name? name : ""
     }
     try{
-        const salt = makesalt(5);
+        const salt = makesalt(SALT_LENGTH);
         const token = generateToken(password,salt);
         setUser(username, token, salt, "users", data);
         return true;
@@ -95,7 +89,53 @@ export const makesalt = (len:number) => {//should be 5
     return result;
 }
 
+export const updateUser = async (uid:string, fields: any) => {
+    try{
+        const docRef = doc(db,"users",uid);
+        let payload:any = {}; 
+        for (const key in fields) {
+            payload[key] = fields[key];
+        }
+        await updateDoc(docRef, payload);
+        return true;
+    
+    } catch (error) {
+        console.log("there was something wrong" + error);
+        return false;
+    }
+}
+
 const generateToken = (password: string, salt: string) => {
     const concaternatedString = password + salt;
     return crypto.SHA256(concaternatedString).toString(crypto.enc.Base64);
+}
+
+export const resetPassword = async (username: string, oldPassword: string, newPassword: string) => {
+    const user = await findUser(username, "users");
+    let status = {
+        success: true,
+        message: "",
+    }
+    if(user){
+        const testToken = generateToken(oldPassword,user.salt);
+        if(testToken === user.token){
+            const salt = makesalt(SALT_LENGTH);
+            const token = generateToken(newPassword,salt);
+            const data = {
+                token: token,
+                salt: salt,
+            }
+            await updateUser(username, data);
+            status.success = true;
+            status.message = "Password reset successful";
+        }else{
+            status.success = false;
+            status.message = "Incorrect password";
+        }
+        return status;
+    }else{
+        status.success = false;
+        status.message = "User does not exist";
+        return status;
+    }
 }

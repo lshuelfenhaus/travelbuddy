@@ -1,10 +1,13 @@
 import { Avatar, Button, IconButton, Spacer, Stack, Text, TextInput } from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { BottomNavigation } from "../components/bottomnavigation";
 import themestyles from "../Colors";
 import { CLOSE_BUTTON_COLOR } from "../StyleConstants";
+import { Alert } from "react-native";
+import { resetPassword } from "../components/authentication";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // _user name view and change
 // _password change
@@ -29,10 +32,36 @@ const AccountScreen = (props: HomeScreenProps) => {
     const [confirmPasswordReveal, setConfirmPasswordReveal] = useState(true);
     const [confirmPassword, setConfirmPassword] = useState("");
 
+    const handleResetPassword = async () => {
+        if(newPassword === confirmPassword){
+            let status =  await resetPassword(username,password, newPassword);
+            if(status){
+                Alert.alert(status.message);
+            }
+        }else{
+            Alert.alert("Passwords do not match, please try again.");
+        }
+    }
+
     const logout = async () => {
         props.navigation.navigate("Login")
-      }
-
+    }
+    const getUsername = async () => {
+        const user = await AsyncStorage.getItem('@username');
+        if(user){
+            return user;
+        }
+    }
+    useEffect(()=>{
+        getUsername().then((user)=>{
+            if(user){
+                setUsername(user);
+            }else{
+                Alert.alert("There was an error, please try again.");
+            }
+            
+        })
+    },[])
     return(
         <SafeAreaProvider style={{alignItems:"center", justifyContent:"center", backgroundColor:themestyles.eggshell.color }}>
             <Stack spacing={150} style={{flex: 1}}>
@@ -41,9 +70,9 @@ const AccountScreen = (props: HomeScreenProps) => {
                 <Avatar
                 color={themestyles.mintGreen.color}
                     size={75}
-                    label="Test Account"
+                    label={username}
                     />
-                    <Text variant="h6" >User Name</Text>
+                    <Text variant="h6" >{username}</Text>
                     <Stack spacing={50}style={{paddingHorizontal:25, paddingTop:25}}>
                         <Stack>
                             <TextInput
@@ -76,7 +105,7 @@ const AccountScreen = (props: HomeScreenProps) => {
                             onChangeText={text => setConfirmPassword(text)}
                             value={confirmPassword}
                             />
-                            <Button style={{marginHorizontal:75,}}variant="text" color={themestyles.delftBlue.color} title="Change Password"/>
+                            <Button style={{marginHorizontal:75,}}variant="text" color={themestyles.delftBlue.color} onPress={handleResetPassword} title="Change Password"/>
                         </Stack>
                     </Stack>
                 </Stack>

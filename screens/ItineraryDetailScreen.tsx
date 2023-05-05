@@ -3,7 +3,7 @@ import { Button, HStack, Text, VStack } from '@react-native-material/core';
 import React, { useEffect, useState } from 'react';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { ScrollView } from 'react-native-gesture-handler';
-import { deleteItinerary, getItinerary } from '../components/firestoredbinteractions';
+import { deleteItinerary, deleteItineraryFromUser, getItinerary } from '../components/firestoredbinteractions';
 import { Timestamp } from 'firebase/firestore';
 import { Card } from "@rneui/base";
 import themestyles from '../Colors';
@@ -24,6 +24,10 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
     const [id, setId] = useState("");
     const [placeImage, setPlaceImage] = useState("");
     const isFocused = useIsFocused();
+    const getUsername = async () => {
+        const user = await AsyncStorage.getItem('@username');
+        return user;
+    }
     const searchForHotel = () => {
         props.navigation.navigate("HotelList",{
             location: itinerary.destination,
@@ -44,11 +48,17 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
             itinerary_id: id
         })
     }
-    const cancelTrip = () => {
+    const cancelTrip =  () => {
         deleteItinerary(id).then((status)=>{
             if(status){
-                Alert.alert("Itinerary deleted successfully");
-                props.navigation.navigate("Itineraries");
+                getUsername().then(async (username)=>{
+                    if(username){
+                        await deleteItineraryFromUser(id, username);
+                        Alert.alert("Itinerary deleted successfully");
+                        props.navigation.navigate("Itineraries");
+                    }
+                });
+                
             }else{
                 Alert.alert("Itinerary deletion failed");
             }
