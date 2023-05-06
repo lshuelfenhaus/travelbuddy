@@ -5,6 +5,7 @@ import CalendarPicker from 'react-native-calendar-picker';
 import themestyles from '../Colors';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Entypo } from '@expo/vector-icons'; 
+import { ELEMENT_SPACING, TEXT_LARGE, TEXT_XLARGE } from '../StyleConstants';
 LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
 interface FlightSearchScreenProps {
     navigation: any
@@ -20,6 +21,9 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
         setShowFlightDateCalendar(state => !state);
         setFlightDate(new Date(date));
     }
+    const back = () =>{
+        props.navigation.navigate("Home");
+}
     const searchForFlight = () => {
         props.navigation.navigate("FlightList",{
             origlocation: origlocation,
@@ -31,7 +35,7 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
     }
     return (
         <ScrollView>
-        <VStack>
+        <VStack spacing={ELEMENT_SPACING}>
             <Text>{"Let's search for flights"}</Text>
             <TextInput label="Origin Location" value={origlocation} onChangeText={setOrigLocation} variant='outlined'/>
             <TextInput label="Destination Location" value={destlocation} onChangeText={setDestLocation} variant='outlined'/>
@@ -44,7 +48,8 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
                 />
                 {showFlightDateCalendar && 
                 <CalendarPicker onDateChange={(date) => onFlightDateChange(date)}></CalendarPicker>}
-            <Button  title="search" onPress={searchForFlight}/>
+            <Button color={BUTTON_COLOR} title="search" onPress={searchForFlight}/>
+            <Button color={BUTTON_COLOR}  title="back" onPress={back}/>
         </VStack>
         </ScrollView>
     )

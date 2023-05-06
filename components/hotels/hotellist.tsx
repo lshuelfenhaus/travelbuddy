@@ -4,6 +4,8 @@ import ItemCard from './../itemcard';
 import {ScrollView,FlatList, StyleSheet, Text, View} from 'react-native';
 import { AntDesign } from '@expo/vector-icons'; 
 import themestyles from '../../Colors';
+import { LoadingComponent } from '../loadingspinner';
+
 interface HoteListProps {
     navigation?: any,
     items?: Array<any>,
@@ -14,8 +16,13 @@ const HotelList = (props: HoteListProps) => {
 
     return (
         <ScrollView>        
-            <VStack spacing={16}>
-                
+            <VStack spacing={16} style={styles.container}>
+                <IconButton style={styles.floatButton} onPress={back} icon={props => <AntDesign name="back" size = {40} color={themestyles.delftBlue.color} />} />
+                <View style={styles.titleContainer}>
+                    <Text style={styles.title}>Hotels at </Text>
+                    <Text style={styles.location}>{props.location}</Text>
+                </View>
+                <LoadingComponent/>
                 {/* items.map((item)=>{
                     return (
                         <ItemCard key={item.id} price={item.price} reviews={item.reviews} title={item.name} id={item.id}/>

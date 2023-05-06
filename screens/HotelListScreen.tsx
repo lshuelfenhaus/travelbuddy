@@ -135,7 +135,7 @@ const HotelListScreen = (props: HotelListSCreenProps) => {
         setAdults(processParamsFromNavigation("adults",1));
         //TODO: implement loading screen here, load the images from the data
        Hotel.getLocationBaseOnType(processParamsFromNavigation("location",""),'city').then((geoID:any)=>{
-           Hotel.getHotels(
+        Hotel.getHotels(
             geoID,
             processParamsFromNavigation("startDate",new Date()),
             processParamsFromNavigation("endDate",new Date()),
