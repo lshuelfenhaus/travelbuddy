@@ -1,9 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, Text, Keyboard, Modal} from "react-native";
-import {Stack, TextInput, Button, IconButton} from "@react-native-material/core";
+import {View, StyleSheet, Keyboard, Modal, ScrollView, Dimensions} from "react-native";
+import {Stack, TextInput, Text, Button, IconButton, VStack, HStack} from "@react-native-material/core";
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import {useState} from 'react';
 import * as Authenticate from "./../components/authentication";
+import { CLOSE_BUTTON_COLOR, PADDING_LARGE, PADDING_REGULAR } from '../StyleConstants';
+import themestyles from "../Colors";
 interface HomeScreenProps {
     navigation: any
 }
@@ -120,7 +122,7 @@ const SignUpScreen =(props: HomeScreenProps) =>{
         };
       }; */
     return(
-        <Stack direction="column" justify="center" items="center" spacing={4}>
+        <ScrollView style={styles.container}>
             <Modal 
                 animationType="fade"
                 transparent={true}
@@ -130,96 +132,121 @@ const SignUpScreen =(props: HomeScreenProps) =>{
                     <Text style={styles.messageBoxText}>{message}</Text>
                 </View>
             </Modal>
-            <View style={styles.signUpForm}>
-            <TextInput
-            placeholder="First Name"
-            value ={firstName}
-            onChangeText={newText => setFirstName(newText)}
-            leading={props => <Icon name="account-outline" {...props} />}
-            />
-            <TextInput
-            value = {lastName}
-            onChangeText = {newText => setLastname(newText)}
-            placeholder="Last Name"
-            leading={props => <Icon name="account-outline" {...props} />}
-            />
-            <TextInput
-            placeholder="Email"
-            value={email}
-            onChangeText={newText => setEmail(newText)}
-            leading={props => <Icon name="email" {...props} />}
-            />
-            <TextInput
-            placeholder="Username"
-            leading={props => <Icon name="account" {...props} />}
-            onChangeText={newText => setUsername(newText)}
-            value = {username}
-            />
-            <TextInput
-            placeholder="Password"
-            value = {password}
-            onChangeText={newText => setPassword(newText)}
-            secureTextEntry = {passwordReveal}
-            textContentType="oneTimeCode"
-            autoCorrect={false}
-            leading={props => (
-            <IconButton  onPress = {event => setPasswordReveal(prevState => !prevState)} icon={props => <Icon name="eye" {...props} />} {...props} />
-            )}
-             /> 
-            <TextInput
-            placeholder ="Re-enter Password"
-            onChangeText ={newText => setRePassword(newText)}
-            value = {rePassword}
-            secureTextEntry = {rePasswordReveal}
-            textContentType="oneTimeCode"
-            autoCorrect={false}
-            leading={props => (
-                <IconButton  onPress = {event => setRePasswordReveal(prevState => !prevState)} icon={props => <Icon name="eye" {...props} />} {...props} />
+            <Text variant = "h4" color={themestyles.delftBlue.color} style={{textAlign:'center', marginBottom: width * 0.03}}>New account</Text>
+            <VStack style={styles.signUpForm} spacing={width * 0.03}>
+
+                <HStack style={styles.nameInputs}>
+                    <TextInput
+                    placeholder="First Name"
+                    value ={firstName}
+                    variant="outlined"
+                    style={{width: "48%"}}
+                    color={themestyles.delftBlue.color}
+                    onChangeText={newText => setFirstName(newText)}
+                    leading={props => <Icon name="account-outline" {...props} />}
+                    />
+                    <TextInput
+                    value = {lastName}
+                    variant="outlined"
+                    style={{width: "48%"}}
+                    color={themestyles.delftBlue.color}
+                    onChangeText = {newText => setLastname(newText)}
+                    placeholder="Last Name"
+                    leading={props => <Icon name="account-outline" {...props} />}
+                    />
+                </HStack>
+               
+                <TextInput
+                placeholder="Email"
+                value={email}
+                style={{width: "100%"}}
+                variant="outlined"
+                color={themestyles.delftBlue.color}
+                onChangeText={newText => setEmail(newText)}
+                leading={props => <Icon name="email" {...props} />}
+                />
+                <TextInput
+                placeholder="Username"
+                leading={props => <Icon name="account" {...props} />}
+                style={{width: "100%"}}
+                onChangeText={newText => setUsername(newText)}
+                value = {username}
+                variant="outlined"
+                color={themestyles.delftBlue.color}
+                />
+                <TextInput
+                placeholder="Password"
+                value = {password}
+                variant="outlined"
+                style={{width: "100%"}}
+                color={themestyles.delftBlue.color}
+                onChangeText={newText => setPassword(newText)}
+                secureTextEntry = {passwordReveal}
+                textContentType="oneTimeCode"
+                autoCorrect={false}
+                leading={props => (
+                <IconButton  onPress = {event => setPasswordReveal(prevState => !prevState)} icon={props => <Icon name="eye" {...props} />} {...props} />
                 )}
-            />               
-            <View style={styles.signUpButtonGroup}>
-                <Button 
-                    title="Register" 
-                    style={styles.signUpButton} 
-                    onPress={()=>
-                        {Keyboard.dismiss();
-                        checkSignUp()}}
-                    disabled={registering}
-                />
-                <Button 
-                    title="Cancel" 
-                    style={styles.signUpButton}
-                    onPress={toLogin}  
-                    disabled={registering}  
-                />
-            </View>
-            </View>
-            {errors.length> 0 && 
-            <Stack style={styles.errorContainer} spacing = {8}>
-                {errors.map((val,index)=>{
-                    return (<Text key={index} style={styles.errorItem}>{val.value}</Text>)
-                })}
-            </Stack>}
-           
-        </Stack>
+                /> 
+                <TextInput
+                placeholder ="Re-enter Password"
+                onChangeText ={newText => setRePassword(newText)}
+                value = {rePassword}
+                variant="outlined"
+                style={{width: "100%"}}
+                color={themestyles.delftBlue.color}
+                secureTextEntry = {rePasswordReveal}
+                textContentType="oneTimeCode"
+                autoCorrect={false}
+                leading={props => (
+                    <IconButton  onPress = {event => setRePasswordReveal(prevState => !prevState)} icon={props => <Icon name="eye" {...props} />} {...props} />
+                    )}
+                />               
+                <HStack  spacing={16} style={styles.signUpButtonGroup}>
+                    <Button 
+                        title="Register" 
+                        color={themestyles.mintGreen.color} 
+                        onPress={()=>
+                            {Keyboard.dismiss();
+                            checkSignUp()}}
+                        disabled={registering}
+                    />
+                    <Button 
+                        title="Cancel" 
+                        color={CLOSE_BUTTON_COLOR}
+                        titleStyle={{color: 'white'}}
+                        onPress={toLogin}  
+                        disabled={registering}  
+                    />
+                </HStack>
+                {errors.length> 0 && 
+                <Stack style={styles.errorContainer} spacing = {8}>
+                    {errors.map((val,index)=>{
+                        return (<Text key={index} style={styles.errorItem}>{val.value}</Text>)
+                    })}
+                </Stack>}
+            
+            </VStack>
+        </ScrollView>
     )
 }
+const {width,height} = Dimensions.get('window');
 const styles = StyleSheet.create({
     signUpForm:{
-        width: '100%'
+        width: '100%',
+        flexWrap: 'wrap',
+    },
+    nameInputs:{
+        width: '100%',
+        justifyContent: 'space-between',
     },
     signUpButtonGroup:{
         flexDirection: 'row',
         justifyContent: 'center',
-    },
-    signUpButton: {
-        paddingHorizontal: 20,
-        paddingVertical: 8,
-        marginRight: 8 
+        width: '100%',
     },
     container:{
-        justifyContent: 'center',
-        alignItems: 'center'
+        padding: width * 0.1,
     },
     errorItem:{
         color: 'tomato',

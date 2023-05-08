@@ -9,7 +9,7 @@ import { getEarliestItineraryFromUser, getItinerariesFromUser } from "../compone
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ClickableCard from "../components/clickablecard";
 import { BUTTON_COLOR, ICON_COLOR, L_SPACE, MARGIN, PADDING_LARGE, PADDING_REGULAR, PADDING_XLARGE, SPACE, S_SPACE } from "../StyleConstants";
-import { ScrollView, StyleSheet } from "react-native";
+import { Dimensions, ScrollView, StyleSheet } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 interface HomeScreenProps {
     navigation: any,
@@ -51,7 +51,8 @@ const ItinerariesScreen = (props: HomeScreenProps) => {
     },[isFocused])
     return(
         <>
-        <SafeAreaProvider  style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: themestyles.eggshell.color}}>
+        <ScrollView contentContainerStyle={{padding: PADDING_LARGE}}>
+            <VStack style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: themestyles.eggshell.color}}>
             {itineraries.length === 0 ? 
                 <VStack spacing={L_SPACE} style={{
                     justifyContent: 'center', alignItems: 'center'
@@ -88,8 +89,6 @@ const ItinerariesScreen = (props: HomeScreenProps) => {
                     
                     <ScrollView
                         horizontal 
-                        contentContainerStyle={styles.allTripsContainer}
-                        snapToInterval={500}
                         >
                         <HStack spacing={40}>
                         {itineraries && itineraries.map((itinerary: any,index:number) => {
@@ -97,6 +96,7 @@ const ItinerariesScreen = (props: HomeScreenProps) => {
                                 <ClickableCard 
                                     key={index} 
                                     navigation={props.navigation}
+                                    styles={{marginRight: width * 0.05, minWidth: width * 0.7}}
                                     navigateEnd={"ItineraryDetail"} params={{id:itinerary.id}}
                                     >
                                     
@@ -118,12 +118,13 @@ const ItinerariesScreen = (props: HomeScreenProps) => {
                 </VStack>
             }
             
-            
-        </SafeAreaProvider>
+            </VStack>
+        </ScrollView>
         <BottomNavigation navigation={props.navigation} />
         </>
     );
 }
+const {width,height} = Dimensions.get("window");
 const styles = StyleSheet.create({
     label:{
         fontWeight: "bold"
@@ -132,6 +133,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: PADDING_REGULAR,
         paddingVertical: PADDING_XLARGE,
         
-    }
+    },
 })
 export default ItinerariesScreen;

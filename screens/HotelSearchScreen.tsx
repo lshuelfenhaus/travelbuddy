@@ -5,7 +5,7 @@ import { Entypo } from '@expo/vector-icons';
 import CalendarPicker from 'react-native-calendar-picker';
 import { ScrollView } from 'react-native-gesture-handler';
 import themestyles from '../Colors';
-import { ELEMENT_SPACING, TEXT_LARGE, TEXT_XLARGE } from '../StyleConstants';
+import { ELEMENT_SPACING, PADDING_XLARGE, TEXT_LARGE, TEXT_XLARGE } from '../StyleConstants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
 interface HotelSearchScreenProps {
@@ -41,7 +41,7 @@ const HotelSearchScreen = (props: HotelSearchScreenProps) => {
         AsyncStorage.setItem('@itinerary_id',"");
     },[])
     return (
-        <ScrollView>
+        <ScrollView contentContainerStyle={{padding: PADDING_XLARGE}}>
             <VStack spacing={ELEMENT_SPACING}>
                 <Text style={styles.title}>{"Let's search your hotel"}</Text>
                 <TextInput variant="outlined"  label="Destination" value={location} onChangeText={setLocation} />

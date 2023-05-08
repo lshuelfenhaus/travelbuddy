@@ -5,7 +5,7 @@ import CalendarPicker from 'react-native-calendar-picker';
 import themestyles from '../Colors';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Entypo } from '@expo/vector-icons'; 
-import { ELEMENT_SPACING, TEXT_LARGE, TEXT_XLARGE } from '../StyleConstants';
+import { ELEMENT_SPACING, PADDING_XLARGE, TEXT_LARGE, TEXT_XLARGE } from '../StyleConstants';
 LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
 interface FlightSearchScreenProps {
     navigation: any
@@ -34,8 +34,8 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
         })
     }
     return (
-        <ScrollView>
-        <VStack spacing={ELEMENT_SPACING}>
+        <ScrollView contentContainerStyle={{padding: PADDING_XLARGE}}>
+        <VStack  spacing={ELEMENT_SPACING}>
             <Text>{"Let's search for flights"}</Text>
             <TextInput label="Origin Location" value={origlocation} onChangeText={setOrigLocation} variant='outlined'/>
             <TextInput label="Destination Location" value={destlocation} onChangeText={setDestLocation} variant='outlined'/>
