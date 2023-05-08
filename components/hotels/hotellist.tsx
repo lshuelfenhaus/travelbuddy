@@ -13,13 +13,7 @@ interface HoteListProps {
 }
 const items = [{id:'1',name:"hotel name", price: 800, reviews: 10},{id:'3', price: 200,name:"hotel name 2", reviews: 9},{id:'2', price: 50, name:"hotel name 3", reviews: 4.5}]
 const HotelList = (props: HoteListProps) => {
-    const back = () =>{
-        if(props.navigation.canGoBack()){
-            props.navigation.goBack();
-        }else{
-            props.navigation.navigate("HotelSearch");
-        }
-    }
+
     return (
         <ScrollView>        
             <VStack spacing={16} style={styles.container}>
@@ -55,30 +49,5 @@ const HotelList = (props: HoteListProps) => {
 
     )
 }
-const styles = StyleSheet.create({
-    container:{
-        padding: 16
-    },
-    title:{
-        fontSize: 28,
-    },
-    titleContainer:{
 
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 16,
-    },
-    location:{
-        fontWeight: 'bold',
-        color: themestyles.delftBlue.color,
-        fontSize: 28
-    },
-    floatButton:{
-        position: 'absolute',
-        left: 8,
-        top: 8,
-        zIndex: 5000
-    }
-})
 export default HotelList;

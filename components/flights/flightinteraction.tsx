@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 
-
 const API_KEY = process.env.FLIGHT_API_KEY;
 
 export const getFlights = (from_location: string, to_location: string, flight_date: Date, adults_number: number) => {

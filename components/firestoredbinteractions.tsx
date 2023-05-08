@@ -1,5 +1,5 @@
 import db from "./../firebase";
-import {doc,addDoc,setDoc, getDoc,collection, Timestamp, orderBy, limit, query, getDocs, updateDoc, arrayUnion, where, deleteDoc} from "firebase/firestore";
+import {doc,addDoc,setDoc, getDoc,collection, Timestamp, orderBy, limit, query, getDocs, updateDoc, arrayUnion, where, deleteDoc, arrayRemove} from "firebase/firestore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Itinerary } from "../DataInterfaces";
 //always get username from the AsyncStorage, for async funtion to resolve, use await to get the value from the promise
@@ -111,4 +111,12 @@ export const deleteItinerary = async (id:string) => {
     } catch (error){
         return false;
     }
+}
+
+export const deleteItineraryFromUser = async (itineraryid:string, username:string) =>
+{
+    const userRef = doc(db, 'users', username);
+    await updateDoc(userRef, {
+        itineraryIDs: arrayRemove(itineraryid)
+    })
 }

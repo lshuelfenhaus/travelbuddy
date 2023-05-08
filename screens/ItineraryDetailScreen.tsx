@@ -3,12 +3,12 @@ import { Button, HStack, Text, VStack } from '@react-native-material/core';
 import React, { useEffect, useState } from 'react';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { ScrollView } from 'react-native-gesture-handler';
-import { deleteItinerary, getItinerary } from '../components/firestoredbinteractions';
+import { deleteItinerary, deleteItineraryFromUser, getItinerary } from '../components/firestoredbinteractions';
 import { Timestamp } from 'firebase/firestore';
 import { Card } from "@rneui/base";
 import themestyles from '../Colors';
 import { BottomNavigation } from '../components/bottomnavigation';
-import { Alert, Image, StyleSheet } from 'react-native';
+import { Alert, Dimensions, Image, StyleSheet } from 'react-native';
 import { PADDING_XLARGE, BUTTON_COLOR, CLOSE_BUTTON_COLOR, S_SPACE, L_SPACE, ICON_SIZE_L, BORDER_RADIUS } from '../StyleConstants';
 import { API_KEY, getPlaceDetails, getPlacePhoto } from '../components/placesinteractions';
 import { useIsFocused } from '@react-navigation/native';
@@ -17,12 +17,17 @@ interface ItineraryDetailScreenProps {
     navigation: any,
     route: any,
 }
-
+const {width, height} = Dimensions.get('window');
+const SPACE_RESPONSIVE = width * 0.075;
 export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps) {
     const [itinerary, setItinerary] = useState<any>(null);
     const [id, setId] = useState("");
     const [placeImage, setPlaceImage] = useState("");
     const isFocused = useIsFocused();
+    const getUsername = async () => {
+        const user = await AsyncStorage.getItem('@username');
+        return user;
+    }
     const searchForHotel = () => {
         props.navigation.navigate("HotelList",{
             location: itinerary.destination,
@@ -40,13 +45,20 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
         props.navigation.navigate( "HotelOfferDetail",{
             unit: itinerary.unit,
             plan: itinerary.plan,
+            itinerary_id: id
         })
     }
-    const cancelTrip = () => {
+    const cancelTrip =  () => {
         deleteItinerary(id).then((status)=>{
             if(status){
-                Alert.alert("Itinerary deleted successfully");
-                props.navigation.navigate("Itineraries");
+                getUsername().then(async (username)=>{
+                    if(username){
+                        await deleteItineraryFromUser(id, username);
+                        Alert.alert("Itinerary deleted successfully");
+                        props.navigation.navigate("Itineraries");
+                    }
+                });
+                
             }else{
                 Alert.alert("Itinerary deletion failed");
             }
@@ -108,7 +120,7 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
                         <Text>End Date: {convertToDateString(itinerary.endDate)}</Text>
                     </HStack>
                     <Card containerStyle={{justifyContent:'center', alignItems:'center'}}>
-                        <HStack spacing={50}> 
+                        <HStack spacing={SPACE_RESPONSIVE}> 
                             <Icon name={"bed"} size={ICON_SIZE_L} color={themestyles.charcoal.color}/>
                             <Text style={styles.cardTitle} variant="h4">Hotel </Text>
                             {itinerary.unit && itinerary.plan ? 
@@ -120,7 +132,7 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
                     </Card>
 
                     <Card containerStyle={{justifyContent:'center', alignItems:'center'}}>
-                        <HStack spacing={50}> 
+                        <HStack spacing={SPACE_RESPONSIVE}> 
                             <Icon name={"airplane"} size={ICON_SIZE_L} color={themestyles.charcoal.color}/>
                             <Text style={styles.cardTitle} variant="h4">Flight</Text>
                             {itinerary.flightid == "" ? 
@@ -132,7 +144,7 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
                     </Card>
 
                     <Card containerStyle={{justifyContent:'center', alignItems:'center'}}>
-                        <HStack spacing={50}> 
+                        <HStack spacing={SPACE_RESPONSIVE}> 
                             <Icon name={"map-marker"} size={ICON_SIZE_L} color={themestyles.charcoal.color}/>
                             <Text style={styles.cardTitle} variant="h4"> Attractions</Text>
                             {itinerary.attractionids.length === 0 ? 
@@ -165,7 +177,7 @@ const styles = StyleSheet.create({
         padding: PADDING_XLARGE,
     },
     cardTitle: {
-        width: "50%",
+        width: "46%",
         textAlign: "center",
     },
     image:{

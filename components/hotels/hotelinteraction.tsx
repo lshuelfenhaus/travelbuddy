@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Room} from "./HotelInterface";
+
 import { trackPromise } from 'react-promise-tracker';
 const API_KEY =  process.env.HOTEL_API_KEY;
 export const getLocationBaseOnType = (location: string,rType: string) => {
