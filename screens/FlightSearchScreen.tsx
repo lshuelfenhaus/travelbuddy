@@ -5,12 +5,8 @@ import CalendarPicker from 'react-native-calendar-picker';
 import themestyles from '../Colors';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Entypo } from '@expo/vector-icons'; 
-<<<<<<< HEAD
 import { ELEMENT_SPACING, PADDING_XLARGE, TEXT_LARGE, TEXT_XLARGE } from '../StyleConstants';
-=======
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ELEMENT_SPACING, TEXT_LARGE, TEXT_XLARGE } from '../StyleConstants';
->>>>>>> ab55b91 (FlightDetail styled. Still working on saved offer)
 LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
 interface FlightSearchScreenProps {
     navigation: any
