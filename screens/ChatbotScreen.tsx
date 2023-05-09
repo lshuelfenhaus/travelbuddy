@@ -4,6 +4,7 @@ import { GiftedChat } from 'react-native-gifted-chat'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import themestyles from '../Colors';
 import {ChatCompletionRequestMessage, Configuration, OpenAIApi} from 'openai';
+import { HomeButton } from '../components/HomeButton';
 
 interface HomeScreenProps {
   navigation: any
@@ -98,8 +99,6 @@ export function Chatbot(props: HomeScreenProps) {
 
   }, [])
 
-  
-
   return (
     <SafeAreaProvider>
        <SafeAreaView
@@ -107,9 +106,7 @@ export function Chatbot(props: HomeScreenProps) {
         accessibilityLabel='main'
         testID='main'
     >
-      {/* <Box pr={220} pl={15} pt={5}>
-      <Button title="Home" color={themestyles.delftBlue.color} ></Button>
-      </Box> */}
+      <HomeButton navigation={props.navigation}/>
         <GiftedChat
       messages={messages}
       showAvatarForEveryMessage={true}
@@ -117,9 +114,6 @@ export function Chatbot(props: HomeScreenProps) {
       user={{
         _id: 1,
       }}/>
-      
-      
-      {/* <BottomNavigation navigation={props.navigation} />  */}
     </SafeAreaView>
     </SafeAreaProvider>
    
