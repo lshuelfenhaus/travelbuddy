@@ -1,6 +1,6 @@
 import { Button, Text, TextInput, VStack } from '@react-native-material/core';
 import React, {useState, useEffect} from 'react';
-import { Platform, LogBox, StyleSheet } from 'react-native';
+import { LogBox, StyleSheet } from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 import themestyles from '../Colors';
 import { ScrollView } from 'react-native-gesture-handler';

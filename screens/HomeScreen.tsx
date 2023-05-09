@@ -1,13 +1,10 @@
-import {Button, HStack, VStack, Text, Divider } from "@react-native-material/core";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import {VStack, Text } from "@react-native-material/core";
 import { BottomNavigation } from "../components/bottomnavigation";
 import { Card } from "@rneui/base";
-import { Image } from "react-native-elements";
 import themestyles from "../Colors";
 import { Fontisto, MaterialIcons, Entypo, MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { Dimensions, Pressable, ScrollView, StyleSheet } from "react-native";
-import { PADDING_LARGE, PADDING_XLARGE } from "../StyleConstants";
+import { PADDING_XLARGE } from "../StyleConstants";
 
 interface HomeScreenProps {
     navigation: any

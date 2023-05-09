@@ -2,11 +2,9 @@ import {HStack,VStack} from 'react-native-flex-layout';
 import React, { useEffect, useState } from 'react';
 import { Image } from 'react-native-elements';
 import { Text, Button } from '@react-native-material/core';
-import { Alert, Dimensions, ScrollView, StyleSheet, View} from 'react-native';
+import { Alert, Dimensions, ScrollView, StyleSheet} from 'react-native';
 import themeStyles from './../Colors'
-import Modal from 'react-native-modal';
 import * as STYLE_CONSTANTS  from './../StyleConstants';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { updateItinerary } from '../components/firestoredbinteractions';
 import { AntDesign } from '@expo/vector-icons'; 
 import { FontAwesome } from '@expo/vector-icons';

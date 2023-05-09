@@ -1,12 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { SafeAreaViewBase, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import themestyles from '../Colors';
-import { BottomNavigation } from '../components/bottomnavigation';
-import {ChatCompletionRequestMessage, Configuration, CreateChatCompletionRequest, OpenAIApi} from 'openai';
-import { Box, Button, Divider, Spacer, VStack } from '@react-native-material/core';
-import { config } from 'dotenv';
+import {ChatCompletionRequestMessage, Configuration, OpenAIApi} from 'openai';
 
 interface HomeScreenProps {
   navigation: any

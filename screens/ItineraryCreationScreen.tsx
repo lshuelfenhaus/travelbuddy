@@ -1,6 +1,6 @@
-import { Button, Flex, TextInput, VStack } from "@react-native-material/core";
+import { Button, TextInput, VStack } from "@react-native-material/core";
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Dimensions, Alert } from "react-native";
+import { Text, StyleSheet, Dimensions, Alert } from "react-native";
 import { BUTTON_COLOR, ELEMENT_SPACING, FORM_BUTTON_ICON_COLOR, MARGIN, PADDING_XLARGE, TEXT_LARGE, TEXT_REGULAR, TEXT_XLARGE } from "../StyleConstants";
 import { Entypo } from '@expo/vector-icons'; 
 import CalendarPicker from 'react-native-calendar-picker';
@@ -9,8 +9,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { BottomNavigation } from "../components/bottomnavigation";
 import { addInitialItinerary, getItinerary, updateItinerary} from "../components/firestoredbinteractions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Timestamp } from "firebase/firestore";
-import { getLocationId, getPlaceDetails } from "../components/placesinteractions";
+import { getLocationId } from "../components/placesinteractions";
 interface ItineraryCreationScreenProps {
     navigation: any;
     route: any;

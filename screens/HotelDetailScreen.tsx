@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text } from 'react-native';
 import { MaterialIcons, AntDesign } from '@expo/vector-icons'; 
 import {getRooms,getHotelDetail,getHotelReviews} from '../components/hotels/hotelinteraction'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Flex, HStack, VStack,Badge, IconButton } from '@react-native-material/core';
+import { Flex, HStack, VStack, IconButton } from '@react-native-material/core';
 import { Image } from 'react-native-elements';
 import Units from '../components/hotels/units';
 import ReviewsSection from '../components/reviewssection';
