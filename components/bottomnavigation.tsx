@@ -1,9 +1,8 @@
-import { AppBar, Button, HStack, IconButton, VStack, Text} from "@react-native-material/core";
-import { Ionicons, Entypo, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons'; 
+import { AppBar, HStack, IconButton, Text} from "@react-native-material/core";
+import { Ionicons, Entypo, MaterialCommunityIcons } from '@expo/vector-icons'; 
 import {logout} from './authentication';
 import {Dimensions, StyleSheet, View } from "react-native";
-import Modal from 'react-native-modal'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import themestyles from "../Colors";
 import { BOTTOM_NAVIGATION_HEIGHT } from "../StyleConstants";
 
