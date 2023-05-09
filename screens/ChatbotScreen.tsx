@@ -6,6 +6,7 @@ import themestyles from '../Colors';
 import { BottomNavigation } from '../components/bottomnavigation';
 import {ChatCompletionRequestMessage, Configuration, CreateChatCompletionRequest, OpenAIApi} from 'openai';
 import { Box, Button, Divider, Spacer, VStack } from '@react-native-material/core';
+import { config } from 'dotenv';
 
 interface HomeScreenProps {
   navigation: any
@@ -69,6 +70,8 @@ export function Chatbot(props: HomeScreenProps) {
         setAiMessages(previousMessages => [...previousMessages, {'role': 'assistant', 'content': messages[0].text}])
       }
       catch(error){
+        console.log(configuration.apiKey)
+        console.log(error)
         const botMessage : Message = {
           _id: ++chatCounter,
           text: 'An error was thrown',
@@ -110,7 +113,6 @@ export function Chatbot(props: HomeScreenProps) {
       {/* <Box pr={220} pl={15} pt={5}>
       <Button title="Home" color={themestyles.delftBlue.color} ></Button>
       </Box> */}
-      
         <GiftedChat
       messages={messages}
       showAvatarForEveryMessage={true}
