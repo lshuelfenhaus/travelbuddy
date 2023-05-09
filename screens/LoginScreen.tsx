@@ -45,7 +45,7 @@ const LoginScreen = (props: HomeScreenProps) => {
     <Stack >
     <Image
         style= {styles.logo}
-        source={ require('travel-buddy/assets/travel-buddy2.png')}
+        source={ require('travel-buddy/assets/travel-buddy.png')}
         />
     </Stack>
     <Stack>
