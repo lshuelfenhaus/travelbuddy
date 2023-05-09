@@ -9,7 +9,7 @@ import { Card } from "@rneui/base";
 import themestyles from '../Colors';
 import { BottomNavigation } from '../components/bottomnavigation';
 import { Alert, Dimensions, Image, StyleSheet } from 'react-native';
-import { PADDING_XLARGE, BUTTON_COLOR, CLOSE_BUTTON_COLOR, S_SPACE, L_SPACE, ICON_SIZE_L, BORDER_RADIUS } from '../StyleConstants';
+import { PADDING_XLARGE, BUTTON_COLOR, CLOSE_BUTTON_COLOR, S_SPACE, L_SPACE, ICON_SIZE_L, BORDER_RADIUS, ICON_SIZE_M } from '../StyleConstants';
 import { API_KEY, getPlaceDetails, getPlacePhoto } from '../components/placesinteractions';
 import { useIsFocused } from '@react-navigation/native';
 
@@ -109,10 +109,10 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
                 <VStack spacing={L_SPACE}>
                     {placeImage &&<Image style={styles.image} 
                     source={{uri: 
-                        "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photo_reference=" + placeImage + "&key=" + API_KEY,
+                        `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=400&photo_reference=` + placeImage + "&key=" + API_KEY,
                         cache: 'default'
                     }}/>}
-                    <Text variant='h3'>{itinerary.destination}</Text>
+                    <Text variant='h4' color={themestyles.delftBlue.color}>{itinerary.destination}</Text>
                     <HStack spacing={L_SPACE} style={
                         {justifyContent:'space-between', alignItems:'center'}
                     }>
@@ -121,8 +121,8 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
                     </HStack>
                     <Card containerStyle={{justifyContent:'center', alignItems:'center'}}>
                         <HStack spacing={SPACE_RESPONSIVE}> 
-                            <Icon name={"bed"} size={ICON_SIZE_L} color={themestyles.charcoal.color}/>
-                            <Text style={styles.cardTitle} variant="h4">Hotel </Text>
+                            <Icon name={"bed"} size={ICON_SIZE_M} color={themestyles.charcoal.color}/>
+                            <Text style={styles.cardTitle} variant="h5">Hotel </Text>
                             {itinerary.unit && itinerary.plan ? 
                                 <Button title="View" onPress={viewOffer} color={themestyles.delftBlue.color}/>:
                                 <Button title="Search" color={themestyles.delftBlue.color} onPress={searchForHotel}/> 
@@ -133,24 +133,13 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
 
                     <Card containerStyle={{justifyContent:'center', alignItems:'center'}}>
                         <HStack spacing={SPACE_RESPONSIVE}> 
-                            <Icon name={"airplane"} size={ICON_SIZE_L} color={themestyles.charcoal.color}/>
-                            <Text style={styles.cardTitle} variant="h4">Flight</Text>
+                            <Icon name={"airplane"} size={ICON_SIZE_M} color={themestyles.charcoal.color}/>
+                            <Text style={styles.cardTitle} variant="h5">Flight</Text>
                             {itinerary.flightid == "" ? 
                                 <Button title="Search" color={themestyles.delftBlue.color}/> : 
                                 <Button title="View" color={themestyles.delftBlue.color}/>
                             }
                             
-                        </HStack>
-                    </Card>
-
-                    <Card containerStyle={{justifyContent:'center', alignItems:'center'}}>
-                        <HStack spacing={SPACE_RESPONSIVE}> 
-                            <Icon name={"map-marker"} size={ICON_SIZE_L} color={themestyles.charcoal.color}/>
-                            <Text style={styles.cardTitle} variant="h4"> Attractions</Text>
-                            {itinerary.attractionids.length === 0 ? 
-                                <Button title="Search" color={themestyles.delftBlue.color}/> : 
-                                <Button title="View" color={themestyles.delftBlue.color}/>
-                            }
                         </HStack>
                     </Card>
 
@@ -182,7 +171,7 @@ const styles = StyleSheet.create({
     },
     image:{
         width: "100%", 
-        height:250,
+        height: height * 0.2,
         borderRadius: BORDER_RADIUS,
     }
 })

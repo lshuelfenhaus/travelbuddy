@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { BORDER_RADIUS, MARGIN, PADDING_XLARGE } from '../StyleConstants';
 import { Pressable } from '@react-native-material/core';
 interface ClickableCardProps {
@@ -20,18 +20,20 @@ export default function ClickableCard (props: ClickableCardProps) {
         }
     }
    return(
-        <Pressable 
-            onPress={goToLink} 
-            style={[
-                styles.container,props.styles,
-                {
-                    backgroundColor: props.background || "white",
-                    height: props.height || 200,
-                    width: props.width || "auto",
-                }
-            ]}>
-            {props.children}
-        </Pressable>
+        <View>
+            <Pressable 
+                onPress={goToLink} 
+                style={[
+                    styles.container,props.styles,
+                    {
+                        backgroundColor: props.background || "white",
+                        height: props.height || 200,
+                        width: props.width || "auto",
+                    }
+                ]}>
+                {props.children}
+            </Pressable>
+        </View>
    ) 
     
 }

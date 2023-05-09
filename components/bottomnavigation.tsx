@@ -77,7 +77,7 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
                 </VStack>
             </Modal> */}
             <AppBar
-                color={themestyles.charcoal.color}
+                color={themestyles.delftBlue.color}
                 variant="bottom"  
                 contentContainerStyle={styles.contentContainer}   
                 leadingContainerStyle={styles.leadingContainer}
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     },
     menuContainer:{
         height:"100%",
-        backgroundColor: OURPURPLE,
+        backgroundColor: themestyles.delftBlue.color,
         flexDirection: "column-reverse",
         alignItems: "center",
         borderRadius: 10,
