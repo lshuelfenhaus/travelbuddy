@@ -1,6 +1,6 @@
 import { Button, Divider, Stack, VStack } from '@react-native-material/core';
 import { Card, CheckBox } from '@rneui/themed';
-import React, {useState} from 'react';
+import React from 'react';
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 interface HomeScreenProps {

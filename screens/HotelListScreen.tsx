@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import * as Hotel from "../components/hotels/hotelinteraction";
 import HotelList from '../components/hotels/hotellist';
-import {Room} from './../components/hotels/HotelInterface';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Foundation, AntDesign, FontAwesome5 } from '@expo/vector-icons'; 
+import { AntDesign, FontAwesome5 } from '@expo/vector-icons'; 
 import {StyleSheet, View } from 'react-native';
 import { Button, HStack, IconButton, Text, TextInput, VStack } from '@react-native-material/core';
 import themestyles from '../Colors';
-import { BORDER_RADIUS, ICON_SIZE_S, L_SPACE, PADDING_LARGE, PADDING_REGULAR, PADDING_XLARGE, S_SPACE } from '../StyleConstants';
+import { ICON_SIZE_S, L_SPACE, PADDING_LARGE, PADDING_REGULAR } from '../StyleConstants';
 import { Picker } from '@react-native-picker/picker';
 export interface HotelListSCreenProps{
     navigation: any,

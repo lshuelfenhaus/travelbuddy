@@ -6,7 +6,6 @@ import {signin} from "./../components/authentication";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Alert, Dimensions, Image, StyleSheet } from "react-native";
 import themestyles from "../Colors";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
 
 interface HomeScreenProps {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import * as STYLE_CONSTANTS from '../StyleConstants';
 import themestyles from '../Colors';
 import { Button, HStack, TextInput, VStack } from '@react-native-material/core';

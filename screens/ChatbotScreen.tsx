@@ -1,11 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { SafeAreaViewBase, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import themestyles from '../Colors';
-import { BottomNavigation } from '../components/bottomnavigation';
-import {ChatCompletionRequestMessage, Configuration, CreateChatCompletionRequest, OpenAIApi} from 'openai';
-import { Box, Button, Divider, Spacer, VStack } from '@react-native-material/core';
+import {ChatCompletionRequestMessage, Configuration, OpenAIApi} from 'openai';
 
 interface HomeScreenProps {
   navigation: any
@@ -69,6 +67,8 @@ export function Chatbot(props: HomeScreenProps) {
         setAiMessages(previousMessages => [...previousMessages, {'role': 'assistant', 'content': messages[0].text}])
       }
       catch(error){
+        console.log(configuration.apiKey)
+        console.log(error)
         const botMessage : Message = {
           _id: ++chatCounter,
           text: 'An error was thrown',
@@ -110,7 +110,6 @@ export function Chatbot(props: HomeScreenProps) {
       {/* <Box pr={220} pl={15} pt={5}>
       <Button title="Home" color={themestyles.delftBlue.color} ></Button>
       </Box> */}
-      
         <GiftedChat
       messages={messages}
       showAvatarForEveryMessage={true}

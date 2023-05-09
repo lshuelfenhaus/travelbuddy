@@ -9,8 +9,8 @@ import { Card } from "@rneui/base";
 import themestyles from '../Colors';
 import { BottomNavigation } from '../components/bottomnavigation';
 import { Alert, Dimensions, Image, StyleSheet } from 'react-native';
-import { PADDING_XLARGE, BUTTON_COLOR, CLOSE_BUTTON_COLOR, S_SPACE, L_SPACE, ICON_SIZE_L, BORDER_RADIUS, ICON_SIZE_M } from '../StyleConstants';
-import { API_KEY, getPlaceDetails, getPlacePhoto } from '../components/placesinteractions';
+import { PADDING_XLARGE, BUTTON_COLOR, L_SPACE, BORDER_RADIUS, ICON_SIZE_M } from '../StyleConstants';
+import { API_KEY, getPlaceDetails } from '../components/placesinteractions';
 import { useIsFocused } from '@react-navigation/native';
 
 interface ItineraryDetailScreenProps {

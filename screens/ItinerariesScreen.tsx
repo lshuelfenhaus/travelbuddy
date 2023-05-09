@@ -1,6 +1,4 @@
 import { VStack, Button, HStack, Text } from "@react-native-material/core";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { MaterialIcons,MaterialCommunityIcons } from '@expo/vector-icons'; 
 import themestyles from "../Colors";
 import { BottomNavigation } from "../components/bottomnavigation";
