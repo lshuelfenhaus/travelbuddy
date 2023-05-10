@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import themestyles from "../Colors";
 import { GiftedChat } from "react-native-gifted-chat";
+import { Text } from "@react-native-material/core";
 
 interface HomeScreenProps {
     navigation: any
@@ -14,6 +15,7 @@ const ItinerarySuggestion =(props: HomeScreenProps) => {
         return (
           <SafeAreaProvider>
              <HomeButton navigation={props.navigation}/>
+             <Text>Work in Progress!</Text>
           </SafeAreaProvider>
          
         )
