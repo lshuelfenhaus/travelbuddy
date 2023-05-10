@@ -1,7 +1,8 @@
-import { Button, Divider, Stack, VStack } from '@react-native-material/core';
+import { Button, Divider, HStack, Spacer, Stack, VStack } from '@react-native-material/core';
 import { Card, CheckBox } from '@rneui/themed';
 import React from 'react';
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import themestyles from '../Colors';
 
 interface HomeScreenProps {
     navigation: any
@@ -31,6 +32,9 @@ const CreateItineraryScreen =(props: HomeScreenProps) => {
 
     const goHome = async () => {
         props.navigation.navigate("Home");
+    }
+    const next = async () => {
+        props.navigation.navigate("ItinerarySuggestion");
     }
     return(
         <SafeAreaProvider>
@@ -127,7 +131,14 @@ const CreateItineraryScreen =(props: HomeScreenProps) => {
                 />
             </Card>
             <Divider/>
-            <Button style={{marginHorizontal:125}} title="Cancel" onPress={goHome}/>
+            <HStack>
+            <Spacer/>
+            <Button color={themestyles.powderBlue.color} title="Next" onPress={next}  /> 
+            <Spacer/>
+            <Button color={themestyles.delftBlue.color} title="Cancel" onPress={goHome}  /> 
+            <Spacer/>
+           
+            </HStack>
             </VStack>
 
         

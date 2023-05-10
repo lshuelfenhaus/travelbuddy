@@ -18,6 +18,9 @@ const HomeScreen = (props: HomeScreenProps) => {
   const flightSearch=()=>{
     props.navigation.navigate("FlightSearch");
   }
+  const itinerySearch = () => {
+    props.navigation.navigate("ItinerarySearch")
+  }
   return(
         <VStack
         style={{backgroundColor: themestyles.eggshell.color, flex:1}}
@@ -53,8 +56,16 @@ const HomeScreen = (props: HomeScreenProps) => {
                   <Text color={'white'} style={styles.cardTitle} >Flights</Text>
                 </Card>
             </Pressable>
+            <Pressable onPress={itinerySearch}>
+                <Card
+                containerStyle={styles.cardContainer}          
+                >
+                  <MaterialIcons name="search" size={width * 0.2} color={'white'} />
+                  <Text color={'white'} style={styles.cardTitle} >Things To Do</Text>
+                </Card>
+            </Pressable>
           </VStack>
-         
+          
         </ScrollView>
         <BottomNavigation navigation={props.navigation}></BottomNavigation>
         </VStack>
