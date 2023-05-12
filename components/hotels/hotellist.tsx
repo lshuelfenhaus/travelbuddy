@@ -17,11 +17,6 @@ const HotelList = (props: HoteListProps) => {
     return (
         <ScrollView>        
             <VStack spacing={16} style={styles.container}>
-                <IconButton style={styles.floatButton} onPress={back} icon={props => <AntDesign name="back" size = {40} color={themestyles.delftBlue.color} />} />
-                <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Hotels at </Text>
-                    <Text style={styles.location}>{props.location}</Text>
-                </View>
                 <LoadingComponent/>
                 {/* items.map((item)=>{
                     return (
@@ -49,5 +44,30 @@ const HotelList = (props: HoteListProps) => {
 
     )
 }
+const styles = StyleSheet.create({
+    container:{
+        padding: 16
+    },
+    title:{
+        fontSize: 28,
+    },
+    titleContainer:{
 
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 16,
+    },
+    location:{
+        fontWeight: 'bold',
+        color: themestyles.delftBlue.color,
+        fontSize: 28
+    },
+    floatButton:{
+        position: 'absolute',
+        left: 8,
+        top: 8,
+        zIndex: 5000
+    }
+})
 export default HotelList;

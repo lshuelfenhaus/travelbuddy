@@ -41,13 +41,28 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
         const dirty = await AsyncStorage.getItem("@dirty");
         return dirty;
     }
+
+    const searchFlight = () => {
+        props.navigation.navigate("FlightSearch", {
+            itinerary_id: id,
+        });
+    }
+
+    const viewSavedFlight = () => {
+        props.navigation.navigate("FlightSaved", {
+            flightid: itinerary.flightid,
+            itinerary_id: id
+        });
+    }
+
     const viewOffer = () => {
-        props.navigation.navigate( "HotelOfferDetail",{
+        props.navigation.navigate("HotelOfferDetail",{
             unit: itinerary.unit,
             plan: itinerary.plan,
             itinerary_id: id
         })
     }
+
     const cancelTrip =  () => {
         deleteItinerary(id).then((status)=>{
             if(status){
@@ -136,8 +151,8 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
                             <Icon name={"airplane"} size={ICON_SIZE_M} color={themestyles.charcoal.color}/>
                             <Text style={styles.cardTitle} variant="h5">Flight</Text>
                             {itinerary.flightid == "" ? 
-                                <Button title="Search" color={themestyles.delftBlue.color}/> : 
-                                <Button title="View" color={themestyles.delftBlue.color}/>
+                                 <Button title="Search" onPress={searchFlight} color={themestyles.delftBlue.color}/> : 
+                                 <Button title="View" onPress={viewSavedFlight} color={themestyles.delftBlue.color}/>
                             }
                             
                         </HStack>
@@ -147,7 +162,7 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
                         <Button style={styles.button} color={BUTTON_COLOR} onPress={edit} title="Edit"/>
                     
                         <Button onPress={cancelTrip}
-                        variant='text' color="error" title="Cancel trip"  style={{
+                        variant='text' color="error" title="Cancel Trip"  style={{
                             paddingHorizontal: PADDING_XLARGE,
                         }} />
                     </VStack>                
