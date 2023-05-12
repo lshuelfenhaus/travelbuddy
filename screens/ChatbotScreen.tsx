@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { StyleSheet } from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import themestyles from '../Colors';
@@ -101,26 +101,21 @@ export function Chatbot(props: HomeScreenProps) {
 
   return (
     <SafeAreaProvider>
-       <SafeAreaView
-        style={styles.container}
-        accessibilityLabel='main'
-        testID='main'
-    >
-      <HomeButton navigation={props.navigation}/>
+      <HomeButton navigation={props.navigation} />
         <GiftedChat
-      messages={messages}
-      showAvatarForEveryMessage={true}
-      onSend={messages => onSend(messages)}
-      user={{
-        _id: 1,
-      }}/>
-    </SafeAreaView>
-    </SafeAreaProvider>
+          messages={messages}
+          showAvatarForEveryMessage={true}
+          onSend={messages => onSend(messages)}
+          user={{
+            _id: 1,
+          }}
+        />
+  </SafeAreaProvider>
    
   )
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: themestyles.eggshell.color, paddingBottom:30},
+  container: { flex: 1, backgroundColor: themestyles.eggshell.color, paddingBottom:0},
   content: { backgroundColor: themestyles.powderBlue.color, flex: 1,  }
 })
