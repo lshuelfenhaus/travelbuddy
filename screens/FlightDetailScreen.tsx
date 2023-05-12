@@ -62,7 +62,6 @@ const FlightDetailScreen = (props: FlightDetailScreenProps) => {
         getItineraryIdFromAsyncStore().then((daid)=>{
             setId(daid);
         })
-        console.log(id);
     } ,[])
     let img = imgDefault;
 
@@ -167,11 +166,11 @@ const FlightDetailScreen = (props: FlightDetailScreenProps) => {
             }
         </ScrollView>
         <HStack>
-        <Pressable onPress={saveOffer} style={[styles.modalButton,styles.reserveButton]}>
+        {id && id.length > 0 && <Pressable onPress={saveOffer} style={[styles.modalButton,styles.reserveButton]}>
                     <HStack>                    
                         <Text style={[styles.buttonText,styles.textSubTitle]}>Save Offer</Text>
                     </HStack>
-                    </Pressable>
+                    </Pressable>}
             
         </HStack>
     </>)
