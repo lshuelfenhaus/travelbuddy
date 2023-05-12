@@ -21,7 +21,6 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
     const [origlocation, setOrigLocation] = useState("");
     const [destlocation, setDestLocation] = useState("");
     const [adults, setAdults] = useState("1");
-    const [children, setChildren] = useState([]);
     const [showFlightDateCalendar, setShowFlightDateCalendar] = useState(false);
     const processParamsFromNavigation = (paramName:string, defaultVal: any) =>{
         return params[paramName] ? params[paramName] : defaultVal
@@ -37,15 +36,16 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
         }
 }
     const searchForFlight = () => {
-        setItineraryId(processParamsFromNavigation("itinerary_id",""));
         props.navigation.navigate("FlightList",{
             origlocation: origlocation,
             destlocation: destlocation,
             flightDate: flightDate,
             adults: adults,
-            chidren: children,
         })
     }
+    useEffect(()=>{
+        AsyncStorage.setItem('@itinerary_id',"");
+    },[])
     return (
         <ScrollView contentContainerStyle={{padding: PADDING_XLARGE}}>
         <VStack  spacing={ELEMENT_SPACING}>
