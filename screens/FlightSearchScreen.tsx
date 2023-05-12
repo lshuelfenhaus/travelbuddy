@@ -6,7 +6,7 @@ import themestyles from '../Colors';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Entypo } from '@expo/vector-icons'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ELEMENT_SPACING, TEXT_LARGE, TEXT_XLARGE, PADDING_XLARGE } from '../StyleConstants';
+import { ELEMENT_SPACING, PADDING_XLARGE } from '../StyleConstants';
 LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
 interface FlightSearchScreenProps {
     navigation: any

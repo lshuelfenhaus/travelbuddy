@@ -30,7 +30,7 @@ export const PADDING_REGULAR = width * 0.01;
 export const PADDING_LARGE = width * 0.025;
 export const PADDING_XLARGE = width *  0.05;
 
-//BUTTONGS
+//BUTTONS
 export const BUTTON_COLOR = themestyles.delftBlue.color;
 export const CLOSE_BUTTON_COLOR = 'tomato';
 export const HIGHLIGHT_COLOR = themestyles.charcoal300.color;
@@ -46,4 +46,4 @@ export const BADGE_TEXT_COLOR = "white";
 export const BADGE_MIN_WIDTH = 100;
 
 //BOTTOM NAVIGATION
-export const BOTTOM_NAVIGATION_HEIGHT = 0.07;
+export const BOTTOM_NAVIGATION_HEIGHT = height * 0.0001;
