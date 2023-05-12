@@ -7,20 +7,36 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { Entypo } from '@expo/vector-icons'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ELEMENT_SPACING, TEXT_LARGE, TEXT_XLARGE, PADDING_XLARGE } from '../StyleConstants';
+import { useNavigationState } from '@react-navigation/native';
 LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
 interface FlightSearchScreenProps {
     navigation: any
     route: any,
 }
+const usePreviousRouteName = () =>  {
+    return useNavigationState(state =>
+      state.routes[state.index - 1]?.name
+        ? state.routes[state.index - 1].name
+        : 'None'
+    );
+  }
 const FlightSearchScreen = (props: FlightSearchScreenProps) => {
     async function setItineraryId (id: string) {
         await AsyncStorage.setItem("@itinerary_id", id);
         return id;
     }
+
+
     const processParamsFromNavigation = (paramName:string, defaultVal: any) =>{
         return params[paramName] ? params[paramName] : defaultVal
     }
+
     const params = props.route.params;
+
+    if(usePreviousRouteName() != "Home" && props.navigation.isFocused()){
+        setItineraryId(processParamsFromNavigation("itinerary_id",""));
+        }
+
     const [flightDate, setFlightDate] = useState(new Date());
     const [origlocation, setOrigLocation] = useState("");
     const [destlocation, setDestLocation] = useState("");
@@ -37,7 +53,9 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
         }
 }
     const searchForFlight = () => {
-        setItineraryId(processParamsFromNavigation("itinerary_id",""));
+        
+        
+        
         props.navigation.navigate("FlightList",{
             origlocation: origlocation,
             destlocation: destlocation,
@@ -46,7 +64,7 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
         })
     }
     useEffect(()=>{
-        setItineraryId(processParamsFromNavigation("itinerary_id",""));
+        //setItineraryId(processParamsFromNavigation("itinerary_id",""));
     },[])
     return (
         <ScrollView contentContainerStyle={{padding: PADDING_XLARGE}}>
