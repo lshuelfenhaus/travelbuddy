@@ -86,8 +86,22 @@ export const getFlightDetailDocID = async (flightid:string) => {
         where("flight_id", "==", flightid),
         limit(1));
     const querySnapshot = await getDocs(q);
-    return querySnapshot.docs[0].id;
+    for (const doc of querySnapshot.docs) {
+        let thedoc = doc.data();
+        thedoc.id = doc.id;
+        return thedoc;
+    }
         
+}
+
+export const deleteFlight = async (id:string) => {
+    try{
+        await deleteDoc(doc(db,"flights",id));
+        await AsyncStorage.setItem("@dirty","true");
+        return true;
+    } catch (error){
+        return false;
+    }
 }
 
 export const updateItinerary = async (id:string, fields: any) => {

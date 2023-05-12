@@ -18,10 +18,11 @@ const FlightDetailScreen = (props: FlightDetailScreenProps) => {
     let imgDelta = require('./../assets/flightimages/delta.png');
     let imgJetBlue = require('./../assets/flightimages/jetblue.png');
 
-    
-    
-    const [units, setUnits] = useState<Array<any>>([]);
-    const [flightDetail, setFlightDetail] = useState<any>();
+    const [id, setId] = useState<any>();
+    const getItineraryIdFromAsyncStore = async () => {
+        const id = await AsyncStorage.getItem('@itinerary_id');
+        return id;
+    }
     const params = props.route.params;
     const paramProcess = (key:string, def:any) => {
         return params[key] ? params[key] : def
@@ -37,7 +38,6 @@ const FlightDetailScreen = (props: FlightDetailScreenProps) => {
     
 
     const saveOffer = async () => {
-        const id = await AsyncStorage.getItem('@itinerary_id');
         if(id !== null && id.length > 0){
             const status2 = await addNewFlightDetail(
                 flight_id,
@@ -52,12 +52,18 @@ const FlightDetailScreen = (props: FlightDetailScreenProps) => {
             const status = await updateItinerary(id, {flightid: flight_id});
             if(status || status2){
                 Alert.alert("Offer saved to itinerary");
+                props.navigation.navigate("ItineraryDetail");
             }else{
                 Alert.alert("Error saving offer to itinerary");
             }
-        }
+        } 
     }
-    
+    useEffect(()=>{
+        getItineraryIdFromAsyncStore().then((daid)=>{
+            setId(daid);
+        })
+        console.log(id);
+    } ,[])
     let img = imgDefault;
 
     switch (airline_name) {

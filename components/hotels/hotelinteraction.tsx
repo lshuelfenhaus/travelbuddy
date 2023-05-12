@@ -5,7 +5,6 @@ import {Room} from "./HotelInterface";
 import { trackPromise } from 'react-promise-tracker';
 const API_KEY =  process.env.HOTEL_API_KEY;
 export const getLocationBaseOnType = (location: string,rType: string) => {
-    console.log(API_KEY);
     const options = {
         method: 'GET',
         url: 'https://hotels-com-provider.p.rapidapi.com/v2/regions',

@@ -51,6 +51,7 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
     const viewSavedFlight = () => {
         props.navigation.navigate("FlightSaved", {
             flightid: itinerary.flightid,
+            itinerary_id: id
         });
     }
 
@@ -60,18 +61,6 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
             plan: itinerary.plan,
             itinerary_id: id
         })
-    }
-
-    const searchFlight = () => {
-        props.navigation.navigate("FlightSearch", {
-            itinerary_id: id,
-        });
-    }
-
-    const viewSavedFlight = () => {
-        props.navigation.navigate("FlightSaved", {
-            flightid: itinerary.flightid,
-        });
     }
 
     const cancelTrip =  () => {

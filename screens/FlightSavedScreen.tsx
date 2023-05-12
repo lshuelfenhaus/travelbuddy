@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, ScrollView, StyleSheet, Text, View} from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, View, Dimensions} from 'react-native';
 import { MaterialIcons, AntDesign } from '@expo/vector-icons'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Flex, HStack, VStack,Badge, IconButton, Pressable } from '@react-native-material/core';
+import { Flex, HStack, VStack,Badge, IconButton, Pressable, Button } from '@react-native-material/core';
 import { Image } from 'react-native-elements';
 import * as STYLE_CONSTANTS from '../StyleConstants';
 import themestyles from '../Colors';
-import { getFlightDetailDocID } from '../components/firestoredbinteractions';
-
+import { deleteFlight, getFlightDetailDocID } from '../components/firestoredbinteractions';
+import { updateItinerary } from '../components/firestoredbinteractions';
+import { FontAwesome } from '@expo/vector-icons';
+import { CLOSE_BUTTON_COLOR } from './../StyleConstants';
+import { useIsFocused } from '@react-navigation/native';
 interface FlightSavedScreenProps {
     navigation?:any,
     route: any
 }
-const FlightSavedScreen = (props: FlightSavedScreenProps) => {
+const {width,height} = Dimensions.get('window');
 
+const FlightSavedScreen = (props: FlightSavedScreenProps) => {
     
+    const [curFlight, setCurFlight] = useState<any>("");
     let imgDefault = require('./../assets/flightimages/airplane_icon.png');
     let imgAA = require('./../assets/flightimages/aa.png');
     let imgDelta = require('./../assets/flightimages/delta.png');
@@ -27,18 +32,21 @@ const FlightSavedScreen = (props: FlightSavedScreenProps) => {
         return params[key] ? params[key] : def
     }
     let flight_id = props.route.params["flightid"];
-    console.log(flight_id);
+    
 
-    let docID = getFlightDetailDocID(flight_id);
-    console.log(docID);
+    useEffect(() => {//load flight detail in
+        getFlightDetailDocID(flight_id).then((result) =>{
+            setCurFlight(result);
+        })
+    }, []);
 
-    let airline_name = paramProcess('title', "");
-    let flight_price = paramProcess('price', "");
-    let dest_airport_name = paramProcess('dest_airport', "");
-    let orig_airport_name = paramProcess('orig_airport',"");
-    let duration = paramProcess('duration',"");
-    let stops = paramProcess('stops', "");
-    let carryon = paramProcess('carryon', "");
+    let airline_name = curFlight.airline_name;
+    let flight_price = curFlight.flight_price;
+    let dest_airport_name = curFlight.dest_airport_name;
+    let orig_airport_name = curFlight.orig_airport_name;
+    let duration = curFlight.duration;
+    let stops = curFlight.stops;
+    let carryon = curFlight.carryon;
     
 
     
@@ -61,49 +69,48 @@ const FlightSavedScreen = (props: FlightSavedScreenProps) => {
             props.navigation.goBack();
         }   
     }
-    async function getItemFromAsync (key : string){
-        try{
-            const global_val = await AsyncStorage.getItem(key);
-            if(global_val === null){//no global check in check out and adults which are used when creating itinerary
-                //try pair with type Ex: key = check_in_hotel
-                try{
-                    const val = await AsyncStorage.getItem(key+"_"+"flight");
-                    return val;
-                }catch(error){
-                    return null;
+    const displayRemovalConfirmation = () => {
+        Alert.alert(
+            "Remove Offer",
+            "Are you sure you want to remove this offer from your itinerary?",
+            [
+                {
+                    text: "Cancel",
+                    onPress: () => {},
+                    style: "cancel"
+                },
+                {
+                    text: "Remove",
+                    onPress: () => {
+                        removeFlightFromItinerary();
+                    },
+                    style: "destructive"
                 }
-            } 
-            return global_val;
-        }catch(error){
-            return null;
+            ]
+        )
+    }
+    const removeFlightFromItinerary = async () => {
+        {
+        const status2 = await deleteFlight(curFlight.id);
+        const status = await updateItinerary(props.route.params["itinerary_id"], {flightid: ""})
+            if(status || status2){
+                Alert.alert("Flight removed successfully");
+                props.navigation.navigate("ItineraryDetail");
+            }else{
+                Alert.alert("Flight removal failed");
+            }
         }
-       
-    }//test id 849504
-    useEffect(()=>{//load flight detail in
-        let flight_date_Promise: any = getItemFromAsync('@flight_date');
-        let adults_Promise: any =  getItemFromAsync('@adults');
-        //when we gell all the items from async, start loading them into state
-        Promise.all([flight_date_Promise,adults_Promise]).then((values)=>{
-            
-            
-            let FlightDate = new Date(Date.parse(values[0]));
-            let adults = values[1];
-            /*getFlights().then((details:any)=>{
-                setFlightDetail(details);
-            });*/
-        });
-    },[]);
+    }
     return(<>
         <ScrollView style={styles.screenBody}>
         
             {/* Image container */}
             <ScrollView style={styles.imageContainer} horizontal={true}> 
             </ScrollView>
-            {/* Hotel Information sections */}
+            {/* Flight Information sections */}
             {
             <VStack spacing={ELEMENT_SPACING}>
                 <HStack spacing={ELEMENT_SPACING}>
-                <IconButton  onPress={back} icon={props => <AntDesign name="back" size = {40}  />} />
                 <Text style={{fontSize:STYLE_CONSTANTS.TEXT_XLARGE}}>{airline_name}</Text>
                 </HStack>
                  
@@ -144,7 +151,22 @@ const FlightSavedScreen = (props: FlightSavedScreenProps) => {
             </VStack>
             }
         </ScrollView>
-        
+        <HStack style={styles.buttonContainer}>
+                <Button 
+                pressableContainerStyle={[styles.button,styles.backButton]} 
+                titleStyle={styles.buttonText} 
+                onPress={back}   
+                title="Back"
+                leading={<AntDesign name="back" size={width * 0.05} color="white" />}
+                />
+                <Button 
+                    pressableContainerStyle={[styles.button,styles.removeButton]} 
+                    titleStyle={styles.buttonText}  
+                    title="Remove offer"
+                    leading={<FontAwesome name="trash" size={width * 0.05} color="white" />}
+                    onPress={displayRemovalConfirmation}
+                />
+            </HStack>
     </>)
 }
 const BORDER_RADIUS = 8;
@@ -170,6 +192,20 @@ const styles = StyleSheet.create({
         right: MARGIN,
         bottom: MARGIN,
         zIndex: 5000
+    },
+    button:{
+        padding: STYLE_CONSTANTS.PADDING_REGULAR,
+    },
+    backButton:{
+        minWidth: "30%",
+        backgroundColor: themestyles.delftBlue.color,
+    },
+    removeButton:{
+        minWidth: "70%",
+        backgroundColor: CLOSE_BUTTON_COLOR,
+    },
+    buttonContainer:{
+        flexDirection: 'row',
     },
     textMainTitle:{
         fontSize: STYLE_CONSTANTS.TEXT_LARGE

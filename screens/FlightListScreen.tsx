@@ -8,7 +8,6 @@ import themestyles from '../Colors';
 import {StyleSheet, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Foundation, AntDesign, FontAwesome5 } from '@expo/vector-icons'; 
-import { Picker } from '@react-native-picker/picker';
 
 export interface FlightListScreenProps{
     navigation: any,
@@ -82,9 +81,9 @@ const FlightListScreen = (props: FlightListScreenProps) => {
     async function setAdults (n: number) {
         await AsyncStorage.setItem("@adults_flight", processParamsFromNavigation("adults",1))
     }
-    async function setItineraryId (id: string) {
+    /*async function setItineraryId (id: string) {
         await AsyncStorage.setItem("@itinerary_id", id);
-    }
+    }*/
     const back = () =>{
         if(props.navigation.canGoBack()){
             props.navigation.goBack();
@@ -137,7 +136,7 @@ const FlightListScreen = (props: FlightListScreenProps) => {
     }
 
     useEffect(()=>{
-        setItineraryId(processParamsFromNavigation("itinerary_id",""));
+        //setItineraryId(processParamsFromNavigation("itinerary_id",""));
         setDates(processParamsFromNavigation("flightDate",new Date()));
         setAdults(processParamsFromNavigation("adults",1));
         trackPromise(Flight.getFlights(

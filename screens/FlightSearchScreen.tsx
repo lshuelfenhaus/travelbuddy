@@ -15,6 +15,10 @@ interface FlightSearchScreenProps {
 const FlightSearchScreen = (props: FlightSearchScreenProps) => {
     async function setItineraryId (id: string) {
         await AsyncStorage.setItem("@itinerary_id", id);
+        return id;
+    }
+    const processParamsFromNavigation = (paramName:string, defaultVal: any) =>{
+        return params[paramName] ? params[paramName] : defaultVal
     }
     const params = props.route.params;
     const [flightDate, setFlightDate] = useState(new Date());
@@ -22,9 +26,6 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
     const [destlocation, setDestLocation] = useState("");
     const [adults, setAdults] = useState("1");
     const [showFlightDateCalendar, setShowFlightDateCalendar] = useState(false);
-    const processParamsFromNavigation = (paramName:string, defaultVal: any) =>{
-        return params[paramName] ? params[paramName] : defaultVal
-    }
 
     const onFlightDateChange = (date:any) => {
         setShowFlightDateCalendar(state => !state);
@@ -45,7 +46,7 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
         })
     }
     useEffect(()=>{
-        AsyncStorage.setItem('@itinerary_id',"");
+        setItineraryId(processParamsFromNavigation("itinerary_id",""));
     },[])
     return (
         <ScrollView contentContainerStyle={{padding: PADDING_XLARGE}}>
