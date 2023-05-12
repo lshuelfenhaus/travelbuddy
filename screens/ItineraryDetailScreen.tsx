@@ -55,12 +55,25 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
     }
 
     const viewOffer = () => {
-        props.navigation.navigate( "HotelOfferDetail",{
+        props.navigation.navigate("HotelOfferDetail",{
             unit: itinerary.unit,
             plan: itinerary.plan,
             itinerary_id: id
         })
     }
+
+    const searchFlight = () => {
+        props.navigation.navigate("FlightSearch", {
+            itinerary_id: id,
+        });
+    }
+
+    const viewSavedFlight = () => {
+        props.navigation.navigate("FlightSaved", {
+            flightid: itinerary.flightid,
+        });
+    }
+
     const cancelTrip =  () => {
         deleteItinerary(id).then((status)=>{
             if(status){
@@ -160,7 +173,7 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
                         <Button style={styles.button} color={BUTTON_COLOR} onPress={edit} title="Edit"/>
                     
                         <Button onPress={cancelTrip}
-                        variant='text' color="error" title="Cancel trip"  style={{
+                        variant='text' color="error" title="Cancel Trip"  style={{
                             paddingHorizontal: PADDING_XLARGE,
                         }} />
                     </VStack>                
