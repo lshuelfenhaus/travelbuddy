@@ -8,18 +8,15 @@ import { BOTTOM_NAVIGATION_HEIGHT } from "../StyleConstants";
 
 interface BottomNavigationProps {
     navigation: any;
+    renderComponent?: boolean;
 }
 export const BottomNavigation = (props: BottomNavigationProps) => {
-    const [modalVisible, setModalVisible] = useState(false);
-    const logOut = async () => {
-        try{
-          await logout();
-          props.navigation.navigate("Login")
-        }catch(e){
-          console.log(e);
-        }
+    const { renderComponent = true } = props;   // set default value of renderComponent to true 
+
+    if (!renderComponent){
+        return null
     }
-    
+
     const chatbot = async () => {
         try {
             props.navigation.navigate("Chatbot")
@@ -40,6 +37,7 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
 
     const account = async () => {
         try {
+
             props.navigation.navigate("Account")
         }
         catch(e){
@@ -67,14 +65,6 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
 
     return (
         <>
-{/*             <Modal animationIn="slideInRight" animationOut="slideOutRight" isVisible={modalVisible}>
-                <VStack style={styles.menuContainer}>
-                    <IconButton style={styles.escape} icon={<AntDesign onPress={event => setModalVisible(false)} name="arrowright" size={50} color="white" /> } />
-                    <Button titleStyle={{color: "white"}}style={styles.menuButtonLogout} variant="outlined" title="Logout" onPress={logOut}/>
-                    <Button style={styles.menuButton} variant="outlined" title="Setting" onPress={null}/>
-                    <Button style={styles.menuButton} variant="outlined" title="Another menu option" onPress={null}/>
-                </VStack>
-            </Modal> */}
             <AppBar
                 color={themestyles.delftBlue.color}
                 variant="bottom"  
@@ -108,7 +98,8 @@ export const BottomNavigation = (props: BottomNavigationProps) => {
             </AppBar>
         </>
     )
-}
+};
+
 var {height} = Dimensions.get("window");
 var {width} = Dimensions.get("window");
 const SPACING = width*0.05;

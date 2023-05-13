@@ -3,4 +3,8 @@
 ### San Jose State University
 #### Authored By: Liz Huelfenhaus, Anh Quang Chu, Jowyl Ong, and Bernadette Davoud
 
-This project acts a a "travel buddy" by allowing the user to 
+This project acts a a "travel buddy" by allowing the user to search and book flights and hotels. We have also added a chatbot assistant for the user to interact with Chat-GPT
+
+This project is for educational purposes and is not intended to serve as an actual platform for travel.
+
+To install this project and run locally, you need to have npm installed. 

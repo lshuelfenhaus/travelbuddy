@@ -1,10 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { StyleSheet } from 'react-native';
-import { GiftedChat } from 'react-native-gifted-chat'
+import { Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { GiftedChat, InputToolbar } from 'react-native-gifted-chat'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import themestyles from '../Colors';
 import {ChatCompletionRequestMessage, Configuration, OpenAIApi} from 'openai';
 import { HomeButton } from '../components/HomeButton';
+import { BottomNavigation } from '../components/bottomnavigation';
 
 interface HomeScreenProps {
   navigation: any
@@ -22,6 +23,7 @@ interface Message {
 }
 let chatCounter = 1
 export function Chatbot(props: HomeScreenProps) {
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
   });
@@ -29,6 +31,21 @@ export function Chatbot(props: HomeScreenProps) {
   const [sent, setSent] = useState<boolean>(false);
   const [messages, setMessages] = useState<Array<Message>>([]);
   const [aiMessages, setAiMessages] = useState<Array<ChatCompletionRequestMessage>>([]);
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () =>
+      setKeyboardVisible(true)
+    );
+    const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () =>
+      setKeyboardVisible(false)
+    );
+
+    return () => {
+      keyboardDidShowListener.remove();
+      keyboardDidHideListener.remove();
+    };
+  }, []);
+
   useEffect(() => {
     setMessages([
       {
@@ -43,6 +60,7 @@ export function Chatbot(props: HomeScreenProps) {
       },
     ])
   }, []);
+
   const sendToAPI = async () => {
     setSent(false);
     try{
@@ -100,18 +118,17 @@ export function Chatbot(props: HomeScreenProps) {
   }, [])
 
   return (
-    <SafeAreaProvider>
-      <HomeButton navigation={props.navigation} />
-        <GiftedChat
-          messages={messages}
-          showAvatarForEveryMessage={true}
-          onSend={messages => onSend(messages)}
-          user={{
-            _id: 1,
-          }}
+    <SafeAreaProvider>    
+    <GiftedChat
+        messages={messages}
+        showAvatarForEveryMessage={true}
+        onSend={messages => onSend(messages)}
+        user={{
+          _id: 1,
+         }}
         />
-  </SafeAreaProvider>
-   
+    <BottomNavigation navigation={props.navigation} renderComponent={!isKeyboardVisible}/>
+  </SafeAreaProvider>  
   )
 }
 
