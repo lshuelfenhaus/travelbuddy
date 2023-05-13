@@ -4,7 +4,6 @@ import { GiftedChat, InputToolbar } from 'react-native-gifted-chat'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import themestyles from '../Colors';
 import {ChatCompletionRequestMessage, Configuration, OpenAIApi} from 'openai';
-import { HomeButton } from '../components/HomeButton';
 import { BottomNavigation } from '../components/bottomnavigation';
 
 interface HomeScreenProps {

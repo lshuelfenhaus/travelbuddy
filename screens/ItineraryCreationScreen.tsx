@@ -1,6 +1,6 @@
 import { Button, TextInput, VStack } from "@react-native-material/core";
 import React, { useEffect, useState } from "react";
-import { Text, StyleSheet, Dimensions, Alert } from "react-native";
+import { Text, StyleSheet, Dimensions, Alert, Keyboard } from "react-native";
 import { BUTTON_COLOR, ELEMENT_SPACING, FORM_BUTTON_ICON_COLOR, MARGIN, PADDING_XLARGE, TEXT_LARGE, TEXT_REGULAR, TEXT_XLARGE } from "../StyleConstants";
 import { Entypo } from '@expo/vector-icons'; 
 import CalendarPicker from 'react-native-calendar-picker';
@@ -10,12 +10,25 @@ import { BottomNavigation } from "../components/bottomnavigation";
 import { addInitialItinerary, getItinerary, updateItinerary} from "../components/firestoredbinteractions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getLocationId } from "../components/placesinteractions";
+import * as yup from 'yup';
+import Toast from 'react-native-toast-message';
+
 interface ItineraryCreationScreenProps {
     navigation: any;
     route: any;
 }
 
 const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
+    const validationSchema = yup.object().shape({
+      name: yup.string().required('Please enter a name for your itinerary'),
+      startDate: yup.date().required('A start date is required'),
+      endDate: yup.date().required('An end date is Required'),
+      destination: yup.string().required('Please choose a location'),
+      adults: yup.string().required('Please select the number of adults')
+    });
+
+    const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
     const [name, setName] = useState('');
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date((new Date()).getTime() + 86400000));
@@ -25,6 +38,21 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
     const [showEndDateCalendar, setShowEndDateCalendar] = useState(false);
     const [id, setId] = useState("");
     const mode = props.route.params ? props.route.params["mode"] : "create";
+
+    useEffect(() => {
+      const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () =>
+        setKeyboardVisible(true)
+      );
+      const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () =>
+        setKeyboardVisible(false)
+      );
+  
+      return () => {
+        keyboardDidShowListener.remove();
+        keyboardDidHideListener.remove();
+      };
+    }, []);
+    
     const onStartDateChange = (date:any) => {
         setShowStartDateCalendar(false);
         setStartDate(new Date(date));
@@ -34,10 +62,18 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
         setEndDate(new Date(date));
     }
     const handleSubmit = async () => {
+      try{
+        await validationSchema.validate({
+          name,
+          startDate,
+          endDate,
+          destination,
+          adults
+        }, { abortEarly: false})
+
       const placeid = await getLocationId(destination);
       if(placeid !== null){
         await AsyncStorage.setItem("@dirty", "true");
-
         if(mode !== "edit"){
         //check if the destination is valid
           const newId = await addInitialItinerary(
@@ -49,6 +85,12 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
             placeid,
           )
           if (newId !== null){
+            Toast.show({
+              type: 'success',
+              text1: '\u2705 Success!',
+              text2:  'New itinerary created'
+              
+          })
             props.navigation.navigate("ItineraryDetail",{id: newId});
           }
         } else {
@@ -64,19 +106,30 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
             props.navigation.navigate("ItineraryDetail",{id: id});
           }
         } 
-        
-        /* await AsyncStorage.setItem('@username','anhquang2605');//FOR PRODCUTION ONLY, NEED TO REMOVE
-        */
        
-      }else{
-        Alert.alert("Invalid Destination, Please try again with differnt destination");
-      }
+        } else {
+          Alert.alert("Invalid Destination, Please try again with differnt destination");
+       }
+        } catch (error: any){
+          error.errors.map((errorMessage: string, index: number) => {
+            setTimeout(() => {
+               Toast.show({
+                type: 'error',
+                text1: '\ud83d\uded1 Wait!',
+                text2:  errorMessage
+                
+            }) 
+            }, index*1000)
+        });
+       }
     };
+
     useEffect(()=>{
       if(id === "" && mode === "edit"){
         setId(props.route.params ? props.route.params["id"] : "");
       }
     },[]);
+
     useEffect(()=>{
       if(mode === "edit" && id !== ""){
         getItinerary(id).then((itinerary) => {
@@ -149,7 +202,7 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
                   <Button title="Save and Explore" onPress={handleSubmit} style={styles.button} titleStyle={{fontSize: TEXT_REGULAR}} color={BUTTON_COLOR}/>
             </VStack>
           </ScrollView>
-          <BottomNavigation navigation={props.navigation}/>
+          <BottomNavigation navigation={props.navigation} renderComponent={!isKeyboardVisible}/>
         </>
     )
 }

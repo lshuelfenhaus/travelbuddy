@@ -8,7 +8,7 @@ import { Timestamp } from 'firebase/firestore';
 import { Card } from "@rneui/base";
 import themestyles from '../Colors';
 import { BottomNavigation } from '../components/bottomnavigation';
-import { Alert, Dimensions, Image, StyleSheet } from 'react-native';
+import { Alert, Dimensions, Image, Keyboard, StyleSheet } from 'react-native';
 import { PADDING_XLARGE, BUTTON_COLOR, L_SPACE, BORDER_RADIUS, ICON_SIZE_M } from '../StyleConstants';
 import { API_KEY, getPlaceDetails } from '../components/placesinteractions';
 import { useIsFocused } from '@react-navigation/native';
@@ -20,6 +20,22 @@ interface ItineraryDetailScreenProps {
 const {width, height} = Dimensions.get('window');
 const SPACE_RESPONSIVE = width * 0.075;
 export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps) {
+    const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+    useEffect(() => {
+        const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () =>
+          setKeyboardVisible(true)
+        );
+        const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () =>
+          setKeyboardVisible(false)
+        );
+    
+        return () => {
+          keyboardDidShowListener.remove();
+          keyboardDidHideListener.remove();
+        };
+      }, []);
+      
     const [itinerary, setItinerary] = useState<any>(null);
     const [id, setId] = useState("");
     const [placeImage, setPlaceImage] = useState("");
@@ -169,7 +185,7 @@ export default function ItineraryDetailScreen(props: ItineraryDetailScreenProps)
                 </VStack>
             }
         </ScrollView>
-        <BottomNavigation navigation={props.navigation}></BottomNavigation>
+        <BottomNavigation navigation={props.navigation} renderComponent={!isKeyboardVisible} ></BottomNavigation>
         </>
     )
 }
