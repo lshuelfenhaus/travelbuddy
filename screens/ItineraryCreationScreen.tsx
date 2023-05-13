@@ -1,6 +1,6 @@
 import { Button, TextInput, VStack } from "@react-native-material/core";
 import React, { useEffect, useState } from "react";
-import { Text, StyleSheet, Dimensions, Alert } from "react-native";
+import { Text, StyleSheet, Dimensions, Alert, Keyboard } from "react-native";
 import { BUTTON_COLOR, ELEMENT_SPACING, FORM_BUTTON_ICON_COLOR, MARGIN, PADDING_XLARGE, TEXT_LARGE, TEXT_REGULAR, TEXT_XLARGE } from "../StyleConstants";
 import { Entypo } from '@expo/vector-icons'; 
 import CalendarPicker from 'react-native-calendar-picker';
@@ -19,13 +19,15 @@ interface ItineraryCreationScreenProps {
 }
 
 const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
-  const validationSchema = yup.object().shape({
-    name: yup.string().required('Please enter a name for your itinerary'),
-    startDate: yup.date().required('A start date is required'),
-    endDate: yup.date().required('An end date is Required'),
-    destination: yup.string().required('Please choose a location'),
-    adults: yup.string().required('Please select the number of adults')
-  });
+    const validationSchema = yup.object().shape({
+      name: yup.string().required('Please enter a name for your itinerary'),
+      startDate: yup.date().required('A start date is required'),
+      endDate: yup.date().required('An end date is Required'),
+      destination: yup.string().required('Please choose a location'),
+      adults: yup.string().required('Please select the number of adults')
+    });
+
+    const [isKeyboardVisible, setKeyboardVisible] = useState(false);
 
     const [name, setName] = useState('');
     const [startDate, setStartDate] = useState(new Date());
@@ -36,6 +38,21 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
     const [showEndDateCalendar, setShowEndDateCalendar] = useState(false);
     const [id, setId] = useState("");
     const mode = props.route.params ? props.route.params["mode"] : "create";
+
+    useEffect(() => {
+      const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () =>
+        setKeyboardVisible(true)
+      );
+      const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () =>
+        setKeyboardVisible(false)
+      );
+  
+      return () => {
+        keyboardDidShowListener.remove();
+        keyboardDidHideListener.remove();
+      };
+    }, []);
+    
     const onStartDateChange = (date:any) => {
         setShowStartDateCalendar(false);
         setStartDate(new Date(date));
@@ -53,11 +70,6 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
           destination,
           adults
         }, { abortEarly: false})
-        
-
-      // } catch (error: any){
-
-      // }
 
       const placeid = await getLocationId(destination);
       if(placeid !== null){
@@ -190,7 +202,7 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
                   <Button title="Save and Explore" onPress={handleSubmit} style={styles.button} titleStyle={{fontSize: TEXT_REGULAR}} color={BUTTON_COLOR}/>
             </VStack>
           </ScrollView>
-          <BottomNavigation navigation={props.navigation}/>
+          <BottomNavigation navigation={props.navigation} renderComponent={!isKeyboardVisible}/>
         </>
     )
 }

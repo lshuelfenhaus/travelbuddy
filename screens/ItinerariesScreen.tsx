@@ -7,13 +7,29 @@ import { getEarliestItineraryFromUser, getItinerariesFromUser } from "../compone
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ClickableCard from "../components/clickablecard";
 import { BUTTON_COLOR, ICON_COLOR, L_SPACE, MARGIN, PADDING_LARGE, PADDING_REGULAR, PADDING_XLARGE, SPACE, S_SPACE } from "../StyleConstants";
-import { Dimensions, ScrollView, StyleSheet } from "react-native";
+import { Dimensions, Keyboard, ScrollView, StyleSheet } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 interface HomeScreenProps {
     navigation: any,
 }
 
 const ItinerariesScreen = (props: HomeScreenProps) => {
+    const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+    useEffect(() => {
+        const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () =>
+          setKeyboardVisible(true)
+        );
+        const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () =>
+          setKeyboardVisible(false)
+        );
+    
+        return () => {
+          keyboardDidShowListener.remove();
+          keyboardDidHideListener.remove();
+        };
+      }, []);
+      
     const [earliestItinerary, setEarliestItinerary] = useState<any>(null);
     const [itineraries, setItineraries] = useState<any>([]);
     const isFocused = useIsFocused();
@@ -118,7 +134,7 @@ const ItinerariesScreen = (props: HomeScreenProps) => {
             
             </VStack>
         </ScrollView>
-        <BottomNavigation navigation={props.navigation} />
+        <BottomNavigation navigation={props.navigation} renderComponent={!isKeyboardVisible}/>
         </>
     );
 }

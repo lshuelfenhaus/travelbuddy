@@ -5,7 +5,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { BottomNavigation } from "../components/bottomnavigation";
 import themestyles from "../Colors";
 import { CLOSE_BUTTON_COLOR } from "../StyleConstants";
-import { Alert } from "react-native";
+import { Alert, Keyboard } from "react-native";
 import { resetPassword } from "../components/authentication";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -20,6 +20,21 @@ interface HomeScreenProps {
 }
 
 const AccountScreen = (props: HomeScreenProps) => {
+    const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+    useEffect(() => {
+        const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () =>
+          setKeyboardVisible(true)
+        );
+        const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () =>
+          setKeyboardVisible(false)
+        );
+    
+        return () => {
+          keyboardDidShowListener.remove();
+          keyboardDidHideListener.remove();
+        };
+      }, []);
 
     const [username, setUsername] = useState("");
 
@@ -111,7 +126,7 @@ const AccountScreen = (props: HomeScreenProps) => {
                 </Stack>
                 <Button style={{marginHorizontal:120}}variant="contained" title="Logout" color={CLOSE_BUTTON_COLOR} titleStyle = {{color:"white"}} onPress={logout} />
             </Stack>
-            <BottomNavigation navigation={props.navigation} />
+            <BottomNavigation navigation={props.navigation} renderComponent={!isKeyboardVisible} />
         </SafeAreaProvider>
     );
 }
