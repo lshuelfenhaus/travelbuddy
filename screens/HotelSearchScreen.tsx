@@ -7,17 +7,29 @@ import { ScrollView } from 'react-native-gesture-handler';
 import themestyles from '../Colors';
 import { ELEMENT_SPACING, PADDING_XLARGE, TEXT_LARGE, TEXT_XLARGE } from '../StyleConstants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as yup from 'yup';
+import Toast from 'react-native-toast-message';
+
+
 LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
 interface HotelSearchScreenProps {
     navigation: any
 }
 const HotelSearchScreen = (props: HotelSearchScreenProps) => {
+    const validationSchema = yup.object().shape({
+        startDate: yup.date().required('A start date is required'),
+        endDate: yup.date().required('An End Date is Required'),
+        location: yup.string().required('Please choose a location'),
+        adults: yup.string().required('Please select the number of adults')
+    });
+
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date((new Date()).getTime() + 86400000));
     const [location, setLocation] = useState("");
     const [adults, setAdults] = useState("1");
     const [showStartDateCalendar, setShowStartDateCalendar] = useState(false);
     const [showEndDateCalendar, setShowEndDateCalendar] = useState(false);
+
     const onStartDateChange = (date:any) => {
         setShowStartDateCalendar(false);
         setStartDate(new Date(date));
@@ -29,13 +41,33 @@ const HotelSearchScreen = (props: HotelSearchScreenProps) => {
     const back = () =>{
             props.navigation.navigate("Home");
     }
-    const searchForHotel = () => {
-        props.navigation.navigate("HotelList",{
+    const searchForHotel = async () => {
+        try{
+            await validationSchema.validate({
+                startDate,
+                endDate,
+                location,
+                adults,
+            }, {abortEarly: false})
+            props.navigation.navigate("HotelList",{
             location: location,
             startDate: startDate,
             endDate: endDate,
             adults: adults,
         })
+        }
+        catch (error: any) {
+            error.errors.map((errorMessage: string, index: number) => {
+                setTimeout(() => {
+                   Toast.show({
+                    type: 'error',
+                    text1: '\ud83d\uded1 Wait!',
+                    text2:  errorMessage
+                    
+                }) 
+                }, index*1000)
+            }); 
+        }
     }
     useEffect(()=>{
         AsyncStorage.setItem('@itinerary_id',"");
