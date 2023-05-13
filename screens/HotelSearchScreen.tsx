@@ -18,7 +18,7 @@ interface HotelSearchScreenProps {
 const HotelSearchScreen = (props: HotelSearchScreenProps) => {
     const validationSchema = yup.object().shape({
         startDate: yup.date().required('A start date is required'),
-        endDate: yup.date().required('An End Date is Required'),
+        endDate: yup.date().required('An end date is Required'),
         location: yup.string().required('Please choose a location'),
         adults: yup.string().required('Please select the number of adults')
     });

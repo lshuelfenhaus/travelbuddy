@@ -10,12 +10,23 @@ import { BottomNavigation } from "../components/bottomnavigation";
 import { addInitialItinerary, getItinerary, updateItinerary} from "../components/firestoredbinteractions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getLocationId } from "../components/placesinteractions";
+import * as yup from 'yup';
+import Toast from 'react-native-toast-message';
+
 interface ItineraryCreationScreenProps {
     navigation: any;
     route: any;
 }
 
 const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
+  const validationSchema = yup.object().shape({
+    name: yup.string().required('Please enter a name for your itinerary'),
+    startDate: yup.date().required('A start date is required'),
+    endDate: yup.date().required('An end date is Required'),
+    destination: yup.string().required('Please choose a location'),
+    adults: yup.string().required('Please select the number of adults')
+  });
+
     const [name, setName] = useState('');
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date((new Date()).getTime() + 86400000));
@@ -34,10 +45,23 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
         setEndDate(new Date(date));
     }
     const handleSubmit = async () => {
+      try{
+        await validationSchema.validate({
+          name,
+          startDate,
+          endDate,
+          destination,
+          adults
+        }, { abortEarly: false})
+        
+
+      // } catch (error: any){
+
+      // }
+
       const placeid = await getLocationId(destination);
       if(placeid !== null){
         await AsyncStorage.setItem("@dirty", "true");
-
         if(mode !== "edit"){
         //check if the destination is valid
           const newId = await addInitialItinerary(
@@ -49,6 +73,12 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
             placeid,
           )
           if (newId !== null){
+            Toast.show({
+              type: 'success',
+              text1: '\u2705 Success!',
+              text2:  'New itinerary created'
+              
+          })
             props.navigation.navigate("ItineraryDetail",{id: newId});
           }
         } else {
@@ -64,19 +94,30 @@ const ItineraryCreationScreen = (props: ItineraryCreationScreenProps) => {
             props.navigation.navigate("ItineraryDetail",{id: id});
           }
         } 
-        
-        /* await AsyncStorage.setItem('@username','anhquang2605');//FOR PRODCUTION ONLY, NEED TO REMOVE
-        */
        
-      }else{
-        Alert.alert("Invalid Destination, Please try again with differnt destination");
-      }
+        } else {
+          Alert.alert("Invalid Destination, Please try again with differnt destination");
+       }
+        } catch (error: any){
+          error.errors.map((errorMessage: string, index: number) => {
+            setTimeout(() => {
+               Toast.show({
+                type: 'error',
+                text1: '\ud83d\uded1 Wait!',
+                text2:  errorMessage
+                
+            }) 
+            }, index*1000)
+        });
+       }
     };
+
     useEffect(()=>{
       if(id === "" && mode === "edit"){
         setId(props.route.params ? props.route.params["id"] : "");
       }
     },[]);
+
     useEffect(()=>{
       if(mode === "edit" && id !== ""){
         getItinerary(id).then((itinerary) => {
