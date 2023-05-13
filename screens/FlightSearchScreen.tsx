@@ -54,9 +54,6 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
         }
 }
     const searchForFlight = () => {
-        
-        
-        
         props.navigation.navigate("FlightList",{
             origlocation: origlocation,
             destlocation: destlocation,

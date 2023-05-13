@@ -8,7 +8,6 @@ import { Button, HStack, IconButton, Text, TextInput, VStack } from '@react-nati
 import themestyles from '../Colors';
 import { ICON_SIZE_S, L_SPACE, PADDING_LARGE, PADDING_REGULAR } from '../StyleConstants';
 import { Picker } from '@react-native-picker/picker';
-import { BackButton } from '../components/HomeButton';
 export interface HotelListSCreenProps{
     navigation: any,
     route: any,

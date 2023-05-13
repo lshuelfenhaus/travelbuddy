@@ -1,3 +1,12 @@
+# TravelBuddy
+## Senior Project for B.S. Software Engineering 
+### San Jose State University
+#### Authored By: Liz Huelfenhaus, Anh Quang Chu, Jowyl Ong, and Bernadette Davoud
+
+This project acts a a "travel buddy" by allowing the user to search and book flights and hotels. We have also added a chatbot assistant for the user to interact with Chat-GPT
+
+This project is for educational purposes and is not intended to serve as an actual platform for travel.
+
 ## Travel Buddy Installation guide
 
 #### 1. Clone the project from our github repository (Skip this step if you have the file downloaded)
