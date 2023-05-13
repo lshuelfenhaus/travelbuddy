@@ -26,7 +26,7 @@ Android Google Play: https://play.google.com/store/apps/details?id=host.exp.expo
 #### 5. Deploy the app to Expo local server in the same terminal
 run command: npx expo start
 
-#### 6. Launch the app on a mobile device
+#### 6. Launch the app on a mobile device via Expo Go phone app
 Scan the QR code or enter the server address displayed on the terminal after running npx expo start to launch the app
 
 #### 7. Sign up a user then sign in to start using the app
