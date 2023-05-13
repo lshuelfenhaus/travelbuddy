@@ -8,6 +8,8 @@ import { Entypo } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ELEMENT_SPACING, TEXT_LARGE, TEXT_XLARGE, PADDING_XLARGE } from '../StyleConstants';
 import { useNavigationState } from '@react-navigation/native';
+import * as yup from 'yup';
+import Toast from 'react-native-toast-message';
 
 LogBox.ignoreLogs([ 'Non-serializable values were found in the navigation state', ]);
 interface FlightSearchScreenProps {
@@ -22,6 +24,14 @@ const usePreviousRouteName = () =>  {
     );
   }
 const FlightSearchScreen = (props: FlightSearchScreenProps) => {
+
+    const validationSchema = yup.object().shape({
+        flightDate: yup.date().required('A flight date is required'),
+        origlocation: yup.string().required('Please enter your origin location'),
+        destlocation: yup.string().required('Please enter your destination location'),
+        adults: yup.string().required('Please select the number of adults')
+    });
+
     async function setItineraryId (id: string) {
         await AsyncStorage.setItem("@itinerary_id", id);
         return id;
@@ -53,14 +63,36 @@ const FlightSearchScreen = (props: FlightSearchScreenProps) => {
             props.navigation.goBack();
         }
 }
-    const searchForFlight = () => {
-        props.navigation.navigate("FlightList",{
-            origlocation: origlocation,
-            destlocation: destlocation,
-            flightDate: flightDate,
-            adults: adults,
+    const searchForFlight = async () => {
+        try{
+            await validationSchema.validate({
+                flightDate,
+                origlocation,
+                destlocation,
+                adults 
+            }, {abortEarly: false})
+
+            props.navigation.navigate("FlightList",{
+                origlocation: origlocation,
+                destlocation: destlocation,
+                flightDate: flightDate,
+                adults: adults,
+           
         })
-    }
+        }
+        catch (error: any) {
+            error.errors.map((errorMessage: string, index: number) => {
+                setTimeout(() => {
+                   Toast.show({
+                    type: 'error',
+                    text1: '\ud83d\uded1 Wait!',
+                    text2:  errorMessage
+                    
+                }) 
+                }, index*1000)
+            }); 
+        }
+        }
     useEffect(()=>{
         //setItineraryId(processParamsFromNavigation("itinerary_id",""));
     },[])
