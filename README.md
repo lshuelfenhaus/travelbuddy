@@ -20,6 +20,7 @@ run command: npm install
 
 #### 4. Install Expo Go app on android or iOS devices
 iOS app store: https://apps.apple.com/us/app/expo-go/id982107779
+
 Android Google Play: https://play.google.com/store/apps/details?id=host.exp.exponent
 
 #### 5. Deploy the app to Expo local server in the same terminal
