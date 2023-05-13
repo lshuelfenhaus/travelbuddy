@@ -15,7 +15,9 @@ https://github.com/lshuelfenhaus/travelbuddy
 #### 2. Install Node.js (Skip if you have this on your machine)
 https://nodejs.org/en/download
 
-#### 3. From the root of project folder (usually travel buddy) in the terminal or command line, install all packages and dependecies
+#### 3. Move .env file provided separatedly into the project root folder
+
+#### 4. From the root of project folder (usually travel buddy) in the terminal or command line, install all packages and dependecies
 run command: npm install
 
 #### 4. Install Expo Go app on android or iOS devices
