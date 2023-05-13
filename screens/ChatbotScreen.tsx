@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import themestyles from '../Colors';
