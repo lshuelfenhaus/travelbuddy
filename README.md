@@ -9,6 +9,17 @@ This project is for educational purposes and is not intended to serve as an actu
 
 ## Travel Buddy Installation guide
 
+### Run the app via Expo app store with Expo Go
+#### 1. Install Expo Go app from app store or google play store
+iOS app store: https://apps.apple.com/us/app/expo-go/id982107779
+
+Android Google Play: https://play.google.com/store/apps/details?id=host.exp.exponent
+
+#### 2. Go to the project page hosted on Expo app store and follow the simple instructions to start the app
+https://expo.dev/@anhquang2605/travel-buddy?serviceType=classic&distribution=expo-go
+
+### Run the app locally and launch with Expo Go
+
 #### 1. Clone the project from our github repository (Skip this step if you have the file downloaded)
 https://github.com/lshuelfenhaus/travelbuddy
 
